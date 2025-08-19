@@ -1,0 +1,106 @@
+{
+  "name": "top-performers",
+  "version": "1.0.0",
+  "tools": {
+    "rank": {
+      "description": "Rank top performing assets across different time horizons",
+      "request": {
+        "type": "object",
+        "properties": {
+          "horizon": {
+            "type": "string",
+            "enum": ["1d", "1w", "1m", "3m", "6m", "1y"],
+            "description": "Performance measurement horizon"
+          },
+          "asset_classes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["equities", "fx", "crypto", "futures", "fixed_income", "commodities"]
+            },
+            "default": ["equities", "fx", "crypto"]
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["US", "EU", "UK", "JPY", "China", "Korea", "India", "UAE", "Saudi"]
+            },
+            "default": ["US", "EU", "UK"]
+          },
+          "min_volume": {
+            "type": "number",
+            "description": "Minimum average daily volume filter"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 500,
+            "default": 50
+          }
+        },
+        "required": ["horizon"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "rankings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rank": {"type": "integer"},
+                "symbol": {"type": "string"},
+                "name": {"type": "string"},
+                "asset_class": {"type": "string"},
+                "region": {"type": "string"},
+                "performance": {
+                  "type": "object",
+                  "properties": {
+                    "return_pct": {"type": "number"},
+                    "volatility": {"type": "number"},
+                    "sharpe_ratio": {"type": "number"},
+                    "max_drawdown": {"type": "number"},
+                    "sortino_ratio": {"type": "number"}
+                  }
+                },
+                "momentum_indicators": {
+                  "type": "object",
+                  "properties": {
+                    "rsi": {"type": "number"},
+                    "macd_signal": {"type": "string", "enum": ["bullish", "bearish", "neutral"]},
+                    "trend_strength": {"type": "number"}
+                  }
+                },
+                "volume_profile": {
+                  "type": "object",
+                  "properties": {
+                    "avg_daily_volume": {"type": "number"},
+                    "volume_trend": {"type": "string", "enum": ["increasing", "decreasing", "stable"]},
+                    "relative_volume": {"type": "number"}
+                  }
+                },
+                "score": {"type": "number", "minimum": 0, "maximum": 1}
+              },
+              "required": ["rank", "symbol", "asset_class", "performance", "score"]
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "horizon": {"type": "string"},
+              "total_analyzed": {"type": "integer"},
+              "benchmark_performance": {"type": "number"},
+              "market_regime": {"type": "string"}
+            }
+          }
+        }
+      },
+      "errors": {
+        "INVALID_HORIZON": "Invalid time horizon specified",
+        "INSUFFICIENT_DATA": "Not enough data for the specified horizon",
+        "REGION_NOT_SUPPORTED": "One or more regions are not supported"
+      }
+    }
+  }
+}

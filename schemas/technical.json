@@ -1,0 +1,138 @@
+{
+  "name": "technical",
+  "version": "1.0.0",
+  "tools": {
+    "find_opportunities": {
+      "description": "Find technical trading opportunities using multi-timeframe analysis",
+      "request": {
+        "type": "object",
+        "properties": {
+          "payload": {
+            "type": "object",
+            "properties": {
+              "symbols": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "List of symbols to analyze"
+              },
+              "timeframes": {
+                "type": "array",
+                "items": {"type": "string", "enum": ["1m", "5m", "15m", "1h", "4h", "1d"]},
+                "default": ["15m", "1h", "4h"]
+              },
+              "strategies": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["imbalance", "fvg", "liquidity_sweep", "idfp", "trend", "breakout", "mean_reversion"]
+                },
+                "default": ["imbalance", "fvg", "liquidity_sweep", "trend"]
+              },
+              "min_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 0.6,
+                "description": "Minimum opportunity score threshold"
+              },
+              "max_risk": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "default": 0.02,
+                "description": "Maximum risk per trade as fraction of portfolio"
+              },
+              "lookback_periods": {
+                "type": "integer",
+                "minimum": 50,
+                "maximum": 1000,
+                "default": 200,
+                "description": "Number of historical periods for analysis"
+              }
+            },
+            "required": ["symbols"]
+          }
+        },
+        "required": ["payload"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "opportunities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "symbol": {"type": "string"},
+                "strategy": {"type": "string"},
+                "direction": {"type": "string", "enum": ["long", "short"]},
+                "entry_price": {"type": "number"},
+                "stop_loss": {"type": "number"},
+                "take_profit": {"type": "array", "items": {"type": "number"}},
+                "risk_reward_ratio": {"type": "number"},
+                "confidence_score": {"type": "number", "minimum": 0, "maximum": 1},
+                "timeframe_alignment": {
+                  "type": "object",
+                  "properties": {
+                    "primary": {"type": "string"},
+                    "confirmation": {"type": "array", "items": {"type": "string"}},
+                    "alignment_score": {"type": "number"}
+                  }
+                },
+                "technical_features": {
+                  "type": "object",
+                  "properties": {
+                    "imbalance_zones": {"type": "array", "items": {"type": "object"}},
+                    "fair_value_gaps": {"type": "array", "items": {"type": "object"}},
+                    "liquidity_levels": {"type": "array", "items": {"type": "object"}},
+                    "order_blocks": {"type": "array", "items": {"type": "object"}},
+                    "trend_strength": {"type": "number"},
+                    "volatility_regime": {"type": "string", "enum": ["low", "normal", "high"]}
+                  }
+                },
+                "risk_metrics": {
+                  "type": "object",
+                  "properties": {
+                    "max_drawdown": {"type": "number"},
+                    "var_95": {"type": "number"},
+                    "sharpe_ratio": {"type": "number"},
+                    "win_rate": {"type": "number"}
+                  }
+                },
+                "timestamp": {"type": "string", "format": "date-time"},
+                "expiry": {"type": "string", "format": "date-time"}
+              },
+              "required": ["symbol", "strategy", "direction", "entry_price", "stop_loss", "confidence_score"]
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "analysis_time_ms": {"type": "integer"},
+              "symbols_analyzed": {"type": "integer"},
+              "opportunities_found": {"type": "integer"},
+              "market_regime": {"type": "string", "enum": ["trending", "ranging", "volatile", "calm"]},
+              "overall_bias": {"type": "string", "enum": ["bullish", "bearish", "neutral"]}
+            }
+          }
+        }
+      },
+      "errors": {
+        "INSUFFICIENT_DATA": "Not enough historical data for analysis",
+        "INVALID_SYMBOL": "One or more symbols are invalid",
+        "ANALYSIS_FAILED": "Technical analysis failed for unknown reason"
+      },
+      "examples": {
+        "request": {
+          "payload": {
+            "symbols": ["EURUSD", "GBPUSD"],
+            "timeframes": ["15m", "1h", "4h"],
+            "strategies": ["imbalance", "fvg", "trend"],
+            "min_score": 0.7,
+            "max_risk": 0.015
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "name": "flow",
+  "version": "1.0.0",
+  "tools": {
+    "regime_map": {
+      "description": "Map market flow regimes using breadth, volatility, and HMM analysis",
+      "request": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": ["1h", "4h", "1d", "1w", "1m"],
+            "description": "Analysis window for regime detection"
+          },
+          "markets": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["equities", "fx", "crypto", "bonds", "commodities"]
+            },
+            "default": ["equities", "fx"]
+          },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["breadth", "vol_term_structure", "cross_asset_correlation", "momentum_divergence"]
+            },
+            "default": ["breadth", "vol_term_structure"]
+          }
+        },
+        "required": ["window"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "current_regime": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string", "enum": ["risk_on", "risk_off", "rotation", "consolidation"]},
+              "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+              "duration_days": {"type": "integer"},
+              "strength": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          },
+          "regime_probabilities": {
+            "type": "object",
+            "properties": {
+              "risk_on": {"type": "number"},
+              "risk_off": {"type": "number"},
+              "rotation": {"type": "number"},
+              "consolidation": {"type": "number"}
+            }
+          },
+          "flow_indicators": {
+            "type": "object",
+            "properties": {
+              "market_breadth": {
+                "type": "object",
+                "properties": {
+                  "advance_decline_ratio": {"type": "number"},
+                  "new_highs_lows_ratio": {"type": "number"},
+                  "cumulative_advance_decline": {"type": "number"}
+                }
+              },
+              "volatility_structure": {
+                "type": "object",
+                "properties": {
+                  "vix_term_structure_slope": {"type": "number"},
+                  "realized_vs_implied_vol": {"type": "number"},
+                  "vol_of_vol": {"type": "number"}
+                }
+              },
+              "cross_asset_flows": {
+                "type": "object",
+                "properties": {
+                  "equity_bond_correlation": {"type": "number"},
+                  "dollar_strength_index": {"type": "number"},
+                  "commodity_momentum": {"type": "number"}
+                }
+              }
+            }
+          },
+          "regime_transitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "from_regime": {"type": "string"},
+                "to_regime": {"type": "string"},
+                "probability": {"type": "number"},
+                "expected_duration": {"type": "integer"}
+              }
+            }
+          }
+        }
+      },
+      "errors": {
+        "INSUFFICIENT_DATA": "Not enough historical data for regime analysis",
+        "MODEL_ERROR": "HMM regime detection model failed"
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "name": "moneyflows",
+  "version": "1.0.0",
+  "tools": {
+    "rotate": {
+      "description": "Analyze money flow rotations across asset classes and factors",
+      "request": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": ["1d", "1w", "1m", "3m"],
+            "description": "Analysis window for flow rotation"
+          },
+          "flow_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["etf_flows", "factor_tilts", "sector_rotation", "geographic_flows", "fx_flows", "crypto_flows"]
+            },
+            "default": ["etf_flows", "sector_rotation"]
+          },
+          "regions": {
+            "type": "array",
+            "items": {"type": "string"},
+            "default": ["US", "EU", "Asia"]
+          }
+        },
+        "required": ["window"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "flow_summary": {
+            "type": "object",
+            "properties": {
+              "net_flows_usd": {"type": "number"},
+              "flow_velocity": {"type": "number"},
+              "dominant_trend": {"type": "string", "enum": ["risk_on", "risk_off", "rotation", "neutral"]}
+            }
+          },
+          "etf_flows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "etf_symbol": {"type": "string"},
+                "category": {"type": "string"},
+                "net_flow_usd": {"type": "number"},
+                "creation_redemption_ratio": {"type": "number"},
+                "flow_trend": {"type": "string", "enum": ["inflow", "outflow", "neutral"]},
+                "days_of_flow": {"type": "integer"}
+              }
+            }
+          },
+          "factor_rotation": {
+            "type": "object",
+            "properties": {
+              "value_vs_growth": {"type": "number", "description": "Positive = value outflow"},
+              "large_vs_small_cap": {"type": "number"},
+              "momentum_vs_contrarian": {"type": "number"},
+              "quality_vs_junk": {"type": "number"},
+              "low_vol_vs_high_beta": {"type": "number"}
+            }
+          },
+          "sector_flows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sector": {"type": "string"},
+                "net_flow_usd": {"type": "number"},
+                "relative_strength": {"type": "number"},
+                "flow_acceleration": {"type": "number"}
+              }
+            }
+          },
+          "geographic_flows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "region": {"type": "string"},
+                "equity_flows": {"type": "number"},
+                "bond_flows": {"type": "number"},
+                "fx_flows": {"type": "number"},
+                "flow_sentiment": {"type": "string", "enum": ["bullish", "bearish", "neutral"]}
+              }
+            }
+          },
+          "crypto_flows": {
+            "type": "object",
+            "properties": {
+              "bitcoin_flows": {"type": "number"},
+              "ethereum_flows": {"type": "number"},
+              "altcoin_flows": {"type": "number"},
+              "defi_flows": {"type": "number"},
+              "institutional_vs_retail": {"type": "number"}
+            }
+          }
+        }
+      },
+      "errors": {
+        "FLOW_DATA_UNAVAILABLE": "Flow data unavailable for specified window",
+        "CALCULATION_ERROR": "Error calculating flow metrics"
+      }
+    }
+  }
+}

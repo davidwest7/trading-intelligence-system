@@ -1,0 +1,129 @@
+{
+  "name": "causal",
+  "version": "1.0.0",
+  "tools": {
+    "estimate": {
+      "description": "Estimate causal impact using synthetic controls and DoWhy framework",
+      "request": {
+        "type": "object",
+        "properties": {
+          "treatment": {
+            "type": "object",
+            "properties": {
+              "event": {"type": "string", "description": "Treatment event (e.g., 'Fed rate cut', 'Brexit vote')"},
+              "date": {"type": "string", "format": "date"},
+              "affected_assets": {"type": "array", "items": {"type": "string"}},
+              "treatment_type": {"type": "string", "enum": ["binary", "continuous", "categorical"]}
+            },
+            "required": ["event", "date", "affected_assets"]
+          },
+          "window": {
+            "type": "object",
+            "properties": {
+              "pre_period_days": {"type": "integer", "minimum": 30, "maximum": 365},
+              "post_period_days": {"type": "integer", "minimum": 7, "maximum": 180}
+            },
+            "required": ["pre_period_days", "post_period_days"]
+          },
+          "control_selection": {
+            "type": "object",
+            "properties": {
+              "method": {"type": "string", "enum": ["synthetic_control", "matching", "regression_discontinuity"]},
+              "control_assets": {"type": "array", "items": {"type": "string"}},
+              "covariates": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "confidence_level": {
+            "type": "number",
+            "minimum": 0.8,
+            "maximum": 0.99,
+            "default": 0.95
+          }
+        },
+        "required": ["treatment", "window"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "causal_estimate": {
+            "type": "object",
+            "properties": {
+              "effect_size": {"type": "number", "description": "Average treatment effect"},
+              "confidence_interval": {
+                "type": "object",
+                "properties": {
+                  "lower": {"type": "number"},
+                  "upper": {"type": "number"}
+                }
+              },
+              "p_value": {"type": "number"},
+              "statistical_significance": {"type": "boolean"}
+            }
+          },
+          "synthetic_control": {
+            "type": "object",
+            "properties": {
+              "control_weights": {
+                "type": "object",
+                "additionalProperties": {"type": "number"}
+              },
+              "pre_treatment_fit": {
+                "type": "object",
+                "properties": {
+                  "mape": {"type": "number"},
+                  "rmse": {"type": "number"},
+                  "correlation": {"type": "number"}
+                }
+              },
+              "synthetic_vs_actual": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "date": {"type": "string", "format": "date"},
+                    "actual": {"type": "number"},
+                    "synthetic": {"type": "number"},
+                    "gap": {"type": "number"}
+                  }
+                }
+              }
+            }
+          },
+          "robustness_checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "test_name": {"type": "string"},
+                "result": {"type": "string", "enum": ["pass", "fail", "inconclusive"]},
+                "p_value": {"type": "number"},
+                "description": {"type": "string"}
+              }
+            }
+          },
+          "placebo_tests": {
+            "type": "object",
+            "properties": {
+              "in_time_placebo": {"type": "array", "items": {"type": "number"}},
+              "in_space_placebo": {"type": "array", "items": {"type": "number"}},
+              "placebo_distribution_percentile": {"type": "number"}
+            }
+          },
+          "identification_strategy": {
+            "type": "object",
+            "properties": {
+              "assumptions": {"type": "array", "items": {"type": "string"}},
+              "threats_to_validity": {"type": "array", "items": {"type": "string"}},
+              "confounders_controlled": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        }
+      },
+      "errors": {
+        "INSUFFICIENT_DATA": "Not enough data for causal analysis",
+        "NO_SUITABLE_CONTROLS": "No suitable control units found",
+        "MODEL_CONVERGENCE_FAILED": "Causal model failed to converge"
+      }
+    }
+  }
+}

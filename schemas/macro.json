@@ -1,0 +1,119 @@
+{
+  "name": "macro",
+  "version": "1.0.0",
+  "tools": {
+    "timeline": {
+      "description": "Generate macro-economic timeline and scenario mapping",
+      "request": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": ["1w", "1m", "3m", "6m", "1y"],
+            "description": "Forward-looking timeline window"
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["US", "EU", "UK", "JPY", "China", "Korea", "India", "UAE", "Saudi"]
+            },
+            "default": ["US", "EU", "UK"]
+          },
+          "event_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["monetary_policy", "fiscal_policy", "elections", "earnings", "economic_data", "geopolitical"]
+            },
+            "default": ["monetary_policy", "economic_data"]
+          },
+          "impact_threshold": {
+            "type": "string",
+            "enum": ["low", "medium", "high"],
+            "default": "medium",
+            "description": "Minimum expected market impact"
+          }
+        },
+        "required": ["window"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {"type": "string", "format": "date"},
+                "event": {"type": "string"},
+                "type": {"type": "string"},
+                "region": {"type": "string"},
+                "importance": {"type": "string", "enum": ["low", "medium", "high"]},
+                "expected_impact": {
+                  "type": "object",
+                  "properties": {
+                    "fx": {"type": "number", "description": "Expected FX volatility increase"},
+                    "equities": {"type": "number"},
+                    "bonds": {"type": "number"},
+                    "commodities": {"type": "number"}
+                  }
+                },
+                "scenarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "outcome": {"type": "string"},
+                      "probability": {"type": "number"},
+                      "market_reaction": {"type": "string"},
+                      "affected_assets": {"type": "array", "items": {"type": "string"}}
+                    }
+                  }
+                },
+                "historical_precedent": {
+                  "type": "object",
+                  "properties": {
+                    "similar_events": {"type": "array", "items": {"type": "string"}},
+                    "avg_market_move": {"type": "number"},
+                    "volatility_duration": {"type": "string"}
+                  }
+                }
+              },
+              "required": ["date", "event", "type", "importance"]
+            }
+          },
+          "macro_themes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "theme": {"type": "string"},
+                "strength": {"type": "number"},
+                "duration": {"type": "string"},
+                "affected_sectors": {"type": "array", "items": {"type": "string"}},
+                "key_drivers": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          },
+          "risk_scenarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scenario": {"type": "string"},
+                "probability": {"type": "number"},
+                "tail_risk": {"type": "boolean"},
+                "hedging_strategies": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          }
+        }
+      },
+      "errors": {
+        "CALENDAR_UNAVAILABLE": "Economic calendar data unavailable",
+        "REGION_NOT_SUPPORTED": "Specified region not supported"
+      }
+    }
+  }
+}

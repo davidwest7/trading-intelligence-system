@@ -1,0 +1,129 @@
+{
+  "name": "undervalued",
+  "version": "1.0.0",
+  "tools": {
+    "scan": {
+      "description": "Scan for undervalued assets using fundamental and technical analysis",
+      "request": {
+        "type": "object",
+        "properties": {
+          "horizon": {
+            "type": "string",
+            "enum": ["1w", "1m", "3m", "6m", "1y", "2y"],
+            "description": "Investment horizon for undervaluation analysis"
+          },
+          "asset_classes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["equities", "fx", "crypto", "commodities", "fixed_income"]
+            },
+            "default": ["equities"]
+          },
+          "valuation_methods": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["dcf", "multiples", "technical_oversold", "mean_reversion", "relative_value"]
+            },
+            "default": ["multiples", "technical_oversold"]
+          },
+          "filters": {
+            "type": "object",
+            "properties": {
+              "market_cap_min": {"type": "number"},
+              "pe_ratio_max": {"type": "number"},
+              "debt_ratio_max": {"type": "number"},
+              "rsi_max": {"type": "number", "maximum": 100},
+              "volume_min": {"type": "number"}
+            }
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "default": 25
+          }
+        },
+        "required": ["horizon"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "undervalued_assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "symbol": {"type": "string"},
+                "name": {"type": "string"},
+                "asset_class": {"type": "string"},
+                "current_price": {"type": "number"},
+                "fair_value_estimate": {"type": "number"},
+                "discount_pct": {"type": "number"},
+                "valuation_scores": {
+                  "type": "object",
+                  "properties": {
+                    "dcf_score": {"type": "number"},
+                    "multiples_score": {"type": "number"},
+                    "technical_score": {"type": "number"},
+                    "relative_value_score": {"type": "number"},
+                    "composite_score": {"type": "number"}
+                  }
+                },
+                "fundamental_metrics": {
+                  "type": "object",
+                  "properties": {
+                    "pe_ratio": {"type": "number"},
+                    "pb_ratio": {"type": "number"},
+                    "ev_ebitda": {"type": "number"},
+                    "roe": {"type": "number"},
+                    "debt_to_equity": {"type": "number"},
+                    "free_cash_flow_yield": {"type": "number"}
+                  }
+                },
+                "technical_indicators": {
+                  "type": "object",
+                  "properties": {
+                    "rsi": {"type": "number"},
+                    "price_to_sma200": {"type": "number"},
+                    "bollinger_position": {"type": "number"},
+                    "williams_r": {"type": "number"}
+                  }
+                },
+                "risk_factors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "factor": {"type": "string"},
+                      "severity": {"type": "string", "enum": ["low", "medium", "high"]},
+                      "description": {"type": "string"}
+                    }
+                  }
+                },
+                "catalysts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "event": {"type": "string"},
+                      "probability": {"type": "number"},
+                      "timeframe": {"type": "string"},
+                      "impact": {"type": "string", "enum": ["low", "medium", "high"]}
+                    }
+                  }
+                }
+              },
+              "required": ["symbol", "current_price", "fair_value_estimate", "discount_pct"]
+            }
+          }
+        }
+      },
+      "errors": {
+        "VALUATION_FAILED": "Valuation analysis failed for specified assets",
+        "INSUFFICIENT_FUNDAMENTAL_DATA": "Not enough fundamental data available"
+      }
+    }
+  }
+}

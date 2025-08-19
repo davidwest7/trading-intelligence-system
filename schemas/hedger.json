@@ -1,0 +1,146 @@
+{
+  "name": "hedger",
+  "version": "1.0.0",
+  "tools": {
+    "plan": {
+      "description": "Generate hedging plan for portfolio with volatility targeting",
+      "request": {
+        "type": "object",
+        "properties": {
+          "portfolio": {
+            "type": "object",
+            "properties": {
+              "positions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "symbol": {"type": "string"},
+                    "quantity": {"type": "number"},
+                    "market_value": {"type": "number"},
+                    "weight": {"type": "number"},
+                    "beta": {"type": "number"},
+                    "correlation_to_benchmark": {"type": "number"}
+                  },
+                  "required": ["symbol", "quantity", "market_value"]
+                }
+              },
+              "total_value": {"type": "number"},
+              "benchmark": {"type": "string", "default": "SPY"},
+              "base_currency": {"type": "string", "default": "USD"}
+            },
+            "required": ["positions", "total_value"]
+          },
+          "target_vol": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 0.5,
+            "description": "Target portfolio volatility (annualized)"
+          },
+          "hedging_instruments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["index_futures", "fx_forwards", "volatility_products", "sector_etfs", "bonds"]
+            },
+            "default": ["index_futures", "bonds"]
+          },
+          "constraints": {
+            "type": "object",
+            "properties": {
+              "max_hedge_ratio": {"type": "number", "maximum": 1.0, "default": 0.5},
+              "min_liquidity": {"type": "number", "default": 1000000},
+              "max_tracking_error": {"type": "number", "default": 0.02},
+              "rebalance_frequency": {"type": "string", "enum": ["daily", "weekly", "monthly"], "default": "weekly"}
+            }
+          }
+        },
+        "required": ["portfolio", "target_vol"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "hedging_plan": {
+            "type": "object",
+            "properties": {
+              "current_vol": {"type": "number"},
+              "target_vol": {"type": "number"},
+              "hedge_ratio": {"type": "number"},
+              "expected_vol_reduction": {"type": "number"}
+            }
+          },
+          "hedge_instruments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "instrument": {"type": "string"},
+                "action": {"type": "string", "enum": ["buy", "sell", "short"]},
+                "quantity": {"type": "number"},
+                "notional_value": {"type": "number"},
+                "hedge_effectiveness": {"type": "number"},
+                "cost_basis_points": {"type": "number"},
+                "liquidity_score": {"type": "number"}
+              },
+              "required": ["instrument", "action", "quantity", "notional_value"]
+            }
+          },
+          "risk_metrics": {
+            "type": "object",
+            "properties": {
+              "pre_hedge": {
+                "type": "object",
+                "properties": {
+                  "portfolio_vol": {"type": "number"},
+                  "portfolio_beta": {"type": "number"},
+                  "var_95": {"type": "number"},
+                  "max_drawdown": {"type": "number"}
+                }
+              },
+              "post_hedge": {
+                "type": "object",
+                "properties": {
+                  "portfolio_vol": {"type": "number"},
+                  "portfolio_beta": {"type": "number"},
+                  "var_95": {"type": "number"},
+                  "max_drawdown": {"type": "number"}
+                }
+              },
+              "tracking_error": {"type": "number"},
+              "hedge_costs_annual": {"type": "number"}
+            }
+          },
+          "rebalancing_triggers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "condition": {"type": "string"},
+                "threshold": {"type": "number"},
+                "action": {"type": "string"}
+              }
+            }
+          },
+          "scenario_analysis": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scenario": {"type": "string"},
+                "market_move": {"type": "number"},
+                "unhedged_pnl": {"type": "number"},
+                "hedged_pnl": {"type": "number"},
+                "hedge_effectiveness": {"type": "number"}
+              }
+            }
+          }
+        }
+      },
+      "errors": {
+        "INSUFFICIENT_LIQUIDITY": "Hedging instruments lack sufficient liquidity",
+        "OPTIMIZATION_FAILED": "Portfolio optimization failed to converge",
+        "INVALID_CONSTRAINTS": "Hedging constraints are contradictory"
+      }
+    }
+  }
+}

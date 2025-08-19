@@ -1,0 +1,156 @@
+# Trading Intelligence System - Unified Scoring Weights Configuration
+# 
+# This file defines the weights used in the unified scoring formula:
+# UnifiedScore = w1*Likelihood + w2*ExpectedReturn – w3*Risk + w4*Liquidity + w5*Conviction + w6*Recency + w7*RegimeFit
+#
+# Weights are customized per asset class to reflect different risk/return characteristics
+
+weights_by_asset_class:
+  # Equity markets - balanced approach with emphasis on likelihood and returns
+  equities:
+    likelihood: 0.25      # Agent's confidence in signal
+    expected_return: 0.20 # Expected return potential
+    risk: 0.20           # Risk penalty (subtracted)
+    liquidity: 0.10      # Market liquidity score
+    conviction: 0.10     # Agent conviction level
+    recency: 0.10        # Signal freshness
+    regime_fit: 0.05     # Current regime alignment
+
+  # Foreign Exchange - higher weight on risk and liquidity due to leverage
+  fx:
+    likelihood: 0.30     # Higher emphasis on signal confidence
+    expected_return: 0.15 # Lower return expectations
+    risk: 0.25           # Higher risk weighting due to leverage
+    liquidity: 0.15      # Very important for FX
+    conviction: 0.10     # Standard conviction weight
+    recency: 0.05        # Less emphasis on timing
+    regime_fit: 0.0      # Regime less important for FX
+
+  # Cryptocurrency - higher risk and return focus
+  crypto:
+    likelihood: 0.20     # Lower confidence due to volatility
+    expected_return: 0.25 # Higher return potential
+    risk: 0.30           # Highest risk weighting
+    liquidity: 0.05      # Often illiquid
+    conviction: 0.15     # Higher conviction needed
+    recency: 0.05        # Fast-moving market
+    regime_fit: 0.0      # Traditional regimes don't apply
+
+  # Fixed Income - conservative approach emphasizing stability
+  bonds:
+    likelihood: 0.35     # Highest confidence requirement
+    expected_return: 0.15 # Lower return expectations
+    risk: 0.15           # Lower risk tolerance
+    liquidity: 0.15      # Important for bond trading
+    conviction: 0.10     # Standard conviction
+    recency: 0.05        # Less time-sensitive
+    regime_fit: 0.05     # Some regime dependency
+
+  # Commodities - balanced with regime awareness
+  commodities:
+    likelihood: 0.25     # Standard confidence
+    expected_return: 0.20 # Standard return focus
+    risk: 0.25           # Higher risk due to volatility
+    liquidity: 0.10      # Variable liquidity
+    conviction: 0.10     # Standard conviction
+    recency: 0.05        # Less time-sensitive
+    regime_fit: 0.05     # Some macro influence
+
+  # Futures - similar to underlying but with leverage considerations
+  futures:
+    likelihood: 0.25     # Standard confidence
+    expected_return: 0.18 # Slightly lower due to costs
+    risk: 0.27           # Higher due to leverage
+    liquidity: 0.12      # Generally good liquidity
+    conviction: 0.12     # Higher conviction needed
+    recency: 0.06        # Time decay considerations
+    regime_fit: 0.0      # Varies by underlying
+
+# Calibration settings for score-to-probability conversion
+calibration:
+  # Method for converting scores to probabilities
+  # Options: 'isotonic', 'platt', 'none'
+  default_method: 'isotonic'
+  
+  # Historical performance required for calibration
+  min_samples_for_calibration: 100
+  
+  # Confidence interval width
+  confidence_level: 0.95
+
+# Risk management settings
+risk_management:
+  # Maximum score adjustment for diversification
+  max_diversification_penalty: 0.2
+  
+  # Correlation threshold for diversification penalty
+  correlation_threshold: 0.7
+  
+  # Maximum weight any single opportunity can have
+  max_single_opportunity_weight: 0.1
+
+# Regime-specific adjustments
+regime_adjustments:
+  # Score multipliers based on market regime
+  bull_market:
+    likelihood_boost: 0.05
+    return_boost: 0.1
+    risk_penalty_reduction: 0.05
+  
+  bear_market:
+    likelihood_penalty: 0.05
+    return_penalty: 0.1
+    risk_penalty_increase: 0.1
+  
+  high_volatility:
+    risk_penalty_increase: 0.15
+    liquidity_boost: 0.05
+  
+  low_volatility:
+    risk_penalty_reduction: 0.1
+    return_penalty: 0.05
+
+# Time-based adjustments
+time_adjustments:
+  # Recency decay function parameters
+  recency_decay:
+    half_life_minutes: 60    # How quickly signals decay
+    min_recency_score: 0.1   # Minimum recency score
+  
+  # Time-of-day adjustments (UTC hours)
+  intraday_adjustments:
+    market_open_boost: 0.05   # 9:30-10:30 EDT
+    market_close_boost: 0.03  # 15:30-16:00 EDT
+    overnight_penalty: 0.1    # Outside market hours
+
+# Agent-specific multipliers
+agent_multipliers:
+  # Adjust scores based on historical agent performance
+  technical:
+    base_multiplier: 1.0
+    volatility_adjustment: 0.9   # Reduce in high vol
+  
+  sentiment:
+    base_multiplier: 0.95       # Slightly discount sentiment
+    news_event_boost: 1.1       # Boost during news
+  
+  flow:
+    base_multiplier: 1.05       # Slight boost for flow signals
+    regime_change_boost: 1.2    # Strong boost during regime changes
+  
+  macro:
+    base_multiplier: 1.0
+    event_proximity_boost: 1.15 # Boost near scheduled events
+
+# Debugging and monitoring
+monitoring:
+  # Log score components for debugging
+  log_score_components: true
+  
+  # Track calibration performance
+  track_calibration_accuracy: true
+  
+  # Alert thresholds
+  score_distribution_alerts:
+    min_score_variance: 0.01    # Alert if scores too similar
+    max_score_skew: 2.0         # Alert if distribution too skewed

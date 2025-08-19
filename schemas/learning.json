@@ -1,0 +1,145 @@
+{
+  "name": "learning",
+  "version": "1.0.0",
+  "tools": {
+    "bandit": {
+      "description": "Contextual bandit for adaptive strategy weight allocation",
+      "request": {
+        "type": "object",
+        "properties": {
+          "weights_context": {
+            "type": "object",
+            "properties": {
+              "current_weights": {
+                "type": "object",
+                "additionalProperties": {"type": "number"},
+                "description": "Current strategy weights (must sum to 1.0)"
+              },
+              "context_features": {
+                "type": "object",
+                "properties": {
+                  "market_regime": {"type": "string", "enum": ["trending", "ranging", "volatile", "calm"]},
+                  "volatility_level": {"type": "number"},
+                  "correlation_regime": {"type": "string", "enum": ["low", "medium", "high"]},
+                  "momentum_strength": {"type": "number"},
+                  "mean_reversion_signal": {"type": "number"},
+                  "liquidity_conditions": {"type": "string", "enum": ["tight", "normal", "loose"]},
+                  "time_of_day": {"type": "string"},
+                  "day_of_week": {"type": "string"},
+                  "month": {"type": "string"}
+                }
+              },
+              "performance_history": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "timestamp": {"type": "string", "format": "date-time"},
+                    "strategy": {"type": "string"},
+                    "return": {"type": "number"},
+                    "context": {"type": "object"},
+                    "weight_used": {"type": "number"}
+                  }
+                },
+                "description": "Recent performance history for learning"
+              },
+              "constraints": {
+                "type": "object",
+                "properties": {
+                  "min_weight": {"type": "number", "default": 0.0},
+                  "max_weight": {"type": "number", "default": 0.5},
+                  "max_weight_change": {"type": "number", "default": 0.1},
+                  "strategies_to_include": {"type": "array", "items": {"type": "string"}}
+                }
+              }
+            },
+            "required": ["current_weights", "context_features"]
+          },
+          "learning_config": {
+            "type": "object",
+            "properties": {
+              "algorithm": {
+                "type": "string",
+                "enum": ["ucb", "thompson_sampling", "epsilon_greedy", "contextual_linear"],
+                "default": "contextual_linear"
+              },
+              "exploration_rate": {"type": "number", "minimum": 0, "maximum": 1, "default": 0.1},
+              "learning_rate": {"type": "number", "minimum": 0.001, "maximum": 0.5, "default": 0.01},
+              "confidence_level": {"type": "number", "minimum": 0.8, "maximum": 0.99, "default": 0.95},
+              "lookback_periods": {"type": "integer", "minimum": 10, "maximum": 1000, "default": 100}
+            }
+          }
+        },
+        "required": ["weights_context"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "recommended_weights": {
+            "type": "object",
+            "additionalProperties": {"type": "number"},
+            "description": "New recommended strategy weights"
+          },
+          "weight_changes": {
+            "type": "object",
+            "additionalProperties": {"type": "number"},
+            "description": "Changes from current weights"
+          },
+          "confidence_intervals": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "lower": {"type": "number"},
+                "upper": {"type": "number"}
+              }
+            }
+          },
+          "strategy_performance": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "strategy": {"type": "string"},
+                "expected_return": {"type": "number"},
+                "uncertainty": {"type": "number"},
+                "exploration_value": {"type": "number"},
+                "exploitation_value": {"type": "number"},
+                "recent_performance": {"type": "number"}
+              }
+            }
+          },
+          "learning_metrics": {
+            "type": "object",
+            "properties": {
+              "total_regret": {"type": "number"},
+              "cumulative_return": {"type": "number"},
+              "sharpe_ratio": {"type": "number"},
+              "exploration_exploitation_ratio": {"type": "number"},
+              "model_uncertainty": {"type": "number"}
+            }
+          },
+          "context_importance": {
+            "type": "object",
+            "additionalProperties": {"type": "number"},
+            "description": "Feature importance scores for context variables"
+          },
+          "recommendation_reason": {
+            "type": "object",
+            "properties": {
+              "primary_factor": {"type": "string"},
+              "market_condition": {"type": "string"},
+              "exploration_component": {"type": "number"},
+              "confidence_level": {"type": "number"}
+            }
+          }
+        }
+      },
+      "errors": {
+        "INVALID_WEIGHTS": "Current weights do not sum to 1.0 or contain invalid values",
+        "INSUFFICIENT_HISTORY": "Not enough performance history for reliable learning",
+        "MODEL_UPDATE_FAILED": "Failed to update bandit model"
+      }
+    }
+  }
+}

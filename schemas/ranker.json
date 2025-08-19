@@ -1,0 +1,154 @@
+{
+  "name": "ranker",
+  "version": "1.0.0",
+  "tools": {
+    "score": {
+      "description": "Score and rank trading opportunities using unified scoring framework",
+      "request": {
+        "type": "object",
+        "properties": {
+          "opportunity_batch": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {"type": "string"},
+                "symbol": {"type": "string"},
+                "strategy": {"type": "string"},
+                "agent_source": {"type": "string"},
+                "raw_signals": {
+                  "type": "object",
+                  "properties": {
+                    "likelihood": {"type": "number", "minimum": 0, "maximum": 1},
+                    "expected_return": {"type": "number"},
+                    "risk": {"type": "number", "minimum": 0},
+                    "liquidity": {"type": "number", "minimum": 0, "maximum": 1},
+                    "conviction": {"type": "number", "minimum": 0, "maximum": 1},
+                    "recency": {"type": "number", "minimum": 0, "maximum": 1},
+                    "regime_fit": {"type": "number", "minimum": 0, "maximum": 1}
+                  },
+                  "required": ["likelihood", "expected_return", "risk"]
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "asset_class": {"type": "string"},
+                    "region": {"type": "string"},
+                    "timestamp": {"type": "string", "format": "date-time"}
+                  }
+                }
+              },
+              "required": ["id", "symbol", "strategy", "raw_signals"]
+            }
+          },
+          "scoring_config": {
+            "type": "object",
+            "properties": {
+              "weights": {
+                "type": "object",
+                "properties": {
+                  "likelihood": {"type": "number", "default": 0.25},
+                  "expected_return": {"type": "number", "default": 0.20},
+                  "risk": {"type": "number", "default": 0.20},
+                  "liquidity": {"type": "number", "default": 0.10},
+                  "conviction": {"type": "number", "default": 0.10},
+                  "recency": {"type": "number", "default": 0.10},
+                  "regime_fit": {"type": "number", "default": 0.05}
+                }
+              },
+              "calibration_method": {
+                "type": "string",
+                "enum": ["isotonic", "platt", "none"],
+                "default": "isotonic"
+              },
+              "regime_aware": {"type": "boolean", "default": true},
+              "diversification_penalty": {"type": "number", "default": 0.1}
+            }
+          }
+        },
+        "required": ["opportunity_batch"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "ranked_opportunities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {"type": "string"},
+                "symbol": {"type": "string"},
+                "strategy": {"type": "string"},
+                "rank": {"type": "integer"},
+                "unified_score": {"type": "number", "minimum": 0, "maximum": 1},
+                "calibrated_probability": {"type": "number", "minimum": 0, "maximum": 1},
+                "component_scores": {
+                  "type": "object",
+                  "properties": {
+                    "likelihood_score": {"type": "number"},
+                    "return_score": {"type": "number"},
+                    "risk_score": {"type": "number"},
+                    "liquidity_score": {"type": "number"},
+                    "conviction_score": {"type": "number"},
+                    "recency_score": {"type": "number"},
+                    "regime_score": {"type": "number"}
+                  }
+                },
+                "risk_adjusted_score": {"type": "number"},
+                "diversification_impact": {"type": "number"},
+                "confidence_interval": {
+                  "type": "object",
+                  "properties": {
+                    "lower": {"type": "number"},
+                    "upper": {"type": "number"}
+                  }
+                },
+                "percentile_rank": {"type": "number"},
+                "recommendation": {
+                  "type": "string",
+                  "enum": ["strong_buy", "buy", "hold", "sell", "strong_sell"]
+                }
+              },
+              "required": ["id", "symbol", "rank", "unified_score"]
+            }
+          },
+          "portfolio_metrics": {
+            "type": "object",
+            "properties": {
+              "total_opportunities": {"type": "integer"},
+              "avg_score": {"type": "number"},
+              "score_distribution": {
+                "type": "object",
+                "properties": {
+                  "q25": {"type": "number"},
+                  "q50": {"type": "number"},
+                  "q75": {"type": "number"},
+                  "std": {"type": "number"}
+                }
+              },
+              "diversification_ratio": {"type": "number"},
+              "correlation_matrix": {
+                "type": "array",
+                "items": {"type": "array", "items": {"type": "number"}}
+              }
+            }
+          },
+          "calibration_metrics": {
+            "type": "object",
+            "properties": {
+              "brier_score": {"type": "number"},
+              "log_loss": {"type": "number"},
+              "calibration_slope": {"type": "number"},
+              "calibration_intercept": {"type": "number"}
+            }
+          }
+        }
+      },
+      "errors": {
+        "INVALID_SIGNALS": "One or more signals are invalid or missing",
+        "CALIBRATION_FAILED": "Score calibration failed",
+        "INSUFFICIENT_OPPORTUNITIES": "Not enough opportunities to rank effectively"
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "name": "market-data",
+  "version": "1.0.0",
+  "tools": {
+    "get_ohlcv": {
+      "description": "Retrieve OHLCV data for a given symbol and timeframe",
+      "request": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Asset symbol (e.g., EURUSD, AAPL, BTC-USD)",
+            "examples": ["EURUSD", "AAPL", "BTC-USD", "ES=F"]
+          },
+          "timeframe": {
+            "type": "string",
+            "enum": ["1m", "5m", "15m", "1h", "4h", "1d", "1w"],
+            "description": "Candlestick timeframe"
+          },
+          "since": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Start datetime in ISO 8601 format"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5000,
+            "default": 1000,
+            "description": "Maximum number of candles to return"
+          }
+        },
+        "required": ["symbol", "timeframe", "since"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "symbol": {"type": "string"},
+          "timeframe": {"type": "string"},
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timestamp": {"type": "string", "format": "date-time"},
+                "open": {"type": "number"},
+                "high": {"type": "number"},
+                "low": {"type": "number"},
+                "close": {"type": "number"},
+                "volume": {"type": "number"}
+              },
+              "required": ["timestamp", "open", "high", "low", "close", "volume"]
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "source": {"type": "string"},
+              "last_updated": {"type": "string", "format": "date-time"},
+              "count": {"type": "integer"}
+            }
+          }
+        }
+      },
+      "errors": {
+        "SYMBOL_NOT_FOUND": "Symbol not found or not supported",
+        "INVALID_TIMEFRAME": "Timeframe not supported for this symbol",
+        "DATA_UNAVAILABLE": "Data not available for requested period",
+        "RATE_LIMITED": "API rate limit exceeded"
+      },
+      "examples": {
+        "request": {
+          "symbol": "EURUSD",
+          "timeframe": "1h",
+          "since": "2024-01-01T00:00:00Z",
+          "limit": 100
+        },
+        "response": {
+          "symbol": "EURUSD",
+          "timeframe": "1h",
+          "data": [
+            {
+              "timestamp": "2024-01-01T00:00:00Z",
+              "open": 1.1045,
+              "high": 1.1067,
+              "low": 1.1032,
+              "close": 1.1058,
+              "volume": 125000
+            }
+          ],
+          "metadata": {
+            "source": "IBKR",
+            "last_updated": "2024-01-01T01:00:00Z",
+            "count": 1
+          }
+        }
+      }
+    }
+  }
+}

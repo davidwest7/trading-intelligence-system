@@ -1,0 +1,96 @@
+{
+  "name": "sentiment",
+  "version": "1.0.0",
+  "tools": {
+    "stream": {
+      "description": "Stream real-time sentiment analysis for specified tickers",
+      "request": {
+        "type": "object",
+        "properties": {
+          "tickers": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "List of tickers to monitor for sentiment",
+            "examples": [["AAPL", "TSLA"], ["EURUSD", "GBPUSD"]]
+          },
+          "window": {
+            "type": "string",
+            "enum": ["1m", "5m", "15m", "1h", "4h", "1d"],
+            "description": "Time window for sentiment aggregation"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["twitter", "reddit", "news", "telegram", "discord"]
+            },
+            "default": ["twitter", "reddit", "news"]
+          },
+          "min_confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.7,
+            "description": "Minimum confidence threshold for sentiment scores"
+          }
+        },
+        "required": ["tickers", "window"]
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "sentiment_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ticker": {"type": "string"},
+                "timestamp": {"type": "string", "format": "date-time"},
+                "sentiment_score": {"type": "number", "minimum": -1, "maximum": 1},
+                "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+                "volume": {"type": "integer", "description": "Number of mentions"},
+                "velocity": {"type": "number", "description": "Rate of change in mentions"},
+                "dispersion": {"type": "number", "description": "Sentiment variance across sources"},
+                "sources_breakdown": {
+                  "type": "object",
+                  "properties": {
+                    "twitter": {"type": "object", "properties": {"score": {"type": "number"}, "volume": {"type": "integer"}}},
+                    "reddit": {"type": "object", "properties": {"score": {"type": "number"}, "volume": {"type": "integer"}}},
+                    "news": {"type": "object", "properties": {"score": {"type": "number"}, "volume": {"type": "integer"}}}
+                  }
+                },
+                "top_entities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "entity": {"type": "string"},
+                      "type": {"type": "string"},
+                      "sentiment": {"type": "number"},
+                      "mentions": {"type": "integer"}
+                    }
+                  }
+                },
+                "bot_ratio": {"type": "number", "description": "Estimated bot activity ratio"}
+              },
+              "required": ["ticker", "timestamp", "sentiment_score", "confidence", "volume"]
+            }
+          }
+        }
+      },
+      "errors": {
+        "TICKER_NOT_SUPPORTED": "One or more tickers are not supported",
+        "INSUFFICIENT_DATA": "Not enough data for reliable sentiment analysis",
+        "SOURCE_ERROR": "Error accessing one or more sentiment sources"
+      },
+      "examples": {
+        "request": {
+          "tickers": ["AAPL", "TSLA"],
+          "window": "1h",
+          "sources": ["twitter", "reddit"],
+          "min_confidence": 0.8
+        }
+      }
+    }
+  }
+}
