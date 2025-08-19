@@ -1,1 +1,1 @@
-# Common Utilities
+# Common package initialization

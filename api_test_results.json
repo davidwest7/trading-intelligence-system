@@ -1,0 +1,33 @@
+{
+  "twitter": {
+    "status": "success",
+    "tweets_found": 10,
+    "sample_tweet": {
+      "edit_history_tweet_ids": [
+        "1957791221184614607"
+      ],
+      "text": "$PHSE - Pride Holdings Group Acquires Aqua Nightclub and Bar, Birdcage Cabaret, Back Bar, 22&amp;Co and Aquaplex\nhttps://t.co/dlQQuoTYHp\n\n$AMZN $TSLA $WMT $TGT $NVDA $PLTN $SPY $GLD $EBAY $AAPL $META $GS $S $GOOG $DIS $IBM $MSFT $GOOGL $BIDU $VZ $ADBE $AMAT $ADSK $AVGO $BABA $CDNS",
+      "id": "1957791221184614607"
+    }
+  },
+  "reddit": {
+    "status": "success",
+    "posts_found": 5,
+    "sample_post": {
+      "title": "Weekly Earnings Thread 8/18 - 8/22",
+      "score": 150,
+      "created_utc": 1755265726.0,
+      "num_comments": 897
+    }
+  },
+  "openai": {
+    "status": "success",
+    "response": "I am an AI assistant and I do not have real-time data access. The current sentiment for AAPL stock can change frequently based on market conditions and news events. It is recommended to check financial news sources or market analysis websites for the most up-to",
+    "model_used": "gpt-3.5-turbo"
+  },
+  "github": {
+    "status": "success",
+    "user": "davidwest7",
+    "repos_url": "https://api.github.com/users/davidwest7/repos"
+  }
+}

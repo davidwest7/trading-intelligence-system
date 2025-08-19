@@ -22,6 +22,12 @@ class SourceType(str, Enum):
     DISCORD = "discord"
 
 
+class MarketImpact(str, Enum):
+    POSITIVE = "positive"
+    NEGATIVE = "negative"
+    NEUTRAL = "neutral"
+
+
 class EntityType(str, Enum):
     PERSON = "PERSON"
     ORGANIZATION = "ORG"
@@ -39,6 +45,7 @@ class Entity:
     confidence: float
     sentiment: float  # -1 to 1
     mentions: int = 1
+    symbol: str = ""
     
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -46,7 +53,8 @@ class Entity:
             "type": self.entity_type.value,
             "sentiment": self.sentiment,
             "mentions": self.mentions,
-            "confidence": self.confidence
+            "confidence": self.confidence,
+            "symbol": self.symbol
         }
 
 
@@ -54,8 +62,8 @@ class Entity:
 class SentimentPost:
     """Individual social media post/article with sentiment"""
     id: str
-    source: SourceType
-    text: str
+    source: str
+    content: str
     author: str
     timestamp: datetime
     sentiment_score: float  # -1 to 1
@@ -65,11 +73,21 @@ class SentimentPost:
     entities: List[Entity] = field(default_factory=list)
     url: Optional[str] = None
     
+    @property
+    def text(self) -> str:
+        return self.content
+    
+    @property
+    def sentiment(self):
+        return SentimentLabel(
+            "bullish" if self.sentiment_score > 0.2 else "bearish" if self.sentiment_score < -0.2 else "neutral"
+        )
+    
     def to_dict(self) -> Dict[str, Any]:
         return {
             "id": self.id,
-            "source": self.source.value,
-            "text": self.text[:200] + "..." if len(self.text) > 200 else self.text,
+            "source": self.source,
+            "text": self.content[:200] + "..." if len(self.content) > 200 else self.content,
             "author": self.author,
             "timestamp": self.timestamp.isoformat(),
             "sentiment_score": self.sentiment_score,
@@ -103,36 +121,21 @@ class SourceBreakdown:
 @dataclass
 class SentimentAnalysis:
     """Complete sentiment analysis for a ticker"""
-    ticker: str
-    timestamp: datetime
-    sentiment_score: float  # -1 to 1
+    overall_score: float  # -1 to 1
+    sentiment_distribution: Dict[str, float]
+    source_breakdown: Dict[str, Dict[str, Any]]
+    market_impact: str
     confidence: float  # 0 to 1
-    volume: int  # Total mentions
-    velocity: float  # Rate of change in mentions
-    dispersion: float  # Variance across sources
-    bot_ratio: float  # Estimated bot activity
-    sources_breakdown: Dict[str, SourceBreakdown]
-    top_entities: List[Entity]
-    sentiment_label: SentimentLabel
-    momentum: float  # Sentiment momentum (change over time)
+    timestamp: datetime
     
     def to_dict(self) -> Dict[str, Any]:
         return {
-            "ticker": self.ticker,
-            "timestamp": self.timestamp.isoformat(),
-            "sentiment_score": self.sentiment_score,
+            "overall_score": self.overall_score,
+            "sentiment_distribution": self.sentiment_distribution,
+            "source_breakdown": self.source_breakdown,
+            "market_impact": self.market_impact,
             "confidence": self.confidence,
-            "volume": self.volume,
-            "velocity": self.velocity,
-            "dispersion": self.dispersion,
-            "bot_ratio": self.bot_ratio,
-            "sources_breakdown": {
-                source: breakdown.to_dict() 
-                for source, breakdown in self.sources_breakdown.items()
-            },
-            "top_entities": [entity.to_dict() for entity in self.top_entities],
-            "sentiment_label": self.sentiment_label.value,
-            "momentum": self.momentum
+            "timestamp": self.timestamp.isoformat()
         }
 
 
@@ -187,3 +190,50 @@ class SentimentRequest:
             all(source in valid_sources for source in self.sources) and
             0.0 <= self.min_confidence <= 1.0
         )
+
+
+@dataclass
+class SentimentData:
+    """Sentiment data for a ticker"""
+    ticker: str
+    sentiment_score: float
+    confidence: float
+    timestamp: datetime
+    source: str
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "ticker": self.ticker,
+            "sentiment_score": self.sentiment_score,
+            "confidence": self.confidence,
+            "timestamp": self.timestamp.isoformat(),
+            "source": self.source
+        }
+
+
+@dataclass
+class SentimentMetrics:
+    """Performance metrics for sentiment analysis"""
+    total_posts_processed: int
+    bot_posts_filtered: int
+    duplicate_posts_filtered: int
+    entities_resolved: int
+    sentiment_accuracy: float
+    processing_time_avg: float
+    cache_hit_rate: float
+    error_rate: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "total_posts_processed": self.total_posts_processed,
+            "bot_posts_filtered": self.bot_posts_filtered,
+            "duplicate_posts_filtered": self.duplicate_posts_filtered,
+            "entities_resolved": self.entities_resolved,
+            "sentiment_accuracy": self.sentiment_accuracy,
+            "processing_time_avg": self.processing_time_avg,
+            "cache_hit_rate": self.cache_hit_rate,
+            "error_rate": self.error_rate
+        }
+
+
+

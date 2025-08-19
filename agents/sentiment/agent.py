@@ -23,7 +23,7 @@ import statistics
 
 from .models import (
     SentimentAnalysis, SentimentRequest, SentimentPost, SourceBreakdown,
-    Entity, SentimentLabel, SourceType
+    Entity, SentimentLabel, SourceType, SentimentData
 )
 from .bot_detector import BotDetector, ContentDeduplicator
 from .entity_resolver import EntityResolver

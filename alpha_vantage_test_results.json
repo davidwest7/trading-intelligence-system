@@ -1,0 +1,86 @@
+{
+  "api_key": {
+    "status": "success",
+    "data": {
+      "Global Quote": {
+        "01. symbol": "AAPL",
+        "02. open": "231.7000",
+        "03. high": "233.1200",
+        "04. low": "230.1100",
+        "05. price": "230.8900",
+        "06. volume": "37476188",
+        "07. latest trading day": "2025-08-18",
+        "08. previous close": "231.5900",
+        "09. change": "-0.7000",
+        "10. change percent": "-0.3023%"
+      }
+    }
+  },
+  "quotes": [
+    {
+      "symbol": "AAPL",
+      "price": 230.89,
+      "change": -0.7,
+      "change_percent": "-0.3023%",
+      "volume": 37476188,
+      "market_cap": "N/A",
+      "timestamp": "2025-08-19T14:20:05.829822"
+    },
+    {
+      "symbol": "TSLA",
+      "price": 335.16,
+      "change": 4.6,
+      "change_percent": "1.3916%",
+      "volume": 56956552,
+      "market_cap": "N/A",
+      "timestamp": "2025-08-19T14:20:18.141534"
+    },
+    {
+      "symbol": "NVDA",
+      "price": 182.01,
+      "change": 1.56,
+      "change_percent": "0.8645%",
+      "volume": 132007959,
+      "market_cap": "N/A",
+      "timestamp": "2025-08-19T14:20:30.462696"
+    },
+    {
+      "symbol": "MSFT",
+      "price": 517.1,
+      "change": -3.07,
+      "change_percent": "-0.5902%",
+      "volume": 23760583,
+      "market_cap": "N/A",
+      "timestamp": "2025-08-19T14:20:42.600552"
+    },
+    {
+      "symbol": "GOOGL",
+      "price": 203.5,
+      "change": -0.4,
+      "change_percent": "-0.1962%",
+      "volume": 18526594,
+      "market_cap": "N/A",
+      "timestamp": "2025-08-19T14:20:54.899236"
+    }
+  ],
+  "historical_data": {
+    "symbol": "AAPL",
+    "data_points": 30,
+    "date_range": "2025-07-08 to 2025-08-18",
+    "latest_close": 230.89,
+    "latest_volume": "37476188"
+  },
+  "company_overview": {
+    "symbol": "AAPL",
+    "name": "Apple Inc",
+    "description": "Apple Inc. is an American multinational technology company that specializes in consumer electronics, computer software, and online services. Apple is the world's largest technology company by revenue ...",
+    "sector": "TECHNOLOGY",
+    "industry": "ELECTRONIC COMPUTERS",
+    "market_cap": "3426499953000",
+    "pe_ratio": "34.98",
+    "dividend_yield": "0.0044",
+    "beta": "1.165",
+    "52_week_high": "259.18",
+    "52_week_low": "168.8"
+  }
+}

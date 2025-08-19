@@ -1,1 +1,1 @@
-# Trading Intelligence Agents
+# Agents package initialization
