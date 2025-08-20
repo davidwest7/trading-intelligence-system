@@ -1,0 +1,45 @@
+# Phase 3: Risk Management & Execution Dependencies
+
+# Core ML and Optimization
+lightgbm>=4.0.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+cvxpy>=1.4.0
+numba>=0.57.0
+joblib>=1.3.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
+scipy>=1.11.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Async and Concurrency
+asyncio-mqtt>=0.16.0
+aiofiles>=23.0.0
+
+# Monitoring and Observability
+prometheus-client>=0.17.0
+structlog>=23.0.0
+opentelemetry-api>=1.20.0
+opentelemetry-sdk>=1.20.0
+opentelemetry-exporter-prometheus>=0.57b0
+
+# Message Brokering
+confluent-kafka>=2.0.0
+redis>=5.0.0
+
+# Data Validation
+pydantic>=2.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
