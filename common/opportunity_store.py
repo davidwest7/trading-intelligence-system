@@ -238,6 +238,57 @@ class OpportunityStore:
             print(f"Error getting opportunities by agent: {e}")
             return []
     
+    def get_signals(self) -> List[Dict[str, Any]]:
+        """Get all stored signals for processing"""
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                cursor = conn.execute("""
+                    SELECT * FROM opportunities 
+                    WHERE status = 'active'
+                    ORDER BY priority_score DESC, discovered_at DESC
+                """)
+                
+                signals = []
+                for row in cursor.fetchall():
+                    signal = {
+                        'signal_id': row[0],
+                        'agent_type': row[2],
+                        'symbol': row[1],
+                        'confidence': row[6],
+                        'direction': 'long' if row[5] > 0 else 'short',
+                        'mu': row[5],  # upside_potential as mu
+                        'sigma': 0.1,  # default uncertainty
+                        'timestamp': row[8],
+                        'metadata': json.loads(row[10])
+                    }
+                    signals.append(signal)
+                return signals
+        except Exception as e:
+            print(f"Error getting signals: {e}")
+            return []
+    
+    async def add_signal(self, signal) -> bool:
+        """Add a signal to the opportunity store"""
+        try:
+            # Convert signal to opportunity
+            opportunity = Opportunity(
+                id=signal.signal_id,
+                ticker=signal.symbol,
+                agent_type=signal.agent_type.value,
+                opportunity_type=signal.agent_type.value.title(),
+                entry_reason=f"Signal from {signal.agent_type.value} agent",
+                upside_potential=signal.mu,
+                confidence=signal.confidence,
+                time_horizon=signal.horizon.value,
+                discovered_at=signal.timestamp,
+                job_id="signal_processing",
+                raw_data=signal.metadata
+            )
+            return self.add_opportunity(opportunity)
+        except Exception as e:
+            print(f"Error adding signal: {e}")
+            return False
+    
     def get_statistics(self) -> Dict[str, Any]:
         """Get opportunity statistics"""
         try:

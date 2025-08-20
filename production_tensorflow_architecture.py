@@ -543,6 +543,73 @@ class ComprehensiveAgentCoordinator:
             print("✅ Cleanup complete")
 
 # ============================================================================
+# PHASE 4: CAUSAL INFERENCE, ROBUSTNESS & ADVANCED LEARNING
+# ============================================================================
+
+"""
+Phase 4 Architecture: Advanced AI Trading System
+==============================================
+
+🎯 OBJECTIVES:
+- Causal controls to fight spurious alpha (CATE estimation)
+- Robustness to shift & bad data (anomaly detection, DRO)
+- Advanced learning loop (DR-OPE, live counterfactuals)
+- End-to-end auditability & testability
+- Production optimization (ONNX, schema registry)
+
+🏗️ TARGET ARCHITECTURE:
+
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Phase 3       │    │ Causal Layer    │    │ Robustness      │
+│   Pipeline      │───▶│                 │───▶│                 │
+│                 │    │ • T-Learner     │    │ • Anomaly Gates │
+│ • CVaR RL       │    │ • DR-Learner    │    │ • DRO Blender   │
+│ • Cost Model    │    │ • CATE Uplift   │    │ • Adv Validation│
+│ • Risk Monitor  │    │ • IV Analysis   │    │ • Auto-Throttle │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Learning Layer  │    │ Audit Layer     │    │ Deployment      │
+│                 │    │                 │    │                 │
+│ • DR-OPE        │    │ • Replay System │    │ • ONNX/Triton   │
+│ • SNIPS         │    │ • Policy Diff   │    │ • Schema Reg    │
+│ • Fitted Q Eval │    │ • Chaos Tests   │    │ • Shadow/Canary │
+│ • Live Counters │    │ • Versioning    │    │ • Auto-Rollback │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+
+🎯 SUCCESS METRICS:
+- Causal: 90%+ CATE accuracy, reduced spurious alpha
+- Robustness: <1% false positives, auto-recovery
+- Learning: 95%+ policy evaluation accuracy
+- Audit: 100% deterministic replay, <1s policy diff
+- Production: <10ms inference, zero-downtime deploy
+
+🛡️ RISK BUDGET:
+- Total System Risk: 1% daily VaR
+- Causal Model Risk: 0.1% allocation
+- Robustness Buffer: 0.2% for anomalies
+- Learning Budget: 2-5% exploration
+- Audit Overhead: <5% performance impact
+
+📋 IMPLEMENTATION PLAN:
+1. Causal Inference System
+2. Robustness & Anomaly Detection
+3. Advanced Learning Loop
+4. Auditability & Replay System
+5. Production Optimization
+6. Integration & Testing
+
+🚀 DELIVERABLES:
+- causal/: CATE estimation and IV analysis
+- robustness/: Anomaly detection and DRO
+- learning/: Advanced OPE and counterfactuals
+- audit/: Replay system and chaos testing
+- deployment/: ONNX optimization and registry
+- phase4_demo.py: End-to-end demonstration
+"""
+
+# ============================================================================
 # PRODUCTION USAGE EXAMPLE WITH ALL AGENTS
 # ============================================================================
 

@@ -1,0 +1,38 @@
+{
+  "definition": {
+    "type": "object",
+    "properties": {
+      "signal_id": {
+        "type": "string"
+      },
+      "symbol": {
+        "type": "string"
+      },
+      "mu": {
+        "type": "number"
+      },
+      "sigma": {
+        "type": "number"
+      },
+      "confidence": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": [
+      "signal_id",
+      "symbol",
+      "mu",
+      "sigma",
+      "confidence"
+    ]
+  },
+  "created_at": "2025-08-20 11:39:36.508600",
+  "compatibility_mode": "backward",
+  "schema_hash": "6d58a64eff224de3dd010369a8b8c1e4fbd93972d531f5ea483d0b4c3d106403"
+}

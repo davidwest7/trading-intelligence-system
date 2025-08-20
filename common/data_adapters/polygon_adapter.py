@@ -24,13 +24,19 @@ class PolygonDataAdapter:
         if config is None:
             config = {}
         self.adapter = PolygonAdapter(config)
+        # Expose adapter attributes for compatibility
+        self.base_url = self.adapter.base_url
+        self.api_key = self.adapter.api_key
+        self.is_connected = False
     
     async def connect(self) -> bool:
         """Connect to Polygon.io API"""
-        return await self.adapter.connect()
+        self.is_connected = await self.adapter.connect()
+        return self.is_connected
     
     async def disconnect(self) -> bool:
         """Disconnect from Polygon.io API"""
+        self.is_connected = False
         return await self.adapter.disconnect()
     
     async def get_ohlcv(self, symbol: str, timeframe: str, since: datetime, limit: int = 1000) -> pd.DataFrame:
@@ -41,6 +47,10 @@ class PolygonDataAdapter:
         """Get real-time quote"""
         return await self.adapter.get_quote(symbol)
     
+    async def get_level2_data(self, symbol: str) -> Dict[str, Any]:
+        """Get Level 2 market data"""
+        return await self.adapter.get_level2_data(symbol)
+    
     async def get_intraday_data(self, symbol: str, interval: str = "5", since: datetime = None, limit: int = 1000) -> pd.DataFrame:
         """Get intraday data"""
         return await self.adapter.get_intraday_data(symbol, interval, since, limit)
@@ -48,6 +58,10 @@ class PolygonDataAdapter:
     async def health_check(self) -> Dict[str, Any]:
         """Health check for the adapter"""
         return await self.adapter.health_check()
+    
+    async def _http_get(self, url: str, params: Optional[Dict[str, Any]] = None) -> Optional[requests.Response]:
+        """Expose HTTP GET method for compatibility"""
+        return await self.adapter._http_get(url, params)
 
 class PolygonAdapter(BaseDataAdapter):
     """Polygon.io data adapter for comprehensive market data"""
@@ -112,47 +126,116 @@ class PolygonAdapter(BaseDataAdapter):
         return await self.get_intraday_data(symbol, timeframe, since, limit)
 
     async def get_quote(self, symbol: str) -> Dict[str, Any]:
-        """Get real-time quote - maps to real-time quote"""
-        return await self.get_real_time_quote(symbol)
-
-    async def get_real_time_quote(self, symbol: str) -> Dict[str, Any]:
-        """Get real-time quote data"""
-        cache_key = f"quote_{symbol}"
-        if cache_key in self.cache and time.time() - self.cache[cache_key]['timestamp'] < self.cache_ttl:
-            return self.cache[cache_key]['data']
+        """Get real-time quote from Polygon.io API with enhanced fallback"""
+        if not self.is_connected:
+            raise ConnectionError("Not connected to Polygon.io API")
         
         try:
+            # Try multiple quote endpoints for better reliability
+            endpoints = [
+                f"{self.base_url}/v2/snapshot/locale/us/markets/stocks/tickers/{symbol}",
+                f"{self.base_url}/v3/snapshot/options/{symbol}",
+                f"{self.base_url}/v2/aggs/ticker/{symbol}/prev"
+            ]
+            
+            for url in endpoints:
+                try:
+                    params = {'apiKey': self.api_key}
+                    response = await self._http_get(url, params)
+                    
+                    if response and response.status_code == 200:
+                        data = response.json()
+                        print(f"🔍 Quote response for {symbol}: {data.keys() if data else 'None'}")
+                        
+                        # Handle different response structures
+                        price = 0.0
+                        if data.get('results'):
+                            result = data['results']
+                            print(f"🔍 Quote result for {symbol}: {result.keys() if result else 'None'}")
+                            
+                            # Try different possible structures
+                            if 'last' in result and isinstance(result['last'], dict):
+                                price = result['last'].get('p', 0.0)
+                            elif 'lastTrade' in result and isinstance(result['lastTrade'], dict):
+                                price = result['lastTrade'].get('p', 0.0)
+                            elif 'price' in result:
+                                price = result['price']
+                            elif 'c' in result:  # Aggregates endpoint
+                                price = result['c']
+                        elif data.get('value'):  # Some endpoints return value directly
+                            price = data['value']
+                        elif data.get('price'):  # Direct price field
+                            price = data['price']
+                        
+                        if price > 0:
+                            return {
+                                'symbol': symbol,
+                                'price': price,
+                                'volume': data.get('results', {}).get('last', {}).get('s', 0) if isinstance(data.get('results', {}).get('last'), dict) else 0,
+                                'change': data.get('results', {}).get('last', {}).get('c', 0.0) if isinstance(data.get('results', {}).get('last'), dict) else 0.0,
+                                'change_percent': data.get('results', {}).get('last', {}).get('cp', 0.0) if isinstance(data.get('results', {}).get('last'), dict) else 0.0,
+                                'timestamp': datetime.now()
+                            }
+                except Exception as e:
+                    print(f"⚠️ Quote endpoint {url} failed for {symbol}: {e}")
+                    continue
+            
+            # If all endpoints fail, try to get price from recent historical data
+            print(f"⚠️ All quote endpoints failed for {symbol}, trying historical data fallback")
+            try:
+                since = datetime.now() - timedelta(days=1)
+                hist_data = await self.get_intraday_data(symbol, 'D', since, 1)
+                if hist_data is not None and not hist_data.empty:
+                    price = hist_data['close'].iloc[-1]
+                    return {
+                        'symbol': symbol,
+                        'price': price,
+                        'volume': hist_data['volume'].iloc[-1] if 'volume' in hist_data.columns else 0,
+                        'change': 0.0,
+                        'change_percent': 0.0,
+                        'timestamp': datetime.now()
+                    }
+            except Exception as e:
+                print(f"⚠️ Historical data fallback also failed for {symbol}: {e}")
+            
+            print(f"⚠️ No price data available for {symbol}")
+            return self._create_empty_quote(symbol)
+            
+        except Exception as e:
+            print(f"❌ Error getting real-time quote for {symbol}: {e}")
+            return self._create_empty_quote(symbol)
+
+    async def get_level2_data(self, symbol: str) -> Dict[str, Any]:
+        """Get Level 2 market data (bid/ask) from Polygon.io API"""
+        if not self.is_connected:
+            raise ConnectionError("Not connected to Polygon.io API")
+        
+        try:
+            # Get real Level 2 data
             url = f"{self.base_url}/v2/snapshot/locale/us/markets/stocks/tickers/{symbol}"
             params = {'apiKey': self.api_key}
+            
             response = await self._http_get(url, params)
             
             if response and response.status_code == 200:
                 data = response.json()
-                ticker_data = data.get('ticker', {})
-                last_trade = ticker_data.get('lastTrade', {})
-                day_data = ticker_data.get('day', {})
-                
-                result = {
-                    'symbol': symbol,
-                    'price': last_trade.get('p', 0),
-                    'volume': day_data.get('v', 0),
-                    'timestamp': datetime.now(),
-                    'bid': ticker_data.get('bid', 0),
-                    'ask': ticker_data.get('ask', 0),
-                    'change': day_data.get('c', 0),
-                    'change_percent': day_data.get('cp', 0)
-                }
-                
-                self.cache[cache_key] = {
-                    'data': result,
-                    'timestamp': time.time()
-                }
-                return result
+                if data.get('results'):
+                    result = data['results']
+                    return {
+                        'symbol': symbol,
+                        'bid': result.get('last', {}).get('p', 0.0),  # Use last price as approximation
+                        'ask': result.get('last', {}).get('p', 0.0),  # Use last price as approximation
+                        'bid_size': result.get('last', {}).get('s', 0),
+                        'ask_size': result.get('last', {}).get('s', 0),
+                        'timestamp': datetime.now()
+                    }
+                else:
+                    return self._create_empty_level2_data(symbol)
             else:
-                return self._create_empty_quote(symbol)
+                return self._create_empty_level2_data(symbol)
         except Exception as e:
-            print(f"❌ Error getting real-time quote for {symbol}: {e}")
-            return self._create_empty_quote(symbol)
+            print(f"❌ Error getting Level 2 data for {symbol}: {e}")
+            return self._create_empty_level2_data(symbol)
 
     async def get_intraday_data(self, symbol: str, interval: str = "5", 
                                since: datetime = None, limit: int = 1000) -> pd.DataFrame:
@@ -433,54 +516,6 @@ class PolygonAdapter(BaseDataAdapter):
 
     # ==================== FLOW AGENT DATA ====================
     
-    async def get_level2_data(self, symbol: str) -> Dict[str, Any]:
-        """Get Level 2 market data (order book depth) with enhanced data"""
-        try:
-            url = f"{self.base_url}/v2/snapshot/locale/us/markets/stocks/tickers/{symbol}"
-            params = {'apiKey': self.api_key}
-            
-            response = await self._http_get(url, params)
-            
-            if response and response.status_code == 200:
-                data = response.json()
-                ticker_data = data.get('ticker', {})
-                last_quote = ticker_data.get('lastQuote', {})
-                
-                # Get current price for better bid/ask calculation
-                current_price = ticker_data.get('lastTrade', {}).get('p', 100.0)
-                
-                # Create realistic bid/ask spread
-                spread_pct = 0.001  # 0.1% spread
-                bid_price = current_price * (1 - spread_pct/2)
-                ask_price = current_price * (1 + spread_pct/2)
-                
-                # Create realistic bid/ask sizes
-                base_volume = ticker_data.get('day', {}).get('v', 1000000)
-                bid_size = int(base_volume * 0.01)  # 1% of daily volume
-                ask_size = int(base_volume * 0.01)  # 1% of daily volume
-                
-                # Add some randomness to create imbalance
-                import random
-                random.seed(hash(symbol) % 1000)
-                imbalance_factor = random.uniform(0.3, 0.7)  # 30% to 70% bid ratio
-                
-                bid_size = int(bid_size * imbalance_factor)
-                ask_size = int(ask_size * (1 - imbalance_factor))
-                
-                return {
-                    'symbol': symbol,
-                    'bid': round(bid_price, 2),
-                    'ask': round(ask_price, 2),
-                    'bid_size': bid_size,
-                    'ask_size': ask_size,
-                    'timestamp': datetime.now()
-                }
-            else:
-                return self._create_empty_level2_data(symbol)
-        except Exception as e:
-            print(f"❌ Error getting Level 2 data for {symbol}: {e}")
-            return self._create_empty_level2_data(symbol)
-
     async def get_unusual_options_activity(self, symbol: str) -> List[Dict[str, Any]]:
         """Get unusual options activity (mock data for now)"""
         # Polygon.io doesn't provide unusual options activity directly

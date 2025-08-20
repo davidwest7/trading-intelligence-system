@@ -1,0 +1,167 @@
+{
+  "overall_success": true,
+  "success_rate": 0.9166666666666666,
+  "total_duration_ms": 128212.49294281006,
+  "test_results": [
+    {
+      "test_name": "Telemetry Initialization",
+      "success": true,
+      "duration_ms": 13.321876525878906,
+      "metrics": {
+        "telemetry_enabled": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Core System Initialization",
+      "success": true,
+      "duration_ms": 0.308990478515625,
+      "metrics": {
+        "event_bus_initialized": true,
+        "feature_store_initialized": true,
+        "unified_scorer_initialized": true,
+        "opportunity_store_initialized": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Advanced ML Initialization",
+      "success": true,
+      "duration_ms": 0.34999847412109375,
+      "metrics": {
+        "meta_ensemble_initialized": true,
+        "bandit_ensemble_initialized": true,
+        "calibration_system_initialized": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Risk & Execution Initialization",
+      "success": true,
+      "duration_ms": 0.009298324584960938,
+      "metrics": {
+        "risk_manager_initialized": true,
+        "execution_engine_initialized": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Agent Initialization",
+      "success": true,
+      "duration_ms": 6503.206253051758,
+      "metrics": {
+        "technical_initialized": true,
+        "sentiment_initialized": true,
+        "flow_initialized": true,
+        "macro_initialized": true,
+        "undervalued_initialized": true,
+        "top_performers_initialized": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Complete Data Pipeline",
+      "success": true,
+      "duration_ms": 5.929231643676758,
+      "metrics": {
+        "data_points_ingested": 70,
+        "events_published": 70,
+        "data_points_retrieved": 70
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Signal Processing",
+      "success": false,
+      "duration_ms": 121541.5849685669,
+      "metrics": {
+        "total_signals": 28,
+        "agents_with_signals": 4,
+        "signals_published": 28,
+        "signals_stored": 28
+      },
+      "errors": [
+        "macro signal generation failed: Failed to generate real macro signals: Not connected to News API"
+      ],
+      "warnings": [
+        "undervalued generated no signals"
+      ]
+    },
+    {
+      "test_name": "Meta-Weighter",
+      "success": true,
+      "duration_ms": 140.98000526428223,
+      "metrics": {
+        "signals_processed": 222,
+        "predictions_generated": 222,
+        "uncertainty_estimated": 222,
+        "predictions_calibrated": 222
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Diversified Selection",
+      "success": true,
+      "duration_ms": 4.101037979125977,
+      "metrics": {
+        "signals_considered": 222,
+        "allocations_generated": 6,
+        "total_expected_reward": 0.16666666666666663,
+        "exploration_bonus": 0.8282738097975612
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Risk Management",
+      "success": true,
+      "duration_ms": 1.149892807006836,
+      "metrics": {
+        "portfolio_value": 100000,
+        "portfolio_risk": 0,
+        "var_95": 0.02,
+        "positions_adjusted": 3
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "Execution Intelligence",
+      "success": true,
+      "duration_ms": 0.9789466857910156,
+      "metrics": {
+        "orders_analyzed": 3,
+        "execution_cost_estimated": 0,
+        "slippage_estimated": 0,
+        "strategy_generated": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "test_name": "End-to-End Performance",
+      "success": true,
+      "duration_ms": 0.034809112548828125,
+      "metrics": {
+        "total_duration_ms": 128212.4490737915,
+        "successful_tests": 10,
+        "total_tests": 11,
+        "success_rate": 0.9090909090909091,
+        "avg_latency_ms": 11655.629136345604,
+        "total_signals": 28,
+        "total_events": 70,
+        "throughput_signals_per_second": 0.2183875294659168
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "timestamp": "2025-08-20T16:57:45.971827"
+}

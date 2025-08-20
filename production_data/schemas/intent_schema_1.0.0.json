@@ -1,0 +1,39 @@
+{
+  "definition": {
+    "type": "object",
+    "properties": {
+      "intent_id": {
+        "type": "string"
+      },
+      "symbol": {
+        "type": "string"
+      },
+      "target_size": {
+        "type": "number"
+      },
+      "max_risk": {
+        "type": "number"
+      },
+      "urgency": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": [
+      "intent_id",
+      "symbol",
+      "target_size"
+    ]
+  },
+  "created_at": "2025-08-20 11:39:36.509137",
+  "compatibility_mode": "backward",
+  "schema_hash": "b27324576a5656ce974bf560b1e65b7e5cabb29ffa77c772d79b8f3aff91729d"
+}
