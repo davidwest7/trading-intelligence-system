@@ -1,0 +1,12 @@
+{
+  "total_return": 0.0,
+  "annualized_return": 0.0,
+  "volatility": 0.0,
+  "sharpe_ratio": 0,
+  "max_drawdown": 0.0,
+  "final_value": 1000000.0,
+  "avg_positions": 3.6199095022624435,
+  "avg_signals": 0.0,
+  "avg_opportunities": 0.0,
+  "total_trades": 0
+}

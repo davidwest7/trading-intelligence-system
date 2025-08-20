@@ -1,0 +1,925 @@
+2025-08-20 21:15:26,055 - __main__ - INFO - 🚀 Starting Simple Real Backtest with Polygon Data
+2025-08-20 21:15:26,056 - __main__ - INFO - ============================================================
+2025-08-20 21:15:26,056 - __main__ - INFO - ✅ Polygon API key found: _pHZNzCp...
+2025-08-20 21:15:26,056 - __main__ - INFO - 📥 Downloading market data...
+2025-08-20 21:15:26,056 - __main__ - INFO - 📥 Downloading AAPL data from 2023-01-01 to 2024-12-31...
+2025-08-20 21:15:26,440 - __main__ - INFO - ✅ Downloaded 502 bars for AAPL
+2025-08-20 21:15:26,543 - __main__ - INFO - 📥 Downloading MSFT data from 2023-01-01 to 2024-12-31...
+2025-08-20 21:15:26,913 - __main__ - INFO - ✅ Downloaded 502 bars for MSFT
+2025-08-20 21:15:27,020 - __main__ - INFO - 📥 Downloading GOOGL data from 2023-01-01 to 2024-12-31...
+2025-08-20 21:15:27,373 - __main__ - INFO - ✅ Downloaded 502 bars for GOOGL
+2025-08-20 21:15:27,479 - __main__ - INFO - 📥 Downloading SPY data from 2023-01-01 to 2024-12-31...
+2025-08-20 21:15:28,117 - __main__ - INFO - ✅ Downloaded 502 bars for SPY
+2025-08-20 21:15:28,221 - __main__ - INFO - 📥 Downloading QQQ data from 2023-01-01 to 2024-12-31...
+2025-08-20 21:15:28,598 - __main__ - INFO - ✅ Downloaded 502 bars for QQQ
+2025-08-20 21:15:28,704 - __main__ - INFO - ✅ Downloaded data for 5 symbols
+2025-08-20 21:15:28,705 - __main__ - INFO - 📊 Trading period: 2023-01-03 to 2024-12-31 (502 trading days)
+2025-08-20 21:15:28,705 - __main__ - INFO - 🎯 Running Momentum strategy...
+2025-08-20 21:15:28,710 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,712 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,714 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,716 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,718 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,719 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,721 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,722 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,724 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,726 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,727 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,729 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,731 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,732 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,734 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,735 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,737 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,738 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,740 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,742 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,743 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,745 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,746 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,747 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,749 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,751 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,752 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,754 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,755 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,756 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,757 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,758 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,759 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,761 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,762 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,763 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,764 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,765 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,766 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,767 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,769 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,770 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,772 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,773 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,774 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,775 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,776 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,777 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,778 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,779 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,780 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,782 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,783 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,784 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,785 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,786 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,787 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,788 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,789 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,790 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,791 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,792 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,793 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,794 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,795 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,796 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,797 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,798 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,799 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,800 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,801 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,802 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,804 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,805 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,806 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,807 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,808 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,808 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,809 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,811 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,812 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,813 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,814 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,815 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,816 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,817 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,818 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,819 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,820 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,821 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,822 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,823 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,824 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,825 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,826 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,827 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,828 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,829 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,830 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,831 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,832 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,833 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,834 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,835 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,836 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,837 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,838 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,839 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,840 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,841 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,842 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,843 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,844 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,845 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,846 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,847 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,848 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,849 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,850 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,851 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,853 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,854 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,855 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,856 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,857 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,858 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,859 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,860 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,861 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,862 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,863 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:28,864 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,865 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,866 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,867 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,868 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,869 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,870 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,871 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,872 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,873 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,874 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,875 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,876 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,878 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,879 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,880 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,881 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,882 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,883 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,884 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,885 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,886 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,887 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,888 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,889 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,890 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,891 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,892 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,893 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,894 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,896 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,897 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,898 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,899 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,900 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,901 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,902 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,903 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,904 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,905 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,906 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,907 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,908 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,909 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,910 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,911 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,912 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,913 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,914 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,915 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,916 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,917 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,918 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,919 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,920 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,921 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,922 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,923 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,924 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,925 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,926 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,928 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,929 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,930 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,931 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,932 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,933 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,934 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,935 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,936 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,937 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,938 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,939 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,940 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,941 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,942 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,943 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,944 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,945 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,946 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,947 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,948 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,949 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,950 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,951 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,952 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,953 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,954 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,956 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,957 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,958 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,959 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,960 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,961 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:28,962 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,963 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,964 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,965 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,966 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,967 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,968 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,969 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,970 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,971 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,972 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,973 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,974 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,976 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,977 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,978 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,979 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,980 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,981 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,982 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,983 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,984 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,985 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,986 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,988 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,989 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,990 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,991 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,992 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,993 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,994 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,995 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:28,996 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:28,997 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:28,998 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:28,999 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,000 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,001 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,002 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,004 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,005 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,006 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,007 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,008 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,009 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,010 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,011 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,012 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,013 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,014 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,015 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,016 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,017 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,018 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,019 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,020 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,022 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,023 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,024 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,025 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,026 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,027 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,028 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,029 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,030 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,031 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,032 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,033 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,034 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,035 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,036 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,037 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,038 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,039 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,040 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,041 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,042 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,044 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,044 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,045 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,046 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,047 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,048 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,049 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,050 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,052 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,053 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,054 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,055 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,056 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,057 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,058 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,059 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,060 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,061 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,063 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,064 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,065 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,066 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,067 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,068 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,069 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,070 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,071 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,072 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,073 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,074 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,075 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,076 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,077 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,078 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,079 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,080 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,081 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,082 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,083 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,084 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,086 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,087 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,088 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,089 - __main__ - INFO - 📈 Momentum strategy: 0 stocks selected
+2025-08-20 21:15:29,090 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,091 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,092 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,093 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,094 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,095 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,096 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,097 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,098 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,099 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,100 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,101 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,103 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,104 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,105 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,106 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,107 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,108 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,109 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,110 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,111 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,113 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,114 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,115 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,116 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,117 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,118 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,119 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,120 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,121 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,122 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,124 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,125 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,126 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,127 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,128 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,129 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,130 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,131 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,132 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,133 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,134 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,135 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,137 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,138 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,139 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,140 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,141 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,142 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,143 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,144 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,145 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,146 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,147 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,148 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,149 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,150 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,151 - __main__ - INFO - 📈 Momentum strategy: 1 stocks selected
+2025-08-20 21:15:29,152 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,154 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,155 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,156 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,157 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,158 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,159 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,160 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,161 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,162 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,163 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,164 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,165 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,166 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,167 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,168 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,170 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,171 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,172 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,173 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,174 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,175 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,176 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,177 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,178 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,179 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,180 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,181 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,182 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,183 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,184 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,186 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,187 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,188 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,189 - __main__ - INFO - 📈 Momentum strategy: 5 stocks selected
+2025-08-20 21:15:29,190 - __main__ - INFO - 📈 Momentum strategy: 4 stocks selected
+2025-08-20 21:15:29,191 - __main__ - INFO - 📈 Momentum strategy: 3 stocks selected
+2025-08-20 21:15:29,192 - __main__ - INFO - 📈 Momentum strategy: 2 stocks selected
+2025-08-20 21:15:29,197 - __main__ - INFO - ✅ Momentum Results:
+2025-08-20 21:15:29,197 - __main__ - INFO -    Total Return: -0.00%
+2025-08-20 21:15:29,197 - __main__ - INFO -    Annualized Return: -0.00%
+2025-08-20 21:15:29,197 - __main__ - INFO -    Sharpe Ratio: -30546386469625.50
+2025-08-20 21:15:29,197 - __main__ - INFO -    Max Drawdown: -0.00%
+2025-08-20 21:15:29,197 - __main__ - INFO -    Final Value: $100,000.00
+2025-08-20 21:15:29,197 - __main__ - INFO - 🎯 Running Mean_Reversion strategy...
+2025-08-20 21:15:29,199 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,200 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,201 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,202 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,203 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,205 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,206 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,207 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,208 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,209 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,210 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,212 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,213 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,214 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,215 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,216 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,217 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,218 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,220 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,221 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,222 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,223 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,224 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,226 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,227 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,228 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,229 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,231 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,232 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,233 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,234 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,235 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,237 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,238 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,239 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,240 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,241 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,242 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,243 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,245 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,246 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,247 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,248 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,249 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,250 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,251 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,253 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,254 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,255 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,256 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,257 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,258 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,259 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,261 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,262 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,263 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,264 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,265 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,266 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,268 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,269 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,270 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,271 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,272 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,273 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,275 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,276 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,277 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,278 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,279 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,281 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,282 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,283 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,284 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,285 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,286 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,288 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,289 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,290 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,291 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,292 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,293 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,295 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,296 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,297 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,298 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,299 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,300 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,301 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,303 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,304 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,305 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,306 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,307 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,308 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,310 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,311 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,312 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,313 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,314 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,316 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,317 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,318 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,319 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,320 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,321 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,322 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,323 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,325 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,326 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,327 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,328 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,330 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,331 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,332 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,333 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,334 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,335 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,337 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,338 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,339 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,340 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,341 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,342 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,344 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,345 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,346 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,347 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,348 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,349 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,351 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,352 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,353 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,354 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,355 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,356 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,358 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,359 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,360 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,361 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,362 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,364 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,365 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,366 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,367 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,368 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,369 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,371 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,372 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,373 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,374 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,375 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,376 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,378 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,379 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,380 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,381 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,382 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,383 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,384 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,386 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,387 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,388 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,389 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,390 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,391 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,393 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,394 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,395 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,396 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,397 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,399 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,400 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,401 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,402 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,403 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,404 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,406 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,407 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,408 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,409 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,410 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,411 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,412 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,414 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,415 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,416 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,417 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,418 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,420 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,421 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,422 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,423 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,424 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,425 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,427 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,428 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,429 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,430 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,431 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,432 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,434 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,435 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,436 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,437 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,438 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,439 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,441 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,442 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,443 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,444 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,445 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,447 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,448 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,449 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,450 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,451 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,452 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,454 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,455 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,456 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,458 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,459 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,460 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,461 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,463 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,464 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,465 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,466 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,467 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,468 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,470 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,471 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,472 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,473 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,474 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,475 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,476 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,477 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,479 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,480 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,481 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,482 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,484 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,485 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,486 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,487 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,488 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,490 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,491 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,492 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,493 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,494 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,496 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,497 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,498 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,499 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,500 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,501 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,503 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,504 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,505 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,506 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,507 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,509 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,510 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,511 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,512 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,513 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,515 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,516 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,517 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,518 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,519 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,521 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,522 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,523 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,524 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,525 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,526 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,528 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,529 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,530 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,531 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,532 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,533 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,535 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,536 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,537 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,538 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,539 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,541 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,542 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,543 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,544 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,546 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,547 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,548 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,549 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,550 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,551 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,553 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,554 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,555 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,556 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,557 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,558 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,560 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,561 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,562 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,563 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,564 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,566 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,567 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,568 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,569 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,571 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,572 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,573 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,574 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,575 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,577 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,578 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,579 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,580 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,581 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,583 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,584 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,585 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,586 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,588 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,589 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,590 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,591 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,592 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,593 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,595 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,596 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,597 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,598 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,600 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,601 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,602 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,603 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,604 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,606 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,607 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,608 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,609 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,610 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,612 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,613 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,614 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,615 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,616 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,617 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,619 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,620 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,621 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,622 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,623 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,625 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,626 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,627 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,628 - __main__ - INFO - 📉 Mean reversion strategy: 1 stocks selected
+2025-08-20 21:15:29,629 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,631 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,632 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,633 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,634 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,635 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,637 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,638 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,639 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,641 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,642 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,643 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,644 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,645 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,647 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,648 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,649 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,650 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,651 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,653 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,654 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,655 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,656 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,658 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,659 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,660 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,661 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,663 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,664 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,665 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,666 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,668 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,669 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,670 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,671 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,673 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,674 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,675 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,676 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,677 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,679 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,680 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,681 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,682 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,683 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,684 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,685 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,687 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,688 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,689 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,690 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,692 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,693 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,694 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,695 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,697 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,698 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,699 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,700 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,701 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,703 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,704 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,705 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,706 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,708 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,709 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,710 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,712 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,713 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,714 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,715 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,717 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,718 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,719 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,720 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,722 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,722 - __main__ - INFO - 📉 Mean reversion strategy: 0 stocks selected
+2025-08-20 21:15:29,723 - __main__ - INFO - ✅ Mean_Reversion Results:
+2025-08-20 21:15:29,723 - __main__ - INFO -    Total Return: 0.00%
+2025-08-20 21:15:29,723 - __main__ - INFO -    Annualized Return: 0.00%
+2025-08-20 21:15:29,723 - __main__ - INFO -    Sharpe Ratio: 0.00
+2025-08-20 21:15:29,723 - __main__ - INFO -    Max Drawdown: 0.00%
+2025-08-20 21:15:29,723 - __main__ - INFO -    Final Value: $100,000.00
+2025-08-20 21:15:29,723 - __main__ - INFO - 
+============================================================
+2025-08-20 21:15:29,723 - __main__ - INFO - 🏆 STRATEGY COMPARISON
+2025-08-20 21:15:29,723 - __main__ - INFO - ============================================================
+2025-08-20 21:15:29,724 - __main__ - INFO - 🏆 Best Strategy: Mean_Reversion
+2025-08-20 21:15:29,724 - __main__ - INFO -    Sharpe Ratio: 0.00
+2025-08-20 21:15:29,724 - __main__ - INFO -    Total Return: 0.00%
+2025-08-20 21:15:29,724 - __main__ - INFO -    Max Drawdown: 0.00%
+2025-08-20 21:15:29,726 - __main__ - INFO - 
+📁 Results saved to: simple_backtest_results
+2025-08-20 21:15:29,726 - __main__ - INFO - ✅ Simple real backtest completed successfully!

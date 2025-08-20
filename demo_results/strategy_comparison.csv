@@ -1,0 +1,4 @@
+strategy,total_return,annualized_return,sharpe_ratio,max_drawdown,volatility,win_rate,profit_factor,total_trades,total_costs
+Momentum,0,0,0,0,0,0,0,0,0.0
+Mean Reversion,0,0,0,0,0,0,0,0,0.0
+Equal Weight,0,0,0,0,0,0,0,0,0.0

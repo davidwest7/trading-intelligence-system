@@ -1,0 +1,42 @@
+{
+  "components_loaded": 17,
+  "components_available": [
+    "technical_agent",
+    "sentiment_agent",
+    "flow_agent",
+    "causal_agent",
+    "macro_agent",
+    "moneyflows_agent",
+    "insider_agent",
+    "hedging_agent",
+    "learning_agent",
+    "undervalued_agent",
+    "top_performers_agent",
+    "meta_weighter",
+    "BlendedSignal",
+    "AgentSignal",
+    "opportunity_builder",
+    "top_k_selector",
+    "Opportunity"
+  ],
+  "agents_loaded": 11,
+  "agents_available": [
+    "technical",
+    "sentiment",
+    "flow",
+    "causal",
+    "macro",
+    "moneyflows",
+    "insider",
+    "hedging",
+    "learning",
+    "undervalued",
+    "top_performers"
+  ],
+  "backtest_date": "2025-08-20T21:48:27.769105",
+  "performance_summary": {
+    "total_return": 0.8890730362613132,
+    "sharpe_ratio": 2.5348943456292194,
+    "max_drawdown": -0.14245537167997782
+  }
+}

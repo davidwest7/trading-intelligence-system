@@ -1,0 +1,3 @@
+strategy,total_return,annualized_return,sharpe_ratio,max_drawdown,final_value
+Momentum,-1.4551915228366853e-16,-8.315380130495344e-17,-30546386469625.504,-1.1102230246251565e-16,99999.99999999999
+Mean_Reversion,0.0,0.0,0.0,0.0,100000.0

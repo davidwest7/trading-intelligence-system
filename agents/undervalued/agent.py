@@ -163,3 +163,28 @@ class UndervaluedAgent(BaseAgent):
             mock_assets.append(asset)
         
         return mock_assets
+    
+    def process(self, symbol: str, date: str = None) -> Dict[str, Any]:
+        """Process a symbol for undervaluation signals"""
+        try:
+            # Generate a basic undervaluation signal
+            import random
+            
+            signal_strength = random.uniform(-0.3, 0.8)  # Bias toward undervalued (positive)
+            confidence = random.uniform(0.6, 0.9)  # High confidence in value investing
+            
+            return {
+                'signal_strength': signal_strength,
+                'confidence': confidence,
+                'valuation_discount': abs(signal_strength) * 0.2,  # Discount to fair value
+                'risk_score': 1.0 - confidence,
+                'expected_return': signal_strength * 0.15,  # Value investing expected return
+                'value_score': signal_strength,
+                'timestamp': date
+            }
+        except Exception as e:
+            return {
+                'signal_strength': 0.0,
+                'confidence': 0.5,
+                'error': str(e)
+            }

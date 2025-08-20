@@ -1,2 +1,173 @@
-env_real_keys.env
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.key
+*.pem
+secrets/
+config/secrets.yaml
+
+# API keys and credentials
+api_keys.txt
+credentials.json
+polygon_api_key.txt
+
+# Data files and storage
+data/
+real_data/
+backtest_data/
+*.parquet
+*.csv
+*.json
+*.pickle
+*.pkl
+*.h5
+*.hdf5
+*.db
+*.sqlite
+
+# Results and outputs
+results/
+backtest_results/
+comprehensive_architecture_results/
+demo_results/
+simple_backtest_results/
+full_architecture_results/
+*.log
+*.out
+
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Documentation
+docs/_build/
+site/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Trading specific
+portfolio_state.json
+trading_logs/
+execution_logs/
+risk_reports/
+performance_reports/
+
+# Machine learning models
+models/
+*.model
+*.joblib
+*.pkl
+*.h5
+*.onnx
+*.pb
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache directories
+.cache/
+cache/
+__pycache__/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large files
+*.bin
+*.dat
+*.dump
+
+# Sensitive configuration
+config/local.yaml
+config/production.yaml
+config/staging.yaml

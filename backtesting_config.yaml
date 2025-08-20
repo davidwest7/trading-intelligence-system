@@ -1,0 +1,230 @@
+# Backtesting System Configuration
+# ================================
+
+# Data Configuration
+data:
+  # Polygon API settings
+  polygon:
+    api_key: "${POLYGON_API_KEY}"  # Set via environment variable
+    rate_limit_delay: 0.1  # seconds between API calls
+    max_retries: 8
+    timeout: 30
+  
+  # S3 Storage settings (optional)
+  s3:
+    bucket: "${S3_BUCKET}"  # Set via environment variable
+    prefix: "polygon"
+    region: "us-east-1"
+  
+  # Data timeframes to use
+  timeframes: ["1m", "5m", "1h", "1d"]
+  
+  # Universe configuration
+  universe:
+    symbols: ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "NFLX", "SPY", "QQQ"]
+    start_date: "2022-01-01"
+    end_date: "2025-01-01"
+    benchmark: "SPY"
+
+# Backtest Configuration
+backtest:
+  # Portfolio settings
+  initial_capital: 1000000.0
+  rebalance_frequency: "1w"  # 1d, 1w, 1m
+  
+  # Risk management
+  max_drawdown: 0.15
+  stop_loss: 0.10
+  max_gross_exposure: 1.0
+  max_per_name: 0.1
+  
+  # Performance tracking
+  benchmark_symbol: "SPY"
+  risk_free_rate: 0.02
+
+# Execution Configuration
+execution:
+  # Transaction costs (in basis points)
+  entry_bps: 1.5
+  exit_bps: 1.5
+  slippage_bps: 1.0
+  
+  # Market impact model
+  impact_model: "sqrt"  # sqrt, linear, square
+  alpha: 0.5
+  
+  # Impact parameters by liquidity bucket
+  k_by_bucket:
+    mega: 0.05
+    large: 0.08
+    mid: 0.12
+    small: 0.20
+  
+  # Volume constraints
+  max_participation: 0.1  # 10% of bar volume
+  
+  # Risk controls
+  max_gross: 1.0
+  max_per_name: 0.1
+  dd_kill_switch: 0.15
+
+# Strategy Configuration
+strategies:
+  momentum:
+    enabled: true
+    lookback_days: 20
+    top_n: 5
+    rebalance_frequency: "1w"
+  
+  mean_reversion:
+    enabled: true
+    lookback_days: 60
+    z_score_threshold: -0.5
+    rebalance_frequency: "1w"
+  
+  equal_weight:
+    enabled: true
+    rebalance_frequency: "1w"
+
+# Performance Analysis
+analysis:
+  # Metrics to calculate
+  metrics:
+    - total_return
+    - annualized_return
+    - sharpe_ratio
+    - sortino_ratio
+    - max_drawdown
+    - calmar_ratio
+    - var_95
+    - cvar_95
+    - win_rate
+    - profit_factor
+    - information_ratio
+    - beta
+    - alpha
+    - tracking_error
+  
+  # Rolling window for metrics
+  rolling_window: 252  # 1 year
+  
+  # Confidence levels for VaR/CVaR
+  var_confidence: 0.95
+  cvar_confidence: 0.95
+
+# Error Handling and Retries
+error_handling:
+  max_retries: 3
+  retry_delay: 2  # seconds
+  exponential_backoff: true
+  
+  # Components with specific retry settings
+  components:
+    data_loading:
+      max_retries: 5
+      retry_delay: 1
+    
+    execution:
+      max_retries: 3
+      retry_delay: 0.5
+    
+    strategy:
+      max_retries: 2
+      retry_delay: 0.1
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "backtest.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Component-specific logging
+  components:
+    data_ingestion: "INFO"
+    execution: "INFO"
+    strategy: "DEBUG"
+    metrics: "INFO"
+
+# Output Configuration
+output:
+  # Results directory
+  results_dir: "backtest_results"
+  
+  # File formats
+  formats:
+    - "json"
+    - "csv"
+    - "txt"
+  
+  # Save intermediate results
+  save_intermediate: true
+  
+  # Generate plots
+  generate_plots: true
+  
+  # Report types
+  reports:
+    - "performance_summary"
+    - "risk_analysis"
+    - "execution_analysis"
+    - "strategy_comparison"
+    - "tearsheet"
+
+# Walk-Forward Analysis
+walk_forward:
+  enabled: false
+  train_period: 252  # 1 year
+  test_period: 63   # 3 months
+  step_size: 21     # 1 month
+  
+  # Purged and embargoed settings
+  purge_period: 5   # days to purge
+  embargo_period: 5 # days to embargo
+
+# Monte Carlo Simulation
+monte_carlo:
+  enabled: false
+  n_simulations: 1000
+  confidence_level: 0.95
+  
+  # Parameters to vary
+  parameters:
+    - "entry_bps"
+    - "exit_bps"
+    - "slippage_bps"
+    - "max_participation"
+
+# Data Quality Checks
+data_quality:
+  enabled: true
+  
+  # Validation rules
+  validation:
+    check_missing_data: true
+    check_price_anomalies: true
+    check_volume_anomalies: true
+    check_corporate_actions: true
+  
+  # Thresholds
+  thresholds:
+    max_missing_pct: 0.05  # 5%
+    price_change_threshold: 0.5  # 50%
+    volume_threshold: 10.0  # 10x average
+
+# Performance Optimization
+optimization:
+  # Parallel processing
+  parallel:
+    enabled: true
+    max_workers: 4
+  
+  # Caching
+  caching:
+    enabled: true
+    cache_dir: ".cache"
+    max_cache_size: "1GB"
+  
+  # Memory management
+  memory:
+    chunk_size: 1000
+    use_dask: false

@@ -119,19 +119,48 @@ class MetaWeighter:
         
         logger.info("Meta-Weighter initialized with ensemble models and regime detection")
     
+    def blend_signals(self, signals: List[AgentSignal], 
+                     market_data: pd.DataFrame = None) -> List[BlendedSignal]:
+        """Main signal blending method - uses simple weighted average"""
+        try:
+            if not signals:
+                logger.warning("No signals provided for blending")
+                return []
+            
+            # Use simple blending for better reliability
+            return self.blend_signals_simple(signals, market_data or pd.DataFrame())
+            
+        except Exception as e:
+            logger.error(f"Error in main blend_signals: {e}")
+            return []
+    
     def detect_market_regime(self, market_data: pd.DataFrame) -> str:
         """Detect current market regime based on price action and volatility"""
         try:
-            if len(market_data) < 20:
+            if market_data is None or market_data.empty or len(market_data) < 20:
+                return 'normal'
+            
+            # Check if 'close' column exists
+            if 'close' not in market_data.columns:
                 return 'normal'
             
             # Calculate regime indicators
             returns = market_data['close'].pct_change().dropna()
+            if len(returns) < 20:
+                return 'normal'
+                
             volatility = returns.rolling(20).std()
             momentum = market_data['close'].pct_change(20)
             
+            if volatility.empty or momentum.empty:
+                return 'normal'
+            
             current_vol = volatility.iloc[-1]
             current_momentum = momentum.iloc[-1]
+            
+            # Check for NaN values
+            if pd.isna(current_vol) or pd.isna(current_momentum):
+                return 'normal'
             
             # Regime classification
             if current_momentum > self.regime_detection_threshold and current_vol < 0.02:
@@ -276,8 +305,10 @@ class MetaWeighter:
                     symbol_signals[signal.symbol] = []
                 symbol_signals[signal.symbol].append(signal)
             
-            # Detect regime
-            regime = self.detect_market_regime(market_data)
+            # Detect regime with proper DataFrame check
+            regime = 'normal'
+            if market_data is not None and not market_data.empty:
+                regime = self.detect_market_regime(market_data)
             regime_weights = self.regime_weights.get(regime, self.agent_weights)
             
             blended_signals = []
