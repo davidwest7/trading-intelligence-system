@@ -1,0 +1,156 @@
+{
+  "test_start_time": "2025-08-20T19:13:11.970558",
+  "test_duration": 0.372545,
+  "components_tested": [],
+  "results": {
+    "market_data": {
+      "symbols": 10,
+      "data_points": 510,
+      "date_range": "2025-07-01 19:13:12.225349 to 2025-08-20 19:13:12.225349"
+    },
+    "agent_signals": {
+      "total_signals": 60,
+      "agents_used": 12,
+      "signals_per_agent": 5.0
+    },
+    "coordination": {
+      "blended_signals": 5,
+      "selected_opportunities": 5,
+      "built_opportunities": 5,
+      "diversification_score": 0.3820790744546205,
+      "build_metrics": {
+        "total_opportunities": 5,
+        "valid_opportunities": 5,
+        "validation_rate": 1.0,
+        "avg_signal_strength": -0.013034560811191342,
+        "avg_confidence": 0.95,
+        "avg_expected_return": 0.01849999780042,
+        "avg_sharpe_ratio": 0.6166665933473334,
+        "total_cost": 0.01649687865615133,
+        "total_value": 10.9979,
+        "cost_ratio": 0.0015000026056020996
+      }
+    },
+    "risk_management": {
+      "sized_positions": 5,
+      "total_cvar": 0.03427065153983547,
+      "total_hedge_cost": 0.0,
+      "avg_position_size": 0.004,
+      "constraints_satisfied": 2
+    },
+    "execution": {
+      "executed_orders": 3,
+      "total_cost": 0.00993826495173827,
+      "total_value": 29531.97,
+      "success_rate": 1.0,
+      "orders": [
+        {
+          "symbol": "MSFT",
+          "action": "HOLD",
+          "quantity": 39,
+          "price": 251.69,
+          "total_value": 9815.91,
+          "cost": 0.0037753563347856104,
+          "timestamp": "2025-08-20T19:13:12.295005"
+        },
+        {
+          "symbol": "AAPL",
+          "action": "HOLD",
+          "quantity": 42,
+          "price": 235.15,
+          "total_value": 9876.300000000001,
+          "cost": 0.0035272555295522505,
+          "timestamp": "2025-08-20T19:13:12.295024"
+        },
+        {
+          "symbol": "TSLA",
+          "action": "HOLD",
+          "quantity": 56,
+          "price": 175.71,
+          "total_value": 9839.76,
+          "cost": 0.00263565308740041,
+          "timestamp": "2025-08-20T19:13:12.295036"
+        }
+      ],
+      "execution_details": [
+        {
+          "symbol": "MSFT",
+          "action": "HOLD",
+          "quantity": 39,
+          "price": 251.69,
+          "total_value": 9815.91,
+          "cost": 0.0037753563347856104,
+          "status": "executed",
+          "timestamp": "2025-08-20 19:13:12.295002",
+          "confidence": 0.95,
+          "expected_return": 0.02,
+          "risk_score": 0.03
+        },
+        {
+          "symbol": "AAPL",
+          "action": "HOLD",
+          "quantity": 42,
+          "price": 235.15,
+          "total_value": 9876.300000000001,
+          "cost": 0.0035272555295522505,
+          "status": "executed",
+          "timestamp": "2025-08-20 19:13:12.295022",
+          "confidence": 0.95,
+          "expected_return": 0.02,
+          "risk_score": 0.03
+        },
+        {
+          "symbol": "TSLA",
+          "action": "HOLD",
+          "quantity": 56,
+          "price": 175.71,
+          "total_value": 9839.76,
+          "cost": 0.00263565308740041,
+          "status": "executed",
+          "timestamp": "2025-08-20 19:13:12.295035",
+          "confidence": 0.95,
+          "expected_return": 0.02,
+          "risk_score": 0.03
+        }
+      ]
+    },
+    "governance_monitoring": {
+      "governance_checks": 15,
+      "governance_passed": 14,
+      "governance_compliance_rate": 0.9333333333333333,
+      "drift_alerts": 1,
+      "post_execution_checks": {
+        "position_size_MSFT": {
+          "status": "PASSED",
+          "message": "Position size 0.010 within limits"
+        },
+        "position_size_AAPL": {
+          "status": "PASSED",
+          "message": "Position size 0.010 within limits"
+        },
+        "position_size_TSLA": {
+          "status": "PASSED",
+          "message": "Position size 0.010 within limits"
+        }
+      },
+      "governance_config": {
+        "max_position_size": 0.1,
+        "max_portfolio_risk": 0.15,
+        "min_sharpe_ratio": 0.5,
+        "max_drawdown": 0.2,
+        "min_liquidity": 1000000,
+        "max_sector_exposure": 0.25,
+        "max_agent_exposure": 0.2
+      }
+    }
+  },
+  "summary": {
+    "overall_status": "PASSED",
+    "components_tested": 6,
+    "total_signals_generated": 60,
+    "coordination_success": true,
+    "risk_management_success": true,
+    "execution_success": true,
+    "governance_success": true
+  }
+}

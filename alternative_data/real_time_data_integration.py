@@ -44,6 +44,8 @@ class RealTimeAlternativeData:
         self.consumer_data = {}
         self.is_running = False
         self.data_queue = Queue(maxsize=10000)
+        self._shutdown_event = threading.Event()
+        self._cleanup_handlers = []
         
     async def initialize(self):
         """Initialize alternative data sources"""
@@ -120,12 +122,16 @@ class RealTimeAlternativeData:
     
     def _collect_news_data(self):
         """Collect real-time news data"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 # Simulate news data collection
                 articles = self._simulate_news_articles()
                 
                 for article in articles:
+                    # Check for shutdown
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                        
                     # Analyze sentiment
                     sentiment_score = self._analyze_news_sentiment(article['title'] + ' ' + article['content'])
                     
@@ -159,20 +165,28 @@ class RealTimeAlternativeData:
                     if article['timestamp'] > cutoff_time
                 ]
                 
-                time.sleep(self.config['update_frequency'])
+                # Use shorter sleep with shutdown check
+                for _ in range(min(self.config['update_frequency'], 60)):  # Max 60 seconds
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                    time.sleep(1)
                 
             except Exception as e:
                 print(f"Error collecting news data: {e}")
-                time.sleep(self.config['update_frequency'])
+                time.sleep(1)
     
     def _collect_social_media_data(self):
         """Collect social media data"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 # Simulate social media data collection
                 social_posts = self._simulate_social_media_posts()
                 
                 for post in social_posts:
+                    # Check for shutdown
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                        
                     # Analyze sentiment
                     sentiment_score = self._analyze_social_sentiment(post['content'])
                     
@@ -210,20 +224,28 @@ class RealTimeAlternativeData:
                         if post['timestamp'] > cutoff_time
                     ]
                 
-                time.sleep(self.config['update_frequency'])
+                # Use shorter sleep with shutdown check
+                for _ in range(min(self.config['update_frequency'], 60)):  # Max 60 seconds
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                    time.sleep(1)
                 
             except Exception as e:
                 print(f"Error collecting social media data: {e}")
-                time.sleep(self.config['update_frequency'])
+                time.sleep(1)
     
     def _collect_economic_data(self):
         """Collect economic indicator data"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 # Simulate economic data collection
                 economic_indicators = self._simulate_economic_indicators()
                 
                 for indicator in economic_indicators:
+                    # Check for shutdown
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                        
                     self.economic_data['indicators'][indicator['name']] = {
                         'value': indicator['value'],
                         'previous': indicator['previous'],
@@ -249,20 +271,29 @@ class RealTimeAlternativeData:
                     if release['timestamp'] > cutoff_time
                 ]
                 
-                time.sleep(self.config['update_frequency'] * 5)  # Less frequent updates
+                # Use shorter sleep with shutdown check
+                sleep_time = min(self.config['update_frequency'] * 5, 300)  # Max 5 minutes
+                for _ in range(sleep_time):
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                    time.sleep(1)
                 
             except Exception as e:
                 print(f"Error collecting economic data: {e}")
-                time.sleep(self.config['update_frequency'] * 5)
+                time.sleep(1)
     
     def _collect_geopolitical_events(self):
         """Collect geopolitical events"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 # Simulate geopolitical events
                 events = self._simulate_geopolitical_events()
                 
                 for event in events:
+                    # Check for shutdown
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                        
                     event_data = {
                         'title': event['title'],
                         'description': event['description'],
@@ -281,20 +312,29 @@ class RealTimeAlternativeData:
                     if event['timestamp'] > cutoff_time
                 ]
                 
-                time.sleep(self.config['update_frequency'] * 10)  # Less frequent updates
+                # Use shorter sleep with shutdown check
+                sleep_time = min(self.config['update_frequency'] * 10, 600)  # Max 10 minutes
+                for _ in range(sleep_time):
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                    time.sleep(1)
                 
             except Exception as e:
                 print(f"Error collecting geopolitical events: {e}")
-                time.sleep(self.config['update_frequency'] * 10)
+                time.sleep(1)
     
     def _collect_consumer_data(self):
         """Collect consumer behavior data"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 # Simulate consumer data collection
                 consumer_data = self._simulate_consumer_data()
                 
                 for data_point in consumer_data:
+                    # Check for shutdown
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                        
                     category = data_point['category']
                     if category not in self.consumer_data['spending_patterns']:
                         self.consumer_data['spending_patterns'][category] = []
@@ -305,11 +345,16 @@ class RealTimeAlternativeData:
                         'timestamp': datetime.now()
                     })
                 
-                time.sleep(self.config['update_frequency'] * 15)  # Less frequent updates
+                # Use shorter sleep with shutdown check
+                sleep_time = min(self.config['update_frequency'] * 15, 900)  # Max 15 minutes
+                for _ in range(sleep_time):
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                    time.sleep(1)
                 
             except Exception as e:
                 print(f"Error collecting consumer data: {e}")
-                time.sleep(self.config['update_frequency'] * 15)
+                time.sleep(1)
     
     def _simulate_news_articles(self):
         """Simulate news articles"""
@@ -679,6 +724,8 @@ class RealTimeAlternativeData:
     def stop(self):
         """Stop data collection"""
         self.is_running = False
+        if hasattr(self, '_shutdown_event'):
+            self._shutdown_event.set()
         print("🛑 Alternative Data Integration stopped")
     
     def get_data_summary(self):

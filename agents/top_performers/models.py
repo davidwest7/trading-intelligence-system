@@ -37,6 +37,43 @@ class SectorRotationType(str, Enum):
     SMALL_TO_LARGE = "small_to_large"
 
 
+class AssetClass(str, Enum):
+    EQUITIES = "equities"
+    FIXED_INCOME = "fixed_income"
+    COMMODITIES = "commodities"
+    CURRENCIES = "currencies"
+    CRYPTO = "crypto"
+    REAL_ESTATE = "real_estate"
+
+
+@dataclass 
+class PerformanceMetrics:
+    """Performance metrics container"""
+    total_return: float
+    annualized_return: float
+    volatility: float
+    sharpe_ratio: float
+    max_drawdown: float
+    calmar_ratio: float
+    sortino_ratio: float
+    alpha: float
+    beta: float
+    information_ratio: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "total_return": self.total_return,
+            "annualized_return": self.annualized_return,
+            "volatility": self.volatility,
+            "sharpe_ratio": self.sharpe_ratio,
+            "max_drawdown": self.max_drawdown,
+            "calmar_ratio": self.calmar_ratio,
+            "sortino_ratio": self.sortino_ratio,
+            "alpha": self.alpha,
+            "beta": self.beta,
+            "information_ratio": self.information_ratio
+        }
+
 @dataclass
 class PerformanceData:
     """Individual performance data point"""
@@ -65,6 +102,32 @@ class PerformanceData:
             "max_drawdown": self.max_drawdown
         }
 
+
+@dataclass
+class MomentumIndicators:
+    """Momentum indicators for an asset"""
+    ticker: str
+    timestamp: datetime
+    rsi: float
+    macd: float
+    macd_signal: float
+    momentum_1m: float
+    momentum_3m: float
+    momentum_6m: float
+    trend_strength: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "ticker": self.ticker,
+            "timestamp": self.timestamp.isoformat(),
+            "rsi": self.rsi,
+            "macd": self.macd,
+            "macd_signal": self.macd_signal,
+            "momentum_1m": self.momentum_1m,
+            "momentum_3m": self.momentum_3m,
+            "momentum_6m": self.momentum_6m,
+            "trend_strength": self.trend_strength
+        }
 
 @dataclass
 class MomentumScore:
@@ -103,6 +166,28 @@ class MomentumScore:
             "momentum_acceleration": self.momentum_acceleration
         }
 
+
+@dataclass
+class VolumeProfile:
+    """Volume profile for an asset"""
+    ticker: str
+    timestamp: datetime
+    avg_daily_volume: float
+    volume_trend: str
+    relative_volume: float
+    volume_momentum: float
+    dollar_volume: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "ticker": self.ticker,
+            "timestamp": self.timestamp.isoformat(),
+            "avg_daily_volume": self.avg_daily_volume,
+            "volume_trend": self.volume_trend,
+            "relative_volume": self.relative_volume,
+            "volume_momentum": self.volume_momentum,
+            "dollar_volume": self.dollar_volume
+        }
 
 @dataclass
 class SectorPerformance:
@@ -193,6 +278,26 @@ class PerformanceAttribution:
             "idiosyncratic_risk": self.idiosyncratic_risk
         }
 
+
+@dataclass
+class PerformanceRanking:
+    """Performance ranking for a specific ticker"""
+    ticker: str
+    rank: int
+    percentile: float
+    score: float
+    ranking_metric: str
+    timestamp: datetime
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "ticker": self.ticker,
+            "rank": self.rank,
+            "percentile": self.percentile,
+            "score": self.score,
+            "ranking_metric": self.ranking_metric,
+            "timestamp": self.timestamp.isoformat()
+        }
 
 @dataclass
 class TopPerformersAnalysis:

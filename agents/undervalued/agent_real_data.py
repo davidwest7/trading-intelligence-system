@@ -12,16 +12,95 @@ import time
 sys.path.append('.')
 from common.models import BaseAgent
 from common.data_adapters.polygon_adapter import PolygonAdapter
+from schemas.contracts import Signal, SignalType, DirectionType, HorizonType
 
 class RealDataUndervaluedAgent(BaseAgent):
     """Undervalued Agent with real market data from Polygon.io"""
     
     def __init__(self, config: Dict[str, Any]):
-        super().__init__("RealDataUndervaluedAgent", config)
+        super().__init__("RealDataUndervaluedAgent", SignalType.UNDERVALUED, config)
         self.polygon_adapter = PolygonAdapter(config)
         self.cache = {}
         self.cache_ttl = 300  # 5 minutes
         
+    async def generate_signals(self, symbols: List[str], **kwargs) -> List[Signal]:
+        """Generate undervalued signals for given symbols"""
+        try:
+            # Analyze undervalued stocks
+            analysis_result = await self.analyze_undervalued_stocks(symbols, **kwargs)
+            
+            signals = []
+            for symbol in symbols:
+                if symbol in analysis_result.get('value_analysis', {}):
+                    value_data = analysis_result['value_analysis'][symbol]
+                    
+                    # Calculate signal strength based on value metrics
+                    signal_strength = self._calculate_value_signal_strength(value_data)
+                    confidence = self._calculate_signal_confidence(value_data)
+                    
+                    # Determine direction based on value metrics
+                    direction = DirectionType.BUY if signal_strength > 0 else DirectionType.SELL
+                    
+                    # Create signal
+                    signal = Signal(
+                        symbol=symbol,
+                        signal_type=SignalType.UNDERVALUED,
+                        direction=direction,
+                        strength=abs(signal_strength),
+                        confidence=confidence,
+                        horizon=HorizonType.MEDIUM_TERM,
+                        timestamp=datetime.now(),
+                        metadata={
+                            'pe_ratio': value_data.get('pe_ratio', 0),
+                            'pb_ratio': value_data.get('pb_ratio', 0),
+                            'market_cap': value_data.get('market_cap', 0),
+                            'value_score': value_data.get('value_score', 0)
+                        }
+                    )
+                    signals.append(signal)
+            
+            return signals
+            
+        except Exception as e:
+            print(f"❌ Error generating undervalued signals: {e}")
+            return []
+    
+    def _calculate_value_signal_strength(self, value_data: Dict[str, Any]) -> float:
+        """Calculate signal strength based on value metrics"""
+        try:
+            pe_ratio = value_data.get('pe_ratio', 0)
+            pb_ratio = value_data.get('pb_ratio', 0)
+            value_score = value_data.get('value_score', 0)
+            
+            # Normalize metrics
+            pe_score = max(0, (20 - pe_ratio) / 20) if pe_ratio > 0 else 0  # Lower PE is better
+            pb_score = max(0, (3 - pb_ratio) / 3) if pb_ratio > 0 else 0    # Lower PB is better
+            
+            # Combined signal strength
+            signal_strength = (pe_score * 0.4 + pb_score * 0.3 + value_score * 0.3)
+            
+            return min(1.0, max(-1.0, signal_strength))
+            
+        except Exception as e:
+            print(f"Error calculating value signal strength: {e}")
+            return 0.0
+    
+    def _calculate_signal_confidence(self, value_data: Dict[str, Any]) -> float:
+        """Calculate signal confidence based on data quality"""
+        try:
+            # Check if we have all required data
+            required_fields = ['pe_ratio', 'pb_ratio', 'market_cap', 'revenue']
+            data_completeness = sum(1 for field in required_fields if value_data.get(field, 0) > 0) / len(required_fields)
+            
+            # Base confidence on data completeness
+            confidence = data_completeness * 0.8 + 0.2  # Minimum 20% confidence
+            
+            return min(1.0, confidence)
+            
+        except Exception as e:
+            print(f"Error calculating signal confidence: {e}")
+            return 0.5
+    
     async def process(self, *args, **kwargs) -> Dict[str, Any]:
         """Main processing method (required by BaseAgent)"""
         tickers = kwargs.get('tickers', args[0] if args else ['AAPL', 'TSLA', 'MSFT', 'GOOGL'])

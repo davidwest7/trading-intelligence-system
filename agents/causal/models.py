@@ -108,6 +108,28 @@ class EventStudyResult:
 
 
 @dataclass
+class ImpactMeasurement:
+    """Impact measurement for causal analysis"""
+    ticker: str
+    event_id: str
+    impact_value: float
+    confidence_level: float
+    measurement_date: datetime
+    impact_type: str
+    statistical_significance: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "ticker": self.ticker,
+            "event_id": self.event_id,
+            "impact_value": self.impact_value,
+            "confidence_level": self.confidence_level,
+            "measurement_date": self.measurement_date.isoformat(),
+            "impact_type": self.impact_type,
+            "statistical_significance": self.statistical_significance
+        }
+
+@dataclass
 class CausalAnalysis:
     """Complete causal impact analysis"""
     ticker: str

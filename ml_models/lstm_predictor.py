@@ -463,14 +463,14 @@ class LSTMPredictor:
         if not self.is_trained:
             return {'success': False, 'error': 'Model not trained'}
         
-                    return {
-                'success': True,
-                'symbol': self.symbol,
-                'asset_class': self.asset_class,
-                'is_trained': self.is_trained,
-                'config': self.config,
-                'model_params': self.model.count_params() if self.model else 0
-            }
+        return {
+            'success': True,
+            'symbol': self.symbol,
+            'asset_class': self.asset_class,
+            'is_trained': self.is_trained,
+            'config': self.config,
+            'model_params': self.model.count_params() if self.model else 0
+        }
     
     def _train_sklearn_fallback(self, X_train, y_train, X_test, y_test, symbol, asset_class):
         """Fallback to sklearn when TensorFlow fails."""

@@ -32,6 +32,8 @@ class LowLatencyExecution:
         self.execution_history = []
         self.latency_stats = []
         self.is_running = False
+        self._shutdown_event = threading.Event()
+        self._cleanup_handlers = []
         
     async def initialize(self):
         """Initialize low latency execution system"""
@@ -69,7 +71,7 @@ class LowLatencyExecution:
     
     def _process_orders(self):
         """Process orders with ultra-low latency"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 if not self.order_queue.empty():
                     order = self.order_queue.get_nowait()
@@ -90,7 +92,11 @@ class LowLatencyExecution:
                         'timestamp': datetime.now()
                     })
                 else:
-                    time.sleep(0.000001)  # 1 microsecond sleep
+                    # Use shorter sleep with shutdown check
+                    for _ in range(1000):  # 1 microsecond * 1000 = 1 millisecond
+                        if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                            break
+                        time.sleep(0.000001)
                     
             except Exception as e:
                 print(f"Error in order processing: {e}")
@@ -98,7 +104,7 @@ class LowLatencyExecution:
     
     def _process_market_data(self):
         """Process market data with ultra-low latency"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 if not self.market_data_queue.empty():
                     market_data = self.market_data_queue.get_nowait()
@@ -106,7 +112,11 @@ class LowLatencyExecution:
                     # Process market data for trading signals
                     self._analyze_market_data(market_data)
                 else:
-                    time.sleep(0.000001)  # 1 microsecond sleep
+                    # Use shorter sleep with shutdown check
+                    for _ in range(1000):  # 1 microsecond * 1000 = 1 millisecond
+                        if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                            break
+                        time.sleep(0.000001)
                     
             except Exception as e:
                 print(f"Error in market data processing: {e}")
@@ -114,11 +124,16 @@ class LowLatencyExecution:
     
     def _monitor_risk(self):
         """Monitor risk limits in real-time"""
-        while self.is_running:
+        while self.is_running and not getattr(self, '_shutdown_event', threading.Event()).is_set():
             try:
                 # Check risk limits
                 self._check_risk_limits()
-                time.sleep(0.001)  # 1 millisecond check interval
+                
+                # Use shorter sleep with shutdown check
+                for _ in range(1000):  # 1 millisecond check interval
+                    if not self.is_running or getattr(self, '_shutdown_event', threading.Event()).is_set():
+                        break
+                    time.sleep(0.001)
                 
             except Exception as e:
                 print(f"Error in risk monitoring: {e}")
@@ -216,4 +231,6 @@ class LowLatencyExecution:
     def stop(self):
         """Stop the HFT system"""
         self.is_running = False
+        if hasattr(self, '_shutdown_event'):
+            self._shutdown_event.set()
         print("🛑 Low Latency Execution System stopped")

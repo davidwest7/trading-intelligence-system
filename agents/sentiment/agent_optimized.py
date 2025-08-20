@@ -63,9 +63,9 @@ class OptimizedSentimentAgent(BaseAgent):
         
         # Data sources with connection pooling
         self.sources = {
-            'twitter': TwitterSource(),
-            'reddit': RedditSource(),
-            'news': NewsSource()
+            'twitter': TwitterSource(config or {}),
+            'reddit': RedditSource(config or {}),
+            'news': NewsSource(config or {})
         }
         
         # Configuration with defaults

@@ -18,6 +18,99 @@ from sklearn.ensemble import RandomForestRegressor
 import warnings
 warnings.filterwarnings('ignore')
 
+class ImpactModels:
+    """Wrapper class for Impact Models to match expected interface"""
+    
+    def __init__(self, config=None):
+        self.config = config or {
+            'default_model': 'almgren_chriss',
+            'venue_adjustments': True,
+            'latency_adjustments': True,
+            'calibration_frequency': 'daily'
+        }
+        
+        # Initialize impact parameters
+        self.parameters = ImpactParameters()
+        
+        # Initialize models
+        self.almgren_chriss = AlmgrenChrissModel(self.parameters)
+        self.kyle_model = KyleModel(self.parameters)
+        self.hasbrouck_model = HasbrouckModel(self.parameters)
+        
+    def predict_market_impact(self, quantity: float, time_horizon: float, 
+                            market_conditions: Dict[str, float], 
+                            model_type: str = 'almgren_chriss') -> Dict[str, Any]:
+        """Predict market impact using specified model"""
+        try:
+            if model_type == 'almgren_chriss':
+                model = self.almgren_chriss
+            elif model_type == 'kyle':
+                model = self.kyle_model
+            elif model_type == 'hasbrouck':
+                model = self.hasbrouck_model
+            else:
+                model = self.almgren_chriss
+            
+            prediction = model.predict_impact(quantity, time_horizon, market_conditions)
+            
+            return {
+                'success': True,
+                'model_type': model_type,
+                'total_impact': prediction.total_impact,
+                'temporary_impact': prediction.temporary_impact,
+                'permanent_impact': prediction.permanent_impact,
+                'confidence_interval': prediction.confidence_interval,
+                'timestamp': datetime.now()
+            }
+            
+        except Exception as e:
+            return {
+                'success': False,
+                'error': str(e),
+                'timestamp': datetime.now()
+            }
+    
+    def optimize_execution_schedule(self, total_quantity: float, total_time: float,
+                                  market_conditions: Dict[str, float],
+                                  model_type: str = 'almgren_chriss') -> Dict[str, Any]:
+        """Optimize execution schedule using specified model"""
+        try:
+            if model_type == 'almgren_chriss':
+                model = self.almgren_chriss
+            elif model_type == 'kyle':
+                model = self.kyle_model
+            elif model_type == 'hasbrouck':
+                model = self.hasbrouck_model
+            else:
+                model = self.almgren_chriss
+            
+            schedule = model.optimize_schedule(total_quantity, total_time, market_conditions)
+            
+            return {
+                'success': True,
+                'model_type': model_type,
+                'total_expected_cost': schedule.total_expected_cost,
+                'risk_penalty': schedule.risk_penalty,
+                'time_points': len(schedule.time_points),
+                'timestamp': datetime.now()
+            }
+            
+        except Exception as e:
+            return {
+                'success': False,
+                'error': str(e),
+                'timestamp': datetime.now()
+            }
+    
+    def get_model_info(self) -> Dict[str, Any]:
+        """Get information about available impact models"""
+        return {
+            'available_models': ['almgren_chriss', 'kyle', 'hasbrouck'],
+            'default_model': self.config['default_model'],
+            'venue_adjustments': self.config['venue_adjustments'],
+            'latency_adjustments': self.config['latency_adjustments'],
+            'calibration_frequency': self.config['calibration_frequency']
+        }
 
 @dataclass
 class ImpactParameters:

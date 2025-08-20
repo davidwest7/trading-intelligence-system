@@ -31,7 +31,7 @@ class FactorModel:
             'max_factor_exposure': 0.15,
             'confidence_level': 0.95
         }
-        self.risk_model = MultiFactorRiskModel(config)
+        self.risk_model = MultiFactorRiskModel()
     
     async def calculate_risk_metrics(self, portfolio_data):
         """Calculate risk metrics for portfolio"""
