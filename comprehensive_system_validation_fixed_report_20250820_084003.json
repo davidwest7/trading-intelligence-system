@@ -1,0 +1,515 @@
+{
+  "validation_date": "2025-08-20T08:40:03.107487",
+  "total_validation_time": 4.063507318496704,
+  "total_errors": 0,
+  "total_warnings": 1,
+  "agent_results": {
+    "causal": {
+      "agent_name": "causal",
+      "valid": true,
+      "files_found": 4,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "moneyflows": {
+      "agent_name": "moneyflows",
+      "valid": true,
+      "files_found": 4,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "learning": {
+      "agent_name": "learning",
+      "valid": true,
+      "files_found": 10,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "insider": {
+      "agent_name": "insider",
+      "valid": true,
+      "files_found": 4,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "hedging": {
+      "agent_name": "hedging",
+      "valid": true,
+      "files_found": 2,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "common": {
+      "agent_name": "common",
+      "valid": true,
+      "files_found": 1,
+      "main_agent_file": null,
+      "models_file": "models.py",
+      "import_success": false,
+      "class_discovery": false,
+      "methods_found": [],
+      "errors": [],
+      "warnings": [
+        "No main agent file identified"
+      ]
+    },
+    "macro": {
+      "agent_name": "macro",
+      "valid": true,
+      "files_found": 8,
+      "main_agent_file": "agent_complete.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "undervalued": {
+      "agent_name": "undervalued",
+      "valid": true,
+      "files_found": 5,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "sentiment": {
+      "agent_name": "sentiment",
+      "valid": true,
+      "files_found": 9,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "top_performers": {
+      "agent_name": "top_performers",
+      "valid": true,
+      "files_found": 4,
+      "main_agent_file": "agent.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "technical": {
+      "agent_name": "technical",
+      "valid": true,
+      "files_found": 15,
+      "main_agent_file": "agent_ultra_aggressive.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "find_opportunities"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "flow": {
+      "agent_name": "flow",
+      "valid": true,
+      "files_found": 10,
+      "main_agent_file": "agent_complete.py",
+      "models_file": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "get_status",
+        "process"
+      ],
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "adapter_results": {
+    "alpha_vantage_adapter": {
+      "adapter_name": "alpha_vantage_adapter",
+      "valid": true,
+      "filename": "alpha_vantage_adapter.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_company_overview",
+        "get_earnings",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "ibkr": {
+      "adapter_name": "ibkr",
+      "valid": true,
+      "filename": "ibkr.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "multi_asset_adapter": {
+      "adapter_name": "multi_asset_adapter",
+      "valid": true,
+      "filename": "multi_asset_adapter.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "fred_adapter": {
+      "adapter_name": "fred_adapter",
+      "valid": true,
+      "filename": "fred_adapter.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "yfinance_adapter_optimized": {
+      "adapter_name": "yfinance_adapter_optimized",
+      "valid": true,
+      "filename": "yfinance_adapter_optimized.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "polygon_adapter": {
+      "adapter_name": "polygon_adapter",
+      "valid": true,
+      "filename": "polygon_adapter.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "get_status"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "yfinance_adapter_fixed": {
+      "adapter_name": "yfinance_adapter_fixed",
+      "valid": true,
+      "filename": "yfinance_adapter_fixed.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "nasdaq_adapter": {
+      "adapter_name": "nasdaq_adapter",
+      "valid": true,
+      "filename": "nasdaq_adapter.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "yfinance_adapter": {
+      "adapter_name": "yfinance_adapter",
+      "valid": true,
+      "filename": "yfinance_adapter.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    },
+    "base": {
+      "adapter_name": "base",
+      "valid": true,
+      "filename": "base.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "connect",
+        "disconnect",
+        "get_ohlcv",
+        "get_quote",
+        "health_check"
+      ],
+      "api_key_required": false,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "system_components": {
+    "common_modules_unified_opportunity_scorer_enhanced": {
+      "component_name": "unified_opportunity_scorer_enhanced",
+      "valid": true,
+      "filename": "unified_opportunity_scorer_enhanced.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "common_modules_models": {
+      "component_name": "models",
+      "valid": true,
+      "filename": "models.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "common_modules_unified_opportunity_scorer_backup": {
+      "component_name": "unified_opportunity_scorer_backup",
+      "valid": true,
+      "filename": "unified_opportunity_scorer_backup.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "common_modules_unified_opportunity_scorer": {
+      "component_name": "unified_opportunity_scorer",
+      "valid": true,
+      "filename": "unified_opportunity_scorer.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "common_modules_opportunity_store": {
+      "component_name": "opportunity_store",
+      "valid": true,
+      "filename": "opportunity_store.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "evaluation_modules_risk_metrics": {
+      "component_name": "risk_metrics",
+      "valid": true,
+      "filename": "risk_metrics.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "evaluation_modules_allocator_metrics": {
+      "component_name": "allocator_metrics",
+      "valid": true,
+      "filename": "allocator_metrics.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [
+        "calculate_auc_score",
+        "calculate_brier_score",
+        "calculate_comprehensive_metrics",
+        "calculate_slippage_metrics",
+        "run_comprehensive_evaluation"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "evaluation_modules_performance_metrics": {
+      "component_name": "performance_metrics",
+      "valid": true,
+      "filename": "performance_metrics.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "evaluation_modules_backtest_engine": {
+      "component_name": "backtest_engine",
+      "valid": true,
+      "filename": "backtest_engine.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "feature_store_store": {
+      "component_name": "store",
+      "valid": true,
+      "filename": "store.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    },
+    "feature_store_embargo": {
+      "component_name": "embargo",
+      "valid": true,
+      "filename": "embargo.py",
+      "import_success": true,
+      "class_discovery": true,
+      "methods_found": [],
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "workflow_result": {
+    "valid": true,
+    "symbols_tested": [
+      "AAPL",
+      "MSFT",
+      "GOOGL"
+    ],
+    "data_sources_working": {
+      "news": {
+        "working": 3,
+        "total": 3,
+        "success_rate": 100.0
+      },
+      "finnhub": {
+        "working": 3,
+        "total": 3,
+        "success_rate": 100.0
+      },
+      "sec": {
+        "working": 3,
+        "total": 3,
+        "success_rate": 100.0
+      }
+    },
+    "collection_times": [
+      0.6454370021820068,
+      0.650853157043457,
+      0.6231191158294678
+    ],
+    "errors": [],
+    "warnings": []
+  },
+  "overall_success_rate": 100.0,
+  "recommendations": [
+    "\u2705 System is in excellent condition - ready for production deployment",
+    "\ud83d\udcdd Address 1 warnings for optimal performance"
+  ]
+}

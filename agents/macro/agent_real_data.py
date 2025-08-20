@@ -1,6 +1,6 @@
 """
 Real Data Macro Agent
-Uses Polygon.io adapter for economic indicators and currency data
+Uses FRED API adapter for economic indicators and currency data
 """
 import asyncio
 import os
@@ -14,231 +14,358 @@ from dotenv import load_dotenv
 # Add current directory to path
 sys.path.append('.')
 from common.models import BaseAgent
-from common.data_adapters.polygon_adapter import PolygonAdapter
+from common.data_adapters.fred_adapter import FREDAdapter
 
 load_dotenv('env_real_keys.env')
 
 class RealDataMacroAgent(BaseAgent):
-    """Macro Agent with real market data from Polygon.io"""
+    """Macro Agent with real economic data from FRED API"""
     
     def __init__(self, config: Dict[str, Any]):
         super().__init__("RealDataMacroAgent", config)
-        self.polygon_adapter = PolygonAdapter(config)
+        self.fred_adapter = FREDAdapter(config)
         self.cache = {}
-        self.cache_ttl = 300  # 5 minutes
+        self.cache_ttl = 3600  # 1 hour cache (economic data changes slowly)
         
     async def process(self, *args, **kwargs) -> Dict[str, Any]:
         """Main processing method (required by BaseAgent)"""
         return await self.analyze_macro_environment(**kwargs)
     
     async def analyze_macro_environment(self, **kwargs) -> Dict[str, Any]:
-        """Analyze macro environment using real market data"""
-        print(f"🌍 Real Data Macro Agent: Analyzing macro environment")
+        """Analyze macro environment using real FRED data"""
+        print(f"🌍 Real Data Macro Agent: Analyzing macro economic environment")
         
         try:
-            # Get economic indicators
-            economic_indicators = await self.polygon_adapter.get_economic_indicators()
+            # Use cache if fresh
+            cache_key = 'macro_analysis'
+            if cache_key in self.cache and (datetime.now().timestamp() - self.cache[cache_key]['timestamp']) < self.cache_ttl:
+                return self.cache[cache_key]['data']
             
-            # Get currency data
-            currency_data = await self.polygon_adapter.get_currency_data()
-            
-            # Analyze macro trends
-            macro_trends = await self._analyze_macro_trends(economic_indicators, currency_data)
+            # Get macro analysis from FRED adapter
+            macro_analysis = await self.fred_adapter.analyze_macro_environment()
             
             # Generate macro signals
-            macro_signals = self._generate_macro_signals(economic_indicators, currency_data)
+            macro_signals = await self._generate_macro_signals(macro_analysis)
             
-            return {
+            # Create comprehensive macro analysis
+            analysis_result = {
                 'timestamp': datetime.now(),
-                'economic_indicators': economic_indicators,
-                'currency_data': currency_data,
-                'macro_trends': macro_trends,
+                'macro_analysis': macro_analysis,
                 'macro_signals': macro_signals,
-                'data_source': 'Polygon.io (Real Market Data)'
+                'economic_indicators': self._extract_economic_indicators(macro_analysis),
+                'risk_assessment': self._assess_macro_risk(macro_analysis),
+                'trading_implications': self._generate_trading_implications(macro_signals),
+                'data_source': 'FRED API (Real Economic Data)'
             }
+            
+            # Cache the result
+            self.cache[cache_key] = {
+                'data': analysis_result,
+                'timestamp': datetime.now().timestamp()
+            }
+            
+            return analysis_result
             
         except Exception as e:
             print(f"❌ Error analyzing macro environment: {e}")
             return self._create_empty_macro_analysis()
     
-    async def _analyze_macro_trends(self, economic_indicators: Dict[str, Any], 
-                                  currency_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Analyze macro trends from real data"""
-        
-        trends = {
-            'timestamp': datetime.now()
-        }
-        
-        # Market trend analysis
-        market_trends = []
-        for index_name, data in economic_indicators.items():
-            if isinstance(data, dict) and 'change_percent' in data:
-                market_trends.append({
-                    'index': index_name,
-                    'change_percent': data['change_percent'],
-                    'price': data['price']
-                })
-        
-        # Calculate market breadth
-        positive_markets = [m for m in market_trends if m['change_percent'] > 0]
-        negative_markets = [m for m in market_trends if m['change_percent'] < 0]
-        
-        trends['market_breadth'] = {
-            'positive_count': len(positive_markets),
-            'negative_count': len(negative_markets),
-            'total_count': len(market_trends),
-            'breadth_ratio': len(positive_markets) / len(market_trends) if market_trends else 0.5
-        }
-        
-        # Risk-on/risk-off analysis
-        risk_assets = ['SPY', 'QQQ', 'IWM']  # Stocks
-        safe_assets = ['GLD', 'TLT']  # Gold and bonds
-        
-        risk_performance = np.mean([m['change_percent'] for m in market_trends if m['index'].upper() in risk_assets])
-        safe_performance = np.mean([m['change_percent'] for m in market_trends if m['index'].upper() in safe_assets])
-        
-        trends['risk_sentiment'] = {
-            'risk_assets_performance': risk_performance,
-            'safe_assets_performance': safe_performance,
-            'risk_on_off_ratio': risk_performance - safe_performance,
-            'sentiment': 'risk_on' if risk_performance > safe_performance else 'risk_off'
-        }
-        
-        # Currency correlation analysis
-        currency_trends = []
-        for currency, data in currency_data.get('currencies', {}).items():
-            if isinstance(data, dict) and 'change_percent' in data:
-                currency_trends.append({
-                    'currency': currency,
-                    'change_percent': data['change_percent']
-                })
-        
-        trends['currency_trends'] = currency_trends
-        
-        # Dollar strength analysis
-        usd_data = currency_data.get('currencies', {}).get('USD', {})
-        if usd_data and 'change_percent' in usd_data:
-            trends['dollar_strength'] = {
-                'usd_change': usd_data['change_percent'],
-                'dollar_regime': 'strong' if usd_data['change_percent'] > 0.5 else 'weak' if usd_data['change_percent'] < -0.5 else 'neutral'
+    async def _generate_macro_signals(self, macro_analysis: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate macro trading signals"""
+        try:
+            signals = macro_analysis.get('macro_signals', {})
+            
+            # Enhanced signal generation
+            enhanced_signals = {
+                'gdp_signal': signals.get('gdp_growth', 'neutral'),
+                'inflation_signal': signals.get('inflation_trend', 'neutral'),
+                'employment_signal': signals.get('employment_health', 'neutral'),
+                'monetary_signal': signals.get('monetary_policy', 'neutral'),
+                'overall_macro_signal': signals.get('overall_macro', 'neutral'),
+                'confidence_level': self._calculate_confidence_level(macro_analysis),
+                'signal_strength': self._calculate_signal_strength(signals)
             }
-        
-        return trends
+            
+            return enhanced_signals
+            
+        except Exception as e:
+            print(f"Error generating macro signals: {e}")
+            return {
+                'gdp_signal': 'neutral',
+                'inflation_signal': 'neutral',
+                'employment_signal': 'neutral',
+                'monetary_signal': 'neutral',
+                'overall_macro_signal': 'neutral',
+                'confidence_level': 'low',
+                'signal_strength': 'weak'
+            }
     
-    def _generate_macro_signals(self, economic_indicators: Dict[str, Any], 
-                              currency_data: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """Generate macro-based trading signals"""
-        signals = []
+    def _extract_economic_indicators(self, macro_analysis: Dict[str, Any]) -> Dict[str, Any]:
+        """Extract key economic indicators"""
+        try:
+            latest_values = macro_analysis.get('latest_values', {})
+            
+            indicators = {}
+            for indicator, data in latest_values.items():
+                indicators[indicator] = {
+                    'value': data.get('value'),
+                    'date': data.get('date'),
+                    'units': data.get('units', ''),
+                    'trend': self._calculate_trend(indicator, data.get('value'))
+                }
+            
+            return indicators
+            
+        except Exception as e:
+            print(f"Error extracting economic indicators: {e}")
+            return {}
+    
+    def _assess_macro_risk(self, macro_analysis: Dict[str, Any]) -> Dict[str, Any]:
+        """Assess macro economic risks"""
+        try:
+            signals = macro_analysis.get('macro_signals', {})
+            latest_values = macro_analysis.get('latest_values', {})
+            
+            risk_factors = []
+            risk_level = 'low'
+            
+            # GDP Risk
+            if 'gdp' in latest_values:
+                gdp_value = float(latest_values['gdp']['value'])
+                if gdp_value < 15000:
+                    risk_factors.append('Low GDP growth')
+                    risk_level = 'high'
+            
+            # Inflation Risk
+            if 'cpi' in latest_values:
+                cpi_value = float(latest_values['cpi']['value'])
+                if cpi_value > 300:
+                    risk_factors.append('High inflation')
+                    risk_level = 'high'
+            
+            # Employment Risk
+            if 'unemployment' in latest_values:
+                unemp_value = float(latest_values['unemployment']['value'])
+                if unemp_value > 6.0:
+                    risk_factors.append('High unemployment')
+                    risk_level = 'medium'
+            
+            # Monetary Policy Risk
+            if 'fed_funds_rate' in latest_values:
+                fed_value = float(latest_values['fed_funds_rate']['value'])
+                if fed_value > 5.0:
+                    risk_factors.append('Restrictive monetary policy')
+                    risk_level = 'medium'
+            
+            return {
+                'risk_level': risk_level,
+                'risk_factors': risk_factors,
+                'risk_score': self._calculate_risk_score(risk_factors),
+                'recommendations': self._generate_risk_recommendations(risk_factors)
+            }
+            
+        except Exception as e:
+            print(f"Error assessing macro risk: {e}")
+            return {
+                'risk_level': 'unknown',
+                'risk_factors': [],
+                'risk_score': 0,
+                'recommendations': []
+            }
+    
+    def _generate_trading_implications(self, macro_signals: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate trading implications from macro signals"""
+        try:
+            overall_signal = macro_signals.get('overall_macro_signal', 'neutral')
+            confidence = macro_signals.get('confidence_level', 'low')
+            
+            implications = {
+                'market_outlook': self._get_market_outlook(overall_signal),
+                'sector_preferences': self._get_sector_preferences(macro_signals),
+                'asset_allocation': self._get_asset_allocation(overall_signal),
+                'risk_management': self._get_risk_management(overall_signal),
+                'timing_considerations': self._get_timing_considerations(confidence)
+            }
+            
+            return implications
+            
+        except Exception as e:
+            print(f"Error generating trading implications: {e}")
+            return {
+                'market_outlook': 'neutral',
+                'sector_preferences': [],
+                'asset_allocation': 'balanced',
+                'risk_management': 'standard',
+                'timing_considerations': 'medium-term'
+            }
+    
+    def _calculate_confidence_level(self, macro_analysis: Dict[str, Any]) -> str:
+        """Calculate confidence level in macro analysis"""
+        try:
+            latest_values = macro_analysis.get('latest_values', {})
+            
+            # Count available indicators
+            available_indicators = len(latest_values)
+            
+            if available_indicators >= 5:
+                return 'high'
+            elif available_indicators >= 3:
+                return 'medium'
+            else:
+                return 'low'
+                
+        except Exception as e:
+            return 'low'
+    
+    def _calculate_signal_strength(self, signals: Dict[str, Any]) -> str:
+        """Calculate signal strength"""
+        try:
+            bullish_count = sum(1 for signal in signals.values() if signal == 'bullish')
+            bearish_count = sum(1 for signal in signals.values() if signal == 'bearish')
+            
+            total_signals = len(signals)
+            if total_signals == 0:
+                return 'weak'
+            
+            max_count = max(bullish_count, bearish_count)
+            strength_ratio = max_count / total_signals
+            
+            if strength_ratio >= 0.8:
+                return 'strong'
+            elif strength_ratio >= 0.6:
+                return 'moderate'
+            else:
+                return 'weak'
+                
+        except Exception as e:
+            return 'weak'
+    
+    def _calculate_trend(self, indicator: str, value: Any) -> str:
+        """Calculate trend for an indicator"""
+        try:
+            if not value:
+                return 'unknown'
+            
+            # This is a simplified trend calculation
+            # In a real implementation, you'd compare with historical values
+            return 'stable'
+            
+        except Exception as e:
+            return 'unknown'
+    
+    def _calculate_risk_score(self, risk_factors: List[str]) -> int:
+        """Calculate numerical risk score"""
+        try:
+            score = len(risk_factors) * 10
+            return min(score, 100)
+        except Exception as e:
+            return 0
+    
+    def _generate_risk_recommendations(self, risk_factors: List[str]) -> List[str]:
+        """Generate risk management recommendations"""
+        recommendations = []
         
-        # Market breadth signals
-        positive_count = 0
-        total_count = 0
+        if 'Low GDP growth' in risk_factors:
+            recommendations.append('Consider defensive sectors (utilities, consumer staples)')
         
-        for index_name, data in economic_indicators.items():
-            if isinstance(data, dict) and 'change_percent' in data:
-                total_count += 1
-                if data['change_percent'] > 0:
-                    positive_count += 1
+        if 'High inflation' in risk_factors:
+            recommendations.append('Consider inflation-protected assets (TIPS, commodities)')
         
-        breadth_ratio = positive_count / total_count if total_count > 0 else 0.5
+        if 'High unemployment' in risk_factors:
+            recommendations.append('Reduce exposure to consumer discretionary stocks')
         
-        if breadth_ratio > 0.7:
-            signals.append({
-                'type': 'BROAD_MARKET_STRENGTH',
-                'strength': 'strong',
-                'message': f"Broad market strength: {positive_count}/{total_count} indices positive"
-            })
-        elif breadth_ratio < 0.3:
-            signals.append({
-                'type': 'BROAD_MARKET_WEAKNESS',
-                'strength': 'strong',
-                'message': f"Broad market weakness: {positive_count}/{total_count} indices positive"
-            })
+        if 'Restrictive monetary policy' in risk_factors:
+            recommendations.append('Consider fixed income and defensive positioning')
         
-        # Risk sentiment signals
-        risk_assets = ['SPY', 'QQQ', 'IWM']
-        safe_assets = ['GLD', 'TLT']
+        if not recommendations:
+            recommendations.append('Maintain balanced portfolio allocation')
         
-        risk_performance = np.mean([economic_indicators.get(asset, {}).get('change_percent', 0) for asset in risk_assets])
-        safe_performance = np.mean([economic_indicators.get(asset, {}).get('change_percent', 0) for asset in safe_assets])
+        return recommendations
+    
+    def _get_market_outlook(self, signal: str) -> str:
+        """Get market outlook based on macro signal"""
+        if signal == 'bullish':
+            return 'positive'
+        elif signal == 'bearish':
+            return 'negative'
+        else:
+            return 'neutral'
+    
+    def _get_sector_preferences(self, signals: Dict[str, Any]) -> List[str]:
+        """Get sector preferences based on macro signals"""
+        preferences = []
         
-        if risk_performance > safe_performance + 1.0:
-            signals.append({
-                'type': 'RISK_ON_ENVIRONMENT',
-                'strength': 'strong',
-                'message': f"Risk-on environment: stocks +{risk_performance:.1f}% vs safe assets +{safe_performance:.1f}%"
-            })
-        elif safe_performance > risk_performance + 1.0:
-            signals.append({
-                'type': 'RISK_OFF_ENVIRONMENT',
-                'strength': 'strong',
-                'message': f"Risk-off environment: safe assets +{safe_performance:.1f}% vs stocks +{risk_performance:.1f}%"
-            })
+        if signals.get('gdp_signal') == 'bullish':
+            preferences.append('Technology')
+            preferences.append('Consumer Discretionary')
         
-        # Currency signals
-        usd_data = currency_data.get('currencies', {}).get('USD', {})
-        if usd_data and 'change_percent' in usd_data:
-            if usd_data['change_percent'] > 0.5:
-                signals.append({
-                    'type': 'STRONG_DOLLAR',
-                    'strength': 'medium',
-                    'message': f"Strong dollar: USD +{usd_data['change_percent']:.1f}%"
-                })
-            elif usd_data['change_percent'] < -0.5:
-                signals.append({
-                    'type': 'WEAK_DOLLAR',
-                    'strength': 'medium',
-                    'message': f"Weak dollar: USD {usd_data['change_percent']:.1f}%"
-                })
+        if signals.get('inflation_signal') == 'bearish':
+            preferences.append('Energy')
+            preferences.append('Materials')
         
-        # Gold signals
-        gold_data = economic_indicators.get('gold', {})
-        if gold_data and 'change_percent' in gold_data:
-            if gold_data['change_percent'] > 2.0:
-                signals.append({
-                    'type': 'GOLD_RALLY',
-                    'strength': 'strong',
-                    'message': f"Gold rally: +{gold_data['change_percent']:.1f}% - safe haven demand"
-                })
+        if signals.get('employment_signal') == 'bullish':
+            preferences.append('Financials')
+            preferences.append('Industrials')
         
-        # Bond signals
-        bonds_data = economic_indicators.get('bonds', {})
-        if bonds_data and 'change_percent' in bonds_data:
-            if bonds_data['change_percent'] > 1.0:
-                signals.append({
-                    'type': 'BOND_RALLY',
-                    'strength': 'medium',
-                    'message': f"Bond rally: +{bonds_data['change_percent']:.1f}% - flight to safety"
-                })
+        if not preferences:
+            preferences.append('Balanced sector allocation')
         
-        return signals
+        return preferences
+    
+    def _get_asset_allocation(self, signal: str) -> str:
+        """Get asset allocation recommendation"""
+        if signal == 'bullish':
+            return 'equity-heavy'
+        elif signal == 'bearish':
+            return 'defensive'
+        else:
+            return 'balanced'
+    
+    def _get_risk_management(self, signal: str) -> str:
+        """Get risk management recommendation"""
+        if signal == 'bearish':
+            return 'increase-hedging'
+        elif signal == 'bullish':
+            return 'reduce-hedging'
+        else:
+            return 'maintain-current'
+    
+    def _get_timing_considerations(self, confidence: str) -> str:
+        """Get timing considerations"""
+        if confidence == 'high':
+            return 'immediate-action'
+        elif confidence == 'medium':
+            return 'gradual-implementation'
+        else:
+            return 'wait-and-see'
     
     def _create_empty_macro_analysis(self) -> Dict[str, Any]:
         """Create empty macro analysis when data is unavailable"""
         return {
             'timestamp': datetime.now(),
-            'economic_indicators': {},
-            'currency_data': {'currencies': {}},
-            'macro_trends': {
-                'timestamp': datetime.now(),
-                'market_breadth': {
-                    'positive_count': 0,
-                    'negative_count': 0,
-                    'total_count': 0,
-                    'breadth_ratio': 0.5
-                },
-                'risk_sentiment': {
-                    'risk_assets_performance': 0.0,
-                    'safe_assets_performance': 0.0,
-                    'risk_on_off_ratio': 0.0,
-                    'sentiment': 'neutral'
-                },
-                'currency_trends': [],
-                'dollar_strength': {
-                    'usd_change': 0.0,
-                    'dollar_regime': 'neutral'
-                }
+            'macro_analysis': {},
+            'macro_signals': {
+                'gdp_signal': 'neutral',
+                'inflation_signal': 'neutral',
+                'employment_signal': 'neutral',
+                'monetary_signal': 'neutral',
+                'overall_macro_signal': 'neutral',
+                'confidence_level': 'low',
+                'signal_strength': 'weak'
             },
-            'macro_signals': [],
-            'data_source': 'Polygon.io (Real Market Data)'
+            'economic_indicators': {},
+            'risk_assessment': {
+                'risk_level': 'unknown',
+                'risk_factors': [],
+                'risk_score': 0,
+                'recommendations': ['No data available']
+            },
+            'trading_implications': {
+                'market_outlook': 'neutral',
+                'sector_preferences': ['No data available'],
+                'asset_allocation': 'balanced',
+                'risk_management': 'standard',
+                'timing_considerations': 'wait-and-see'
+            },
+            'data_source': 'FRED API (no data available)'
         }

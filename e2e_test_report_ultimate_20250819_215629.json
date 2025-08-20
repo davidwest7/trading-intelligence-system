@@ -1,0 +1,147 @@
+{
+  "passed": 10,
+  "failed": 1,
+  "errors": 0,
+  "warnings": 0,
+  "start_time": "2025-08-19T21:52:47.762100",
+  "end_time": "2025-08-19T21:56:29.476453",
+  "tests": {
+    "Ultimate Data Integration": {
+      "status": "PASS",
+      "message": "Successfully collected data for AAPL",
+      "timestamp": "2025-08-19T21:53:09.970553",
+      "data": {
+        "polygon_endpoints": 23,
+        "fmp_stock_endpoints": 8,
+        "fmp_fundamental_endpoints": 8,
+        "fmp_analyst_endpoints": 2,
+        "fred_indicators": 9,
+        "reddit_data": true
+      }
+    },
+    "Agent Data Integration": {
+      "status": "PASS",
+      "message": "All 8 agents have real data",
+      "timestamp": "2025-08-19T21:53:37.144994",
+      "data": {
+        "Technical Agent": {
+          "status": "PASS",
+          "data_points": 3
+        },
+        "Top Performers Agent": {
+          "status": "PASS",
+          "data_points": 5
+        },
+        "Undervalued Agent": {
+          "status": "PASS",
+          "data_points": 4
+        },
+        "Flow Agent": {
+          "status": "PASS",
+          "data_points": 5
+        },
+        "Money Flows Agent": {
+          "status": "PASS",
+          "data_points": 5
+        },
+        "Sentiment Agent": {
+          "status": "PASS",
+          "data_points": 3
+        },
+        "Learning Agent": {
+          "status": "PASS",
+          "data_points": 6
+        },
+        "Macro Agent": {
+          "status": "PASS",
+          "data_points": 2
+        }
+      }
+    },
+    "API Connectivity": {
+      "status": "FAIL",
+      "message": "Only 3/4 APIs are accessible",
+      "timestamp": "2025-08-19T21:53:38.232539",
+      "data": {
+        "polygon": true,
+        "fmp": true,
+        "fred": true,
+        "reddit": false
+      }
+    },
+    "Data Quality": {
+      "status": "PASS",
+      "message": "9/9 quality checks passed",
+      "timestamp": "2025-08-19T21:54:00.045873",
+      "data": [
+        "\u2705 polygon_market_data: Present",
+        "\u2705 polygon_technical_data: Present",
+        "\u2705 fmp_stock_data: Present",
+        "\u2705 fmp_fundamental_data: Present",
+        "\u2705 fmp_analyst_data: Present",
+        "\u2705 fred_economic_data: Present",
+        "\u2705 social_sentiment: Present",
+        "\u2705 Data freshness: Recent",
+        "\u2705 Symbol consistency: Correct"
+      ]
+    },
+    "Error Handling - Invalid Symbol": {
+      "status": "PASS",
+      "message": "Gracefully handled invalid symbol",
+      "timestamp": "2025-08-19T21:54:21.706983",
+      "data": null
+    },
+    "Error Handling - Empty Symbol": {
+      "status": "PASS",
+      "message": "Gracefully handled empty symbol",
+      "timestamp": "2025-08-19T21:54:43.792367",
+      "data": null
+    },
+    "Error Handling - Rate Limiting": {
+      "status": "PASS",
+      "message": "Handled multiple rapid requests",
+      "timestamp": "2025-08-19T21:55:48.652359",
+      "data": null
+    },
+    "Performance - Response Time": {
+      "status": "PASS",
+      "message": "Response time: 20.92 seconds",
+      "timestamp": "2025-08-19T21:56:09.605926",
+      "data": {
+        "response_time": 20.924917697906494
+      }
+    },
+    "Performance - Data Size": {
+      "status": "PASS",
+      "message": "Data size: 2532089 characters",
+      "timestamp": "2025-08-19T21:56:09.652185",
+      "data": {
+        "data_size": 2532089
+      }
+    },
+    "System Integration - Agent Data": {
+      "status": "PASS",
+      "message": "Agent data structure compatible with existing systems",
+      "timestamp": "2025-08-19T21:56:29.474875",
+      "data": {
+        "available_keys": [
+          "market_data",
+          "polygon_technical_indicators",
+          "fmp_stock_data",
+          "data_source",
+          "data_quality"
+        ]
+      }
+    },
+    "System Integration - Data Cache": {
+      "status": "PASS",
+      "message": "Data caching working properly",
+      "timestamp": "2025-08-19T21:56:29.474935",
+      "data": {
+        "cached_symbols": [
+          "AAPL"
+        ]
+      }
+    }
+  }
+}

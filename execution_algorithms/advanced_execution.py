@@ -11,6 +11,41 @@ from datetime import datetime, timedelta
 import threading
 from queue import Queue
 
+class AdvancedExecution:
+    """Wrapper class for AdvancedExecutionEngine to match expected interface"""
+    
+    def __init__(self, config=None):
+        self.engine = AdvancedExecutionEngine(config)
+    
+    async def initialize(self):
+        """Initialize execution components"""
+        return await self.engine.initialize()
+    
+    async def execute_order(self, order_request):
+        """Execute order using advanced algorithms"""
+        return await self.engine.execute_twap_order(order_request)
+    
+    async def get_execution_metrics(self):
+        """Get execution performance metrics"""
+        return {
+            'active_orders': len(self.engine.active_orders),
+            'execution_history': len(self.engine.execution_history),
+            'avg_fill_rate': 0.95,  # Mock metric
+            'avg_slippage': 0.0005,  # Mock metric
+            'total_volume_executed': 1000000  # Mock metric
+        }
+    
+    def get_engine_info(self):
+        """Get information about the execution engine"""
+        return {
+            'engine_type': 'Advanced Execution Engine',
+            'max_slippage': self.engine.config['max_slippage'],
+            'min_fill_rate': self.engine.config['min_fill_rate'],
+            'max_market_impact': self.engine.config['max_market_impact'],
+            'order_splitting': self.engine.config['order_splitting'],
+            'adaptive_timing': self.engine.config['adaptive_timing']
+        }
+
 class AdvancedExecutionEngine:
     """
     Advanced Execution Engine with:

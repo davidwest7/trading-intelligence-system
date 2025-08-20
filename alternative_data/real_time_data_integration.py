@@ -691,3 +691,69 @@ class RealTimeAlternativeData:
             'consumer_categories': len(self.consumer_data['spending_patterns']),
             'is_running': self.is_running
         }
+    
+    def get_available_sources(self):
+        """Get available data sources"""
+        return [
+            'news_sources',
+            'social_media_sources', 
+            'economic_indicators',
+            'geopolitical_events',
+            'consumer_data'
+        ]
+
+    def __enter__(self):
+        """Context manager entry"""
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit - ensure cleanup"""
+        self.stop()
+
+class RealTimeDataIntegration:
+    """
+    Wrapper class for RealTimeAlternativeData with proper cleanup
+    """
+    
+    def __init__(self, config=None):
+        self.alt_data = RealTimeAlternativeData(config)
+        self._initialized = False
+    
+    async def initialize(self):
+        """Initialize the data integration"""
+        if not self._initialized:
+            success = await self.alt_data.initialize()
+            self._initialized = success
+            return success
+        return True
+    
+    def get_available_sources(self):
+        """Get available data sources"""
+        return [
+            'news_sources',
+            'social_media_sources', 
+            'economic_indicators',
+            'geopolitical_events',
+            'consumer_data'
+        ]
+    
+    def stop(self):
+        """Stop data collection"""
+        if self._initialized:
+            self.alt_data.stop()
+            self._initialized = False
+    
+    def __enter__(self):
+        """Context manager entry"""
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit - ensure cleanup"""
+        self.stop()
+    
+    def __del__(self):
+        """Destructor - ensure cleanup"""
+        try:
+            self.stop()
+        except:
+            pass

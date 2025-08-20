@@ -1,0 +1,168 @@
+{
+  "test_summary": {
+    "total_tests": 22,
+    "passed_tests": 22,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "duration": "0:00:00.760264",
+    "start_time": "2025-08-19T20:32:54.315437",
+    "end_time": "2025-08-19T20:32:55.075701"
+  },
+  "test_results": {
+    "NumPy Import": {
+      "test_name": "NumPy Import",
+      "success": true,
+      "details": "Created array with 100 elements",
+      "timestamp": "2025-08-19T20:32:54.315598",
+      "error": null
+    },
+    "Pandas Import": {
+      "test_name": "Pandas Import",
+      "success": true,
+      "details": "Created DataFrame with shape (100, 2)",
+      "timestamp": "2025-08-19T20:32:54.315834",
+      "error": null
+    },
+    "SciPy Import": {
+      "test_name": "SciPy Import",
+      "success": true,
+      "details": "SciPy version: 1.16.1",
+      "timestamp": "2025-08-19T20:32:54.318740",
+      "error": null
+    },
+    "Scikit-learn Import": {
+      "test_name": "Scikit-learn Import",
+      "success": true,
+      "details": "Scikit-learn version: 1.7.1",
+      "timestamp": "2025-08-19T20:32:54.747518",
+      "error": null
+    },
+    "Governance System Initialization": {
+      "test_name": "Governance System Initialization",
+      "success": true,
+      "details": "Governance engine initialized",
+      "timestamp": "2025-08-19T20:32:54.877726",
+      "error": null
+    },
+    "Pre-Trading Checks": {
+      "test_name": "Pre-Trading Checks",
+      "success": true,
+      "details": "Completed 9 pre-trading checks",
+      "timestamp": "2025-08-19T20:32:54.878545",
+      "error": null
+    },
+    "Execution Checks": {
+      "test_name": "Execution Checks",
+      "success": true,
+      "details": "Completed 6 execution checks",
+      "timestamp": "2025-08-19T20:32:54.879037",
+      "error": null
+    },
+    "Post-Trading Checks": {
+      "test_name": "Post-Trading Checks",
+      "success": true,
+      "details": "Completed 6 post-trading checks",
+      "timestamp": "2025-08-19T20:32:54.879403",
+      "error": null
+    },
+    "Governance Summary": {
+      "test_name": "Governance Summary",
+      "success": true,
+      "details": "Trading halted: False",
+      "timestamp": "2025-08-19T20:32:54.879427",
+      "error": null
+    },
+    "Monitoring System Initialization": {
+      "test_name": "Monitoring System Initialization",
+      "success": true,
+      "details": "Drift detection suite initialized",
+      "timestamp": "2025-08-19T20:32:55.069769",
+      "error": null
+    },
+    "PSI Calculation": {
+      "test_name": "PSI Calculation",
+      "success": true,
+      "details": "PSI score: 0.0376",
+      "timestamp": "2025-08-19T20:32:55.071165",
+      "error": null
+    },
+    "Regime Detection": {
+      "test_name": "Regime Detection",
+      "success": true,
+      "details": "Detected regime: sideways_low_vol",
+      "timestamp": "2025-08-19T20:32:55.072116",
+      "error": null
+    },
+    "OHLCV Data Generation": {
+      "test_name": "OHLCV Data Generation",
+      "success": true,
+      "details": "Generated 252 days of OHLCV data",
+      "timestamp": "2025-08-19T20:32:55.072367",
+      "error": null
+    },
+    "Technical Indicators": {
+      "test_name": "Technical Indicators",
+      "success": true,
+      "details": "Calculated SMA, RSI, and volatility",
+      "timestamp": "2025-08-19T20:32:55.073536",
+      "error": null
+    },
+    "Multi-Asset Data": {
+      "test_name": "Multi-Asset Data",
+      "success": true,
+      "details": "Generated data for 5 assets",
+      "timestamp": "2025-08-19T20:32:55.073640",
+      "error": null
+    },
+    "Basic Risk Metrics": {
+      "test_name": "Basic Risk Metrics",
+      "success": true,
+      "details": "Mean: 0.0014, Vol: 0.0196, Sharpe: 0.071",
+      "timestamp": "2025-08-19T20:32:55.073825",
+      "error": null
+    },
+    "VaR Calculations": {
+      "test_name": "VaR Calculations",
+      "success": true,
+      "details": "VaR 95%: -0.0295, VaR 99%: -0.0406",
+      "timestamp": "2025-08-19T20:32:55.073842",
+      "error": null
+    },
+    "Drawdown Calculation": {
+      "test_name": "Drawdown Calculation",
+      "success": true,
+      "details": "Max Drawdown: -0.3399",
+      "timestamp": "2025-08-19T20:32:55.073855",
+      "error": null
+    },
+    "Correlation Matrix": {
+      "test_name": "Correlation Matrix",
+      "success": true,
+      "details": "Generated 5x5 correlation matrix",
+      "timestamp": "2025-08-19T20:32:55.074007",
+      "error": null
+    },
+    "Performance Metrics": {
+      "test_name": "Performance Metrics",
+      "success": true,
+      "details": "Total Return: 0.2354, Sharpe: 1.024",
+      "timestamp": "2025-08-19T20:32:55.074128",
+      "error": null
+    },
+    "Risk-Adjusted Metrics": {
+      "test_name": "Risk-Adjusted Metrics",
+      "success": true,
+      "details": "Information Ratio: -0.009, Beta: 0.027",
+      "timestamp": "2025-08-19T20:32:55.074143",
+      "error": null
+    },
+    "Rolling Analysis": {
+      "test_name": "Rolling Analysis",
+      "success": true,
+      "details": "Calculated 192 rolling Sharpe ratios",
+      "timestamp": "2025-08-19T20:32:55.075623",
+      "error": null
+    }
+  },
+  "errors": []
+}

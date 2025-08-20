@@ -1,0 +1,146 @@
+{
+  "timestamp": "2025-08-19T23:40:47.742642",
+  "total_time": 31.09680700302124,
+  "success_rate": 0.7333333333333333,
+  "overall_status": "\u26a0\ufe0f WARNING",
+  "test_results": [
+    {
+      "test_name": "NewsAPI API Key",
+      "status": "PASS",
+      "message": "API key available for NewsAPI",
+      "timestamp": "2025-08-19T23:40:16.645696",
+      "data": null
+    },
+    {
+      "test_name": "YouTube API API Key",
+      "status": "PASS",
+      "message": "API key available for YouTube API",
+      "timestamp": "2025-08-19T23:40:16.645713",
+      "data": null
+    },
+    {
+      "test_name": "Polygon.io API Key",
+      "status": "PASS",
+      "message": "API key available for Polygon.io",
+      "timestamp": "2025-08-19T23:40:16.645720",
+      "data": null
+    },
+    {
+      "test_name": "Financial Modeling Prep API Key",
+      "status": "PASS",
+      "message": "API key available for Financial Modeling Prep",
+      "timestamp": "2025-08-19T23:40:16.645724",
+      "data": null
+    },
+    {
+      "test_name": "FRED API API Key",
+      "status": "PASS",
+      "message": "API key available for FRED API",
+      "timestamp": "2025-08-19T23:40:16.645728",
+      "data": null
+    },
+    {
+      "test_name": "API Key Availability",
+      "status": "PASS",
+      "message": "5/5 API keys available (100.0%)",
+      "timestamp": "2025-08-19T23:40:16.645741",
+      "data": null
+    },
+    {
+      "test_name": "NewsAPI Integration",
+      "status": "PASS",
+      "message": "Found 10 articles, sentiment: -0.013",
+      "timestamp": "2025-08-19T23:40:18.202466",
+      "data": {
+        "articles_count": 10,
+        "sentiment_compound": -0.0131,
+        "confidence": 0.7456
+      }
+    },
+    {
+      "test_name": "YouTube Live News Integration",
+      "status": "WARNING",
+      "message": "No videos or live streams found, but API is working",
+      "timestamp": "2025-08-19T23:40:23.694780",
+      "data": null
+    },
+    {
+      "test_name": "Defeat Beta API Integration",
+      "status": "PASS",
+      "message": "5/5 sources working, 7733 data points, 10000.0% success rate",
+      "timestamp": "2025-08-19T23:40:24.808877",
+      "data": {
+        "working_sources": 5,
+        "total_sources": 5,
+        "data_points": 7733,
+        "success_rate": 100.0
+      }
+    },
+    {
+      "test_name": "SEC Filings Integration",
+      "status": "PASS",
+      "message": "Insider activity: normal, institutional interest: low, 2 recent events",
+      "timestamp": "2025-08-19T23:40:25.228308",
+      "data": {
+        "insider_activity": "normal",
+        "institutional_interest": "low",
+        "recent_events": 2,
+        "company_name": "Apple Inc."
+      }
+    },
+    {
+      "test_name": "Comprehensive Data Integration",
+      "status": "FAIL",
+      "message": "Exception: 'str' object has no attribute 'get'",
+      "timestamp": "2025-08-19T23:40:30.731861",
+      "data": null
+    },
+    {
+      "test_name": "Multi-Symbol Processing",
+      "status": "FAIL",
+      "message": "Exception: 'str' object has no attribute 'get'",
+      "timestamp": "2025-08-19T23:40:36.170942",
+      "data": null
+    },
+    {
+      "test_name": "Error Handling",
+      "status": "PASS",
+      "message": "System properly detected invalid symbol with 3 validation errors",
+      "timestamp": "2025-08-19T23:40:36.177977",
+      "data": {
+        "validation_errors": [
+          "Symbol matches invalid pattern: INVALID_",
+          "Symbol is in known invalid list",
+          "Symbol contains invalid special characters"
+        ],
+        "symbol": "INVALID_SYMBOL_12345",
+        "status": "INVALID_SYMBOL"
+      }
+    },
+    {
+      "test_name": "Performance Metrics",
+      "status": "PASS",
+      "message": "Total time: 5.92s, avg per symbol: 0.00s, success rate: 0.0%",
+      "timestamp": "2025-08-19T23:40:42.102355",
+      "data": {
+        "total_time": 5.919035911560059,
+        "average_time_per_symbol": 0,
+        "success_rate": 0.0,
+        "symbols_processed": 3
+      }
+    },
+    {
+      "test_name": "Data Quality",
+      "status": "FAIL",
+      "message": "Exception during data quality test: 'str' object has no attribute 'get'",
+      "timestamp": "2025-08-19T23:40:47.741676",
+      "data": null
+    }
+  ],
+  "summary": {
+    "total_tests": 15,
+    "passed_tests": 11,
+    "failed_tests": 3,
+    "warning_tests": 1
+  }
+}

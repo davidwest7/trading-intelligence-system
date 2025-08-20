@@ -1,0 +1,141 @@
+{
+  "verification_date": "2025-08-20T09:35:09.968576",
+  "total_verification_time": 32.827613830566406,
+  "verification_results": {
+    "polygon": {
+      "status": "success",
+      "data_quality": "high",
+      "missing_fields": [],
+      "sample_data": {
+        "open": 231.275,
+        "high": 232.87,
+        "low": 229.35,
+        "close": 230.56,
+        "volume": 39402564.0,
+        "timestamp": 1755576000000
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unknown"
+    },
+    "yfinance": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "current_price": 230.56,
+        "market_cap": 3421602578432,
+        "volume": 36804727,
+        "historical_data_points": 5
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unlimited"
+    },
+    "alpha_vantage": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "latest_date": "2025-08-19",
+        "open": "231.2750",
+        "high": "232.8700",
+        "low": "229.3500",
+        "close": "230.5600",
+        "volume": "39402564"
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unknown"
+    },
+    "newsapi": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "total_results": 925,
+        "articles_returned": 5,
+        "sample_title": "Apple (AAPL) iPhone Production Soars as India Gains Prominence Amid Slowing U.S. Demand"
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unknown"
+    },
+    "finnhub": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "current_price": 230.56,
+        "high": 232.87,
+        "low": 229.35,
+        "open": 231.275,
+        "previous_close": 230.89
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unknown"
+    },
+    "fred": {
+      "status": "error",
+      "error": "200, message='Attempt to decode JSON with unexpected mimetype: text/xml; charset=utf-8', url='https://api.stlouisfed.org/fred/series/observations?series_id=GDP&api_key=c4d140b07263d734735a0a7f97f8286f&limit=5&sort_order=desc'",
+      "api_key_valid": false,
+      "data_quality": "unknown"
+    },
+    "reddit": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "client_id": "your_reddi...",
+        "client_secret": "configured"
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unknown"
+    },
+    "twitter": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "bearer_token": "your_twitter_bearer_...",
+        "configured": true
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "unknown"
+    },
+    "sec_filings": {
+      "status": "error",
+      "error": "HTTP 403",
+      "api_key_valid": true,
+      "data_quality": "unknown"
+    },
+    "nasdaq_data_link": {
+      "status": "error",
+      "error": "HTTP 403",
+      "api_key_valid": true,
+      "data_quality": "unknown"
+    },
+    "coingecko": {
+      "status": "success",
+      "data_quality": "high",
+      "sample_data": {
+        "bitcoin_price_usd": 113908,
+        "no_api_key_needed": true
+      },
+      "api_key_valid": true,
+      "rate_limit_remaining": "limited"
+    },
+    "iex_cloud": {
+      "status": "error",
+      "error": "Connection timeout to host https://cloud.iexapis.com/stable/stock/AAPL/quote?token=demo",
+      "api_key_valid": false,
+      "data_quality": "unknown"
+    }
+  },
+  "summary": {
+    "total_sources": 12,
+    "successful_sources": 8,
+    "failed_sources": 4,
+    "success_rate": 66.66666666666666,
+    "high_quality_sources": 8,
+    "data_quality_rate": 66.66666666666666
+  },
+  "recommendations": [
+    "\ud83d\udd27 Fix failed data sources to improve coverage",
+    "\ud83d\udcca Improve data quality for better analysis",
+    "\u274c Fix fred: 200, message='Attempt to decode JSON with unexpected mimetype: text/xml; charset=utf-8', url='https://api.stlouisfed.org/fred/series/observations?series_id=GDP&api_key=c4d140b07263d734735a0a7f97f8286f&limit=5&sort_order=desc'",
+    "\u274c Fix sec_filings: HTTP 403",
+    "\u274c Fix nasdaq_data_link: HTTP 403",
+    "\u274c Fix iex_cloud: Connection timeout to host https://cloud.iexapis.com/stable/stock/AAPL/quote?token=demo"
+  ]
+}

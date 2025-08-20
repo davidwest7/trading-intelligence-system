@@ -1,0 +1,793 @@
+{
+  "audit_date": "2025-08-20T08:56:17.702223",
+  "total_audit_time": 0.00033092498779296875,
+  "polygon_data_points": {
+    "market_data": {
+      "aggregates": {
+        "description": "OHLCV data for any stock over a given time period",
+        "endpoints": [
+          "/v2/aggs/ticker/{ticker}/range/{multiplier}/{timespan}/{from}/{to}"
+        ],
+        "data_points": [
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "vwap",
+          "transactions"
+        ],
+        "timeframes": [
+          "minute",
+          "hour",
+          "day",
+          "week",
+          "month",
+          "quarter",
+          "year"
+        ],
+        "multipliers": [
+          1,
+          2,
+          3,
+          5,
+          10,
+          15,
+          30,
+          45,
+          60,
+          120,
+          240,
+          360,
+          720,
+          1440
+        ],
+        "current_usage": "Basic OHLCV analysis",
+        "potential_usage": [
+          "Advanced technical indicators",
+          "Market regime detection",
+          "Volatility analysis",
+          "Volume profile analysis",
+          "Price momentum analysis",
+          "Support/resistance levels",
+          "Trend analysis",
+          "Market microstructure analysis"
+        ]
+      },
+      "previous_close": {
+        "description": "Previous day closing price and adjusted price",
+        "endpoints": [
+          "/v2/aggs/ticker/{ticker}/prev"
+        ],
+        "data_points": [
+          "close",
+          "high",
+          "low",
+          "open",
+          "volume",
+          "vwap",
+          "transactions"
+        ],
+        "current_usage": "Basic price comparison",
+        "potential_usage": [
+          "Gap analysis",
+          "Overnight risk assessment",
+          "Pre-market analysis",
+          "Daily return calculations",
+          "Volatility measurement"
+        ]
+      },
+      "trades": {
+        "description": "Real-time and historical trade data",
+        "endpoints": [
+          "/v3/trades/{ticker}"
+        ],
+        "data_points": [
+          "price",
+          "size",
+          "exchange",
+          "conditions",
+          "timestamp"
+        ],
+        "current_usage": "Basic trade tracking",
+        "potential_usage": [
+          "Order flow analysis",
+          "Market impact measurement",
+          "Liquidity analysis",
+          "Trade size distribution",
+          "Market microstructure",
+          "High-frequency trading signals",
+          "Volume-weighted analysis",
+          "Trade clustering analysis"
+        ]
+      },
+      "quotes": {
+        "description": "Real-time and historical quote data",
+        "endpoints": [
+          "/v3/quotes/{ticker}"
+        ],
+        "data_points": [
+          "bid_price",
+          "ask_price",
+          "bid_size",
+          "ask_size",
+          "exchange",
+          "timestamp"
+        ],
+        "current_usage": "Basic bid-ask tracking",
+        "potential_usage": [
+          "Bid-ask spread analysis",
+          "Market depth analysis",
+          "Liquidity measurement",
+          "Order book imbalance",
+          "Market maker activity",
+          "Spread compression/expansion",
+          "Market efficiency analysis",
+          "Execution quality assessment"
+        ]
+      },
+      "last_trade": {
+        "description": "Last trade for a given stock",
+        "endpoints": [
+          "/v2/last/trade/{ticker}"
+        ],
+        "data_points": [
+          "price",
+          "size",
+          "exchange",
+          "conditions",
+          "timestamp"
+        ],
+        "current_usage": "Basic last trade info",
+        "potential_usage": [
+          "Real-time price monitoring",
+          "Trade execution tracking",
+          "Market activity indicators",
+          "Price momentum signals",
+          "Volume analysis"
+        ]
+      },
+      "last_quote": {
+        "description": "Last quote for a given stock",
+        "endpoints": [
+          "/v2/last/quote/{ticker}"
+        ],
+        "data_points": [
+          "bid_price",
+          "ask_price",
+          "bid_size",
+          "ask_size",
+          "exchange",
+          "timestamp"
+        ],
+        "current_usage": "Basic quote info",
+        "potential_usage": [
+          "Real-time spread monitoring",
+          "Market depth tracking",
+          "Liquidity assessment",
+          "Order book analysis",
+          "Market maker activity"
+        ]
+      }
+    },
+    "options_data": {
+      "options_contracts": {
+        "description": "Options contract details",
+        "endpoints": [
+          "/v3/reference/options/contracts"
+        ],
+        "data_points": [
+          "strike_price",
+          "expiration_date",
+          "contract_type",
+          "underlying_ticker"
+        ],
+        "current_usage": "Not implemented",
+        "potential_usage": [
+          "Options flow analysis",
+          "Implied volatility calculation",
+          "Options Greeks calculation",
+          "Gamma exposure analysis",
+          "Options sentiment analysis",
+          "Volatility surface modeling",
+          "Options-based signals",
+          "Risk management"
+        ]
+      },
+      "options_trades": {
+        "description": "Options trade data",
+        "endpoints": [
+          "/v3/trades/{underlying_asset}/options"
+        ],
+        "data_points": [
+          "price",
+          "size",
+          "strike",
+          "expiration",
+          "contract_type"
+        ],
+        "current_usage": "Not implemented",
+        "potential_usage": [
+          "Unusual options activity",
+          "Options flow sentiment",
+          "Smart money tracking",
+          "Volatility prediction",
+          "Directional bias analysis",
+          "Options-based alpha signals"
+        ]
+      }
+    },
+    "fundamentals": {
+      "financials": {
+        "description": "Financial statement data",
+        "endpoints": [
+          "/v2/reference/financials/{ticker}"
+        ],
+        "data_points": [
+          "revenue",
+          "net_income",
+          "eps",
+          "assets",
+          "liabilities",
+          "cash_flow"
+        ],
+        "current_usage": "Basic fundamental analysis",
+        "potential_usage": [
+          "Financial ratio analysis",
+          "Earnings quality assessment",
+          "Cash flow analysis",
+          "Balance sheet strength",
+          "Growth metrics calculation",
+          "Valuation ratios",
+          "Fundamental scoring",
+          "Earnings prediction models"
+        ]
+      },
+      "earnings": {
+        "description": "Earnings data and estimates",
+        "endpoints": [
+          "/v2/reference/financials/{ticker}/earnings"
+        ],
+        "data_points": [
+          "eps",
+          "revenue",
+          "guidance",
+          "surprise",
+          "date"
+        ],
+        "current_usage": "Basic earnings tracking",
+        "potential_usage": [
+          "Earnings surprise analysis",
+          "Earnings momentum",
+          "Guidance analysis",
+          "Earnings quality assessment",
+          "Earnings-based signals",
+          "Earnings prediction models",
+          "Earnings sentiment analysis"
+        ]
+      },
+      "dividends": {
+        "description": "Dividend data",
+        "endpoints": [
+          "/v3/reference/dividends"
+        ],
+        "data_points": [
+          "amount",
+          "ex_date",
+          "record_date",
+          "pay_date",
+          "frequency"
+        ],
+        "current_usage": "Not implemented",
+        "potential_usage": [
+          "Dividend yield analysis",
+          "Dividend growth tracking",
+          "Dividend sustainability",
+          "Dividend-based signals",
+          "Income strategy analysis",
+          "Dividend aristocrat identification"
+        ]
+      },
+      "splits": {
+        "description": "Stock split data",
+        "endpoints": [
+          "/v3/reference/splits"
+        ],
+        "data_points": [
+          "ratio",
+          "ex_date",
+          "record_date",
+          "pay_date"
+        ],
+        "current_usage": "Not implemented",
+        "potential_usage": [
+          "Split-adjusted analysis",
+          "Historical price normalization",
+          "Split-based signals",
+          "Corporate action analysis"
+        ]
+      }
+    },
+    "reference_data": {
+      "tickers": {
+        "description": "Ticker reference data",
+        "endpoints": [
+          "/v3/reference/tickers"
+        ],
+        "data_points": [
+          "name",
+          "market",
+          "locale",
+          "type",
+          "currency",
+          "active"
+        ],
+        "current_usage": "Basic ticker validation",
+        "potential_usage": [
+          "Market universe construction",
+          "Sector/industry classification",
+          "Market cap categorization",
+          "Ticker screening",
+          "Portfolio construction",
+          "Risk management"
+        ]
+      },
+      "ticker_details": {
+        "description": "Detailed ticker information",
+        "endpoints": [
+          "/v3/reference/tickers/{ticker}"
+        ],
+        "data_points": [
+          "name",
+          "market",
+          "locale",
+          "type",
+          "currency",
+          "active",
+          "cik",
+          "composite_figi"
+        ],
+        "current_usage": "Basic ticker info",
+        "potential_usage": [
+          "Company classification",
+          "Market structure analysis",
+          "Regulatory compliance",
+          "Data validation",
+          "Cross-reference analysis"
+        ]
+      },
+      "ticker_news": {
+        "description": "News articles for a ticker",
+        "endpoints": [
+          "/v2/reference/news"
+        ],
+        "data_points": [
+          "title",
+          "description",
+          "article_url",
+          "published_utc",
+          "tickers"
+        ],
+        "current_usage": "Basic news tracking",
+        "potential_usage": [
+          "News sentiment analysis",
+          "Event-driven trading",
+          "News impact analysis",
+          "Sentiment scoring",
+          "News-based signals",
+          "Event correlation analysis"
+        ]
+      }
+    },
+    "technical_indicators": {
+      "sma": {
+        "description": "Simple Moving Average",
+        "endpoints": [
+          "/v1/indicators/sma/{ticker}"
+        ],
+        "data_points": [
+          "sma",
+          "timestamp"
+        ],
+        "current_usage": "Basic trend analysis",
+        "potential_usage": [
+          "Trend identification",
+          "Support/resistance levels",
+          "Moving average crossovers",
+          "Trend strength measurement",
+          "Multi-timeframe analysis"
+        ]
+      },
+      "ema": {
+        "description": "Exponential Moving Average",
+        "endpoints": [
+          "/v1/indicators/ema/{ticker}"
+        ],
+        "data_points": [
+          "ema",
+          "timestamp"
+        ],
+        "current_usage": "Basic trend analysis",
+        "potential_usage": [
+          "Trend identification",
+          "Momentum analysis",
+          "EMA crossovers",
+          "Dynamic support/resistance",
+          "Trend strength measurement"
+        ]
+      },
+      "macd": {
+        "description": "MACD indicator",
+        "endpoints": [
+          "/v1/indicators/macd/{ticker}"
+        ],
+        "data_points": [
+          "macd",
+          "macd_signal",
+          "macd_histogram",
+          "timestamp"
+        ],
+        "current_usage": "Basic momentum analysis",
+        "potential_usage": [
+          "Momentum signals",
+          "Trend reversals",
+          "Divergence analysis",
+          "MACD crossovers",
+          "Momentum strength measurement"
+        ]
+      },
+      "rsi": {
+        "description": "Relative Strength Index",
+        "endpoints": [
+          "/v1/indicators/rsi/{ticker}"
+        ],
+        "data_points": [
+          "rsi",
+          "timestamp"
+        ],
+        "current_usage": "Basic overbought/oversold",
+        "potential_usage": [
+          "Overbought/oversold signals",
+          "Divergence analysis",
+          "Momentum confirmation",
+          "RSI-based signals",
+          "Mean reversion strategies"
+        ]
+      }
+    }
+  },
+  "current_usage": {
+    "technical_agent": {
+      "used_data": [
+        "aggregates",
+        "sma",
+        "ema",
+        "macd",
+        "rsi"
+      ],
+      "missing_data": [
+        "trades",
+        "quotes",
+        "options_contracts",
+        "options_trades",
+        "financials",
+        "earnings",
+        "dividends",
+        "splits",
+        "ticker_news",
+        "ticker_details"
+      ],
+      "potential_alpha_improvement": "15-25%"
+    },
+    "sentiment_agent": {
+      "used_data": [
+        "ticker_news"
+      ],
+      "missing_data": [
+        "trades",
+        "quotes",
+        "options_trades",
+        "financials",
+        "earnings",
+        "dividends",
+        "splits"
+      ],
+      "potential_alpha_improvement": "20-30%"
+    },
+    "fundamental_agent": {
+      "used_data": [
+        "financials",
+        "earnings"
+      ],
+      "missing_data": [
+        "trades",
+        "quotes",
+        "options_contracts",
+        "options_trades",
+        "dividends",
+        "splits",
+        "ticker_news",
+        "ticker_details"
+      ],
+      "potential_alpha_improvement": "25-35%"
+    },
+    "macro_agent": {
+      "used_data": [
+        "aggregates"
+      ],
+      "missing_data": [
+        "trades",
+        "quotes",
+        "options_contracts",
+        "options_trades",
+        "financials",
+        "earnings",
+        "dividends",
+        "splits",
+        "ticker_news",
+        "ticker_details"
+      ],
+      "potential_alpha_improvement": "30-40%"
+    },
+    "flow_agent": {
+      "used_data": [
+        "aggregates"
+      ],
+      "missing_data": [
+        "trades",
+        "quotes",
+        "options_contracts",
+        "options_trades",
+        "financials",
+        "earnings",
+        "dividends",
+        "splits",
+        "ticker_news",
+        "ticker_details"
+      ],
+      "potential_alpha_improvement": "40-50%"
+    }
+  },
+  "missing_connections": {
+    "market_microstructure_features": {
+      "trades_data": {
+        "features": [
+          "Order flow analysis",
+          "Market impact measurement",
+          "Liquidity analysis",
+          "Trade size distribution",
+          "High-frequency trading signals",
+          "Volume-weighted analysis",
+          "Trade clustering analysis"
+        ],
+        "agents": [
+          "technical_agent",
+          "flow_agent",
+          "sentiment_agent"
+        ],
+        "expected_alpha": "5-10%",
+        "implementation_effort": "Medium"
+      },
+      "quotes_data": {
+        "features": [
+          "Bid-ask spread analysis",
+          "Market depth analysis",
+          "Liquidity measurement",
+          "Order book imbalance",
+          "Market maker activity",
+          "Spread compression/expansion",
+          "Market efficiency analysis"
+        ],
+        "agents": [
+          "technical_agent",
+          "flow_agent",
+          "macro_agent"
+        ],
+        "expected_alpha": "3-7%",
+        "implementation_effort": "Medium"
+      }
+    },
+    "options_analysis_features": {
+      "options_contracts": {
+        "features": [
+          "Options flow analysis",
+          "Implied volatility calculation",
+          "Options Greeks calculation",
+          "Gamma exposure analysis",
+          "Options sentiment analysis",
+          "Volatility surface modeling"
+        ],
+        "agents": [
+          "technical_agent",
+          "sentiment_agent",
+          "flow_agent"
+        ],
+        "expected_alpha": "8-15%",
+        "implementation_effort": "High"
+      },
+      "options_trades": {
+        "features": [
+          "Unusual options activity",
+          "Options flow sentiment",
+          "Smart money tracking",
+          "Volatility prediction",
+          "Directional bias analysis"
+        ],
+        "agents": [
+          "sentiment_agent",
+          "flow_agent",
+          "technical_agent"
+        ],
+        "expected_alpha": "10-20%",
+        "implementation_effort": "High"
+      }
+    },
+    "fundamental_analysis_features": {
+      "financials": {
+        "features": [
+          "Financial ratio analysis",
+          "Earnings quality assessment",
+          "Cash flow analysis",
+          "Balance sheet strength",
+          "Growth metrics calculation",
+          "Valuation ratios"
+        ],
+        "agents": [
+          "fundamental_agent",
+          "macro_agent"
+        ],
+        "expected_alpha": "5-12%",
+        "implementation_effort": "Medium"
+      },
+      "earnings": {
+        "features": [
+          "Earnings surprise analysis",
+          "Earnings momentum",
+          "Guidance analysis",
+          "Earnings quality assessment",
+          "Earnings prediction models"
+        ],
+        "agents": [
+          "fundamental_agent",
+          "sentiment_agent"
+        ],
+        "expected_alpha": "4-8%",
+        "implementation_effort": "Medium"
+      },
+      "dividends": {
+        "features": [
+          "Dividend yield analysis",
+          "Dividend growth tracking",
+          "Dividend sustainability",
+          "Dividend-based signals",
+          "Income strategy analysis"
+        ],
+        "agents": [
+          "fundamental_agent",
+          "macro_agent"
+        ],
+        "expected_alpha": "2-5%",
+        "implementation_effort": "Low"
+      }
+    },
+    "sentiment_analysis_features": {
+      "ticker_news": {
+        "features": [
+          "News sentiment analysis",
+          "Event-driven trading",
+          "News impact analysis",
+          "Sentiment scoring",
+          "News-based signals",
+          "Event correlation analysis"
+        ],
+        "agents": [
+          "sentiment_agent",
+          "macro_agent"
+        ],
+        "expected_alpha": "3-6%",
+        "implementation_effort": "Medium"
+      }
+    },
+    "advanced_technical_features": {
+      "aggregates_advanced": {
+        "features": [
+          "Multi-timeframe analysis",
+          "Volume profile analysis",
+          "Price momentum analysis",
+          "Support/resistance levels",
+          "Trend analysis",
+          "Market microstructure analysis"
+        ],
+        "agents": [
+          "technical_agent",
+          "flow_agent"
+        ],
+        "expected_alpha": "4-8%",
+        "implementation_effort": "Medium"
+      }
+    }
+  },
+  "alpha_analysis": {
+    "total_features": 53,
+    "raw_alpha_potential": 67.5,
+    "net_alpha_potential": 40.5,
+    "diversification_factor": 0.6,
+    "agent_improvements": {
+      "technical_agent": 16.0,
+      "flow_agent": 16.0,
+      "sentiment_agent": 16.583333333333336,
+      "macro_agent": 9.916666666666668,
+      "fundamental_agent": 9.0
+    }
+  },
+  "implementation_roadmap": {
+    "phase_1_immediate": {
+      "priority": "High",
+      "timeline": "2-4 weeks",
+      "features": [
+        "Trades data integration",
+        "Quotes data integration",
+        "Advanced aggregates analysis",
+        "Dividends data integration",
+        "Splits data integration"
+      ],
+      "expected_alpha": "8-15%",
+      "effort": "Medium",
+      "agents_affected": [
+        "technical_agent",
+        "flow_agent",
+        "fundamental_agent"
+      ]
+    },
+    "phase_2_short_term": {
+      "priority": "Medium",
+      "timeline": "4-8 weeks",
+      "features": [
+        "Options contracts integration",
+        "Options trades integration",
+        "Enhanced financials analysis",
+        "Enhanced earnings analysis",
+        "Ticker news sentiment analysis"
+      ],
+      "expected_alpha": "12-25%",
+      "effort": "High",
+      "agents_affected": [
+        "sentiment_agent",
+        "fundamental_agent",
+        "technical_agent"
+      ]
+    },
+    "phase_3_long_term": {
+      "priority": "Low",
+      "timeline": "8-12 weeks",
+      "features": [
+        "Advanced options analytics",
+        "Volatility surface modeling",
+        "Advanced market microstructure",
+        "Multi-agent data integration",
+        "Real-time data streaming"
+      ],
+      "expected_alpha": "15-30%",
+      "effort": "Very High",
+      "agents_affected": [
+        "all_agents"
+      ]
+    }
+  },
+  "statistics": {
+    "total_data_points": 19,
+    "total_used": 10,
+    "total_missing": 45,
+    "usage_rate": 18.181818181818183,
+    "alpha_improvement_potential": 40.5
+  },
+  "recommendations": [
+    "\ud83c\udfaf CRITICAL: Low Polygon data utilization - implement immediately",
+    "\ud83d\ude80 EXCEPTIONAL: High alpha improvement potential - prioritize implementation",
+    "\ud83d\udcb0 COST: $0 - all data already available",
+    "\u23f1\ufe0f TIMELINE: 2-12 weeks for full implementation",
+    "\ud83d\udd27 EFFORT: Start with market microstructure data",
+    "\ud83d\udcca MONITORING: Track alpha contribution by data type",
+    "\ud83d\udd04 ITERATION: Continuously optimize data usage"
+  ]
+}

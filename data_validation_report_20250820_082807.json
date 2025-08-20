@@ -1,0 +1,427 @@
+{
+  "validation_date": "2025-08-20T08:28:07.760765",
+  "total_symbols": 3,
+  "valid_symbols": 3,
+  "invalid_symbols": 0,
+  "validation_success_rate": 100.0,
+  "total_errors": 0,
+  "total_warnings": 3,
+  "total_time": 4.8839030265808105,
+  "source_stats": {
+    "news": {
+      "valid": 3,
+      "total": 3,
+      "success_rate": 100.0
+    },
+    "finnhub": {
+      "valid": 3,
+      "total": 3,
+      "success_rate": 100.0
+    },
+    "sec": {
+      "valid": 3,
+      "total": 3,
+      "success_rate": 100.0
+    }
+  },
+  "detailed_results": {
+    "AAPL": {
+      "symbol": "AAPL",
+      "test_time": 0.61,
+      "overall_valid": true,
+      "structure_validation": {
+        "symbol": "AAPL",
+        "timestamp": "2025-08-20T08:28:03.482489",
+        "structure_valid": true,
+        "mapping_valid": true,
+        "logic_valid": true,
+        "errors": [],
+        "warnings": [],
+        "data_points": {}
+      },
+      "source_validations": {
+        "news": {
+          "valid": true,
+          "data_points": {
+            "articles_count": 10,
+            "sentiment_overall_compound": 0.0469,
+            "sentiment_confidence": 1.0,
+            "sentiment_total_items": 10
+          },
+          "errors": [],
+          "warnings": [
+            "Article missing field: headline"
+          ]
+        },
+        "finnhub": {
+          "valid": true,
+          "data_points": {
+            "finnhub_quote": "present",
+            "quote_current_price": 230.56,
+            "quote_change": -0.33,
+            "quote_percent_change": -0.1429,
+            "quote_high": 232.87,
+            "quote_low": 229.35,
+            "quote_open": 231.275,
+            "finnhub_news": "present",
+            "finnhub_news_count": 237,
+            "finnhub_sentiment": 0.0,
+            "finnhub_financials": "present",
+            "finnhub_success_rate": 100.0
+          },
+          "errors": [],
+          "warnings": []
+        },
+        "sec": {
+          "valid": true,
+          "data_points": {
+            "sec_insider_activity": "normal",
+            "sec_institutional_interest": "low",
+            "sec_recent_events": 2,
+            "sec_filing_activity": "low"
+          },
+          "errors": [],
+          "warnings": []
+        }
+      },
+      "logic_validation": {
+        "valid": true,
+        "logic_checks": {
+          "coverage_calculation": "correct",
+          "sentiment_validation": "passed",
+          "market_data_validation": "passed",
+          "overall_score_validation": "passed"
+        },
+        "errors": [],
+        "warnings": []
+      },
+      "data_points": {
+        "articles_count": 10,
+        "sentiment_overall_compound": 0.0469,
+        "sentiment_confidence": 1.0,
+        "sentiment_total_items": 10,
+        "finnhub_quote": "present",
+        "quote_current_price": 230.56,
+        "quote_change": -0.33,
+        "quote_percent_change": -0.1429,
+        "quote_high": 232.87,
+        "quote_low": 229.35,
+        "quote_open": 231.275,
+        "finnhub_news": "present",
+        "finnhub_news_count": 237,
+        "finnhub_sentiment": 0.0,
+        "finnhub_financials": "present",
+        "finnhub_success_rate": 100.0,
+        "sec_insider_activity": "normal",
+        "sec_institutional_interest": "low",
+        "sec_recent_events": 2,
+        "sec_filing_activity": "low"
+      },
+      "errors": [],
+      "warnings": [
+        "Article missing field: headline"
+      ]
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "test_time": 0.65,
+      "overall_valid": true,
+      "structure_validation": {
+        "symbol": "MSFT",
+        "timestamp": "2025-08-20T08:28:05.137922",
+        "structure_valid": true,
+        "mapping_valid": true,
+        "logic_valid": true,
+        "errors": [],
+        "warnings": [],
+        "data_points": {}
+      },
+      "source_validations": {
+        "news": {
+          "valid": true,
+          "data_points": {
+            "articles_count": 10,
+            "sentiment_overall_compound": 0.4671,
+            "sentiment_confidence": 1.0,
+            "sentiment_total_items": 10
+          },
+          "errors": [],
+          "warnings": [
+            "Article missing field: headline"
+          ]
+        },
+        "finnhub": {
+          "valid": true,
+          "data_points": {
+            "finnhub_quote": "present",
+            "quote_current_price": 509.77,
+            "quote_change": -7.33,
+            "quote_percent_change": -1.4175,
+            "quote_high": 515.1641,
+            "quote_low": 508.55,
+            "quote_open": 515,
+            "finnhub_news": "present",
+            "finnhub_news_count": 243,
+            "finnhub_sentiment": 0.0,
+            "finnhub_financials": "present",
+            "finnhub_success_rate": 100.0
+          },
+          "errors": [],
+          "warnings": []
+        },
+        "sec": {
+          "valid": true,
+          "data_points": {
+            "sec_insider_activity": "normal",
+            "sec_institutional_interest": "low",
+            "sec_recent_events": 1,
+            "sec_filing_activity": "low"
+          },
+          "errors": [],
+          "warnings": []
+        }
+      },
+      "logic_validation": {
+        "valid": true,
+        "logic_checks": {
+          "coverage_calculation": "correct",
+          "sentiment_validation": "passed",
+          "market_data_validation": "passed",
+          "overall_score_validation": "passed"
+        },
+        "errors": [],
+        "warnings": []
+      },
+      "data_points": {
+        "articles_count": 10,
+        "sentiment_overall_compound": 0.4671,
+        "sentiment_confidence": 1.0,
+        "sentiment_total_items": 10,
+        "finnhub_quote": "present",
+        "quote_current_price": 509.77,
+        "quote_change": -7.33,
+        "quote_percent_change": -1.4175,
+        "quote_high": 515.1641,
+        "quote_low": 508.55,
+        "quote_open": 515,
+        "finnhub_news": "present",
+        "finnhub_news_count": 243,
+        "finnhub_sentiment": 0.0,
+        "finnhub_financials": "present",
+        "finnhub_success_rate": 100.0,
+        "sec_insider_activity": "normal",
+        "sec_institutional_interest": "low",
+        "sec_recent_events": 1,
+        "sec_filing_activity": "low"
+      },
+      "errors": [],
+      "warnings": [
+        "Article missing field: headline"
+      ]
+    },
+    "GOOGL": {
+      "symbol": "GOOGL",
+      "test_time": 0.62,
+      "overall_valid": true,
+      "structure_validation": {
+        "symbol": "GOOGL",
+        "timestamp": "2025-08-20T08:28:06.759058",
+        "structure_valid": true,
+        "mapping_valid": true,
+        "logic_valid": true,
+        "errors": [],
+        "warnings": [],
+        "data_points": {}
+      },
+      "source_validations": {
+        "news": {
+          "valid": true,
+          "data_points": {
+            "articles_count": 10,
+            "sentiment_overall_compound": 0.1092,
+            "sentiment_confidence": 1.0,
+            "sentiment_total_items": 10
+          },
+          "errors": [],
+          "warnings": [
+            "Article missing field: headline"
+          ]
+        },
+        "finnhub": {
+          "valid": true,
+          "data_points": {
+            "finnhub_quote": "present",
+            "quote_current_price": 201.57,
+            "quote_change": -1.93,
+            "quote_percent_change": -0.9484,
+            "quote_high": 203.44,
+            "quote_low": 199.96,
+            "quote_open": 203.03,
+            "finnhub_news": "present",
+            "finnhub_news_count": 241,
+            "finnhub_sentiment": 0.0,
+            "finnhub_financials": "present",
+            "finnhub_success_rate": 100.0
+          },
+          "errors": [],
+          "warnings": []
+        },
+        "sec": {
+          "valid": true,
+          "data_points": {
+            "sec_insider_activity": "high",
+            "sec_institutional_interest": "low",
+            "sec_recent_events": 0,
+            "sec_filing_activity": "normal"
+          },
+          "errors": [],
+          "warnings": []
+        }
+      },
+      "logic_validation": {
+        "valid": true,
+        "logic_checks": {
+          "coverage_calculation": "correct",
+          "sentiment_validation": "passed",
+          "market_data_validation": "passed",
+          "overall_score_validation": "passed"
+        },
+        "errors": [],
+        "warnings": []
+      },
+      "data_points": {
+        "articles_count": 10,
+        "sentiment_overall_compound": 0.1092,
+        "sentiment_confidence": 1.0,
+        "sentiment_total_items": 10,
+        "finnhub_quote": "present",
+        "quote_current_price": 201.57,
+        "quote_change": -1.93,
+        "quote_percent_change": -0.9484,
+        "quote_high": 203.44,
+        "quote_low": 199.96,
+        "quote_open": 203.03,
+        "finnhub_news": "present",
+        "finnhub_news_count": 241,
+        "finnhub_sentiment": 0.0,
+        "finnhub_financials": "present",
+        "finnhub_success_rate": 100.0,
+        "sec_insider_activity": "high",
+        "sec_institutional_interest": "low",
+        "sec_recent_events": 0,
+        "sec_filing_activity": "normal"
+      },
+      "errors": [],
+      "warnings": [
+        "Article missing field: headline"
+      ]
+    }
+  },
+  "data_points_summary": {
+    "articles_count": [
+      10,
+      10,
+      10
+    ],
+    "sentiment_overall_compound": [
+      0.0469,
+      0.4671,
+      0.1092
+    ],
+    "sentiment_confidence": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "sentiment_total_items": [
+      10,
+      10,
+      10
+    ],
+    "finnhub_quote": [
+      "present",
+      "present",
+      "present"
+    ],
+    "quote_current_price": [
+      230.56,
+      509.77,
+      201.57
+    ],
+    "quote_change": [
+      -0.33,
+      -7.33,
+      -1.93
+    ],
+    "quote_percent_change": [
+      -0.1429,
+      -1.4175,
+      -0.9484
+    ],
+    "quote_high": [
+      232.87,
+      515.1641,
+      203.44
+    ],
+    "quote_low": [
+      229.35,
+      508.55,
+      199.96
+    ],
+    "quote_open": [
+      231.275,
+      515,
+      203.03
+    ],
+    "finnhub_news": [
+      "present",
+      "present",
+      "present"
+    ],
+    "finnhub_news_count": [
+      237,
+      243,
+      241
+    ],
+    "finnhub_sentiment": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "finnhub_financials": [
+      "present",
+      "present",
+      "present"
+    ],
+    "finnhub_success_rate": [
+      100.0,
+      100.0,
+      100.0
+    ],
+    "sec_insider_activity": [
+      "normal",
+      "normal",
+      "high"
+    ],
+    "sec_institutional_interest": [
+      "low",
+      "low",
+      "low"
+    ],
+    "sec_recent_events": [
+      2,
+      1,
+      0
+    ],
+    "sec_filing_activity": [
+      "low",
+      "low",
+      "normal"
+    ]
+  },
+  "recommendations": [
+    "\u2705 All data mappings and logic flows are correct",
+    "\u2705 System is ready for production use",
+    "\ud83d\udcdd Address 3 warnings for optimal performance"
+  ]
+}

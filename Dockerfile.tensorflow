@@ -1,0 +1,53 @@
+# TensorFlow Model Server Dockerfile
+FROM tensorflow/tensorflow:2.15.0-gpu
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.tensorflow.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.tensorflow.txt
+
+# Copy model serving code
+COPY model_server.py .
+COPY ml_models/ ./ml_models/
+
+# Create necessary directories
+RUN mkdir -p /app/models /app/logs
+
+# Set critical environment variables for mutex safety
+ENV TF_CPP_MIN_LOG_LEVEL=2
+ENV TF_LOGGING_LEVEL=ERROR
+ENV TF_ENABLE_DEPRECATION_WARNINGS=0
+ENV TF_PROFILER_DISABLE=1
+ENV TF_FORCE_GPU_ALLOW_GROWTH=false
+
+# Set threading configuration (will be overridden by docker-compose)
+ENV TF_NUM_INTRAOP_THREADS=4
+ENV TF_NUM_INTEROP_THREADS=2
+ENV OMP_NUM_THREADS=4
+ENV MKL_NUM_THREADS=4
+ENV KMP_BLOCKTIME=0
+
+# Set Python environment
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD python -c "import tensorflow as tf; print('TF OK')" || exit 1
+
+# Expose port
+EXPOSE 8001
+
+# Run model server
+CMD ["python", "model_server.py"]

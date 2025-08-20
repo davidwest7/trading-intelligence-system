@@ -18,6 +18,30 @@ from sklearn.model_selection import TimeSeriesSplit, cross_val_score
 import warnings
 warnings.filterwarnings('ignore')
 
+class AdvancedMLModels:
+    """Wrapper class for AdvancedMLPredictor to match expected interface"""
+    
+    def __init__(self, config=None):
+        self.predictor = AdvancedMLPredictor(config)
+    
+    async def train(self, data, symbol, asset_class='equity'):
+        """Train advanced ML models"""
+        return await self.predictor.train_advanced_models(data, symbol, asset_class)
+    
+    async def predict(self, data, symbol):
+        """Make predictions using trained models"""
+        return await self.predictor.predict_advanced(data, symbol)
+    
+    def get_model_info(self):
+        """Get information about trained models"""
+        return {
+            'is_trained': self.predictor.is_trained,
+            'symbol': self.predictor.symbol,
+            'asset_class': self.predictor.asset_class,
+            'models_count': len(self.predictor.models),
+            'feature_importance': self.predictor.feature_importance
+        }
+
 class AdvancedMLPredictor:
     """
     Advanced ML Predictor based on latest research:

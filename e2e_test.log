@@ -1,0 +1,297 @@
+2025-08-19 19:58:59,806 - __main__ - INFO - 🚀 Starting Comprehensive End-to-End Test Suite
+2025-08-19 19:58:59,806 - __main__ - INFO - ================================================================================
+2025-08-19 19:58:59,806 - __main__ - INFO - 🔍 Testing Data Engine Components...
+2025-08-19 19:58:59,898 - __main__ - ERROR - ❌ Data Engine Test: FAILED - Failed to initialize data engine
+2025-08-19 19:58:59,898 - __main__ - ERROR -    Error: cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)
+2025-08-19 19:58:59,898 - __main__ - INFO - 🤖 Testing ML Models Components...
+2025-08-19 19:59:00,741 - __main__ - ERROR - ❌ ML Models Test: FAILED - Failed to test ML models
+2025-08-19 19:59:00,742 - __main__ - ERROR -    Error: cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)
+2025-08-19 19:59:00,742 - __main__ - INFO - ⚠️ Testing Risk Management Components...
+2025-08-19 19:59:00,747 - __main__ - ERROR - ❌ Risk Management Test: FAILED - Failed to test risk management
+2025-08-19 19:59:00,747 - __main__ - ERROR -    Error: cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)
+2025-08-19 19:59:00,747 - __main__ - INFO - 🚀 Testing Execution Algorithms...
+2025-08-19 19:59:00,748 - __main__ - ERROR - ❌ Execution Algorithms Test: FAILED - Failed to test execution algorithms
+2025-08-19 19:59:00,748 - __main__ - ERROR -    Error: cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)
+2025-08-19 19:59:00,748 - __main__ - INFO - 🏛️ Testing Governance System...
+2025-08-19 19:59:00,876 - __main__ - INFO - ✅ Governance System Initialization: PASSED - Governance engine initialized
+2025-08-19 19:59:00,877 - __main__ - INFO - ✅ Pre-Trading Checks: PASSED - Completed 9 pre-trading checks
+2025-08-19 19:59:00,877 - __main__ - INFO - ✅ Execution Checks: PASSED - Completed 6 execution checks
+2025-08-19 19:59:00,878 - __main__ - INFO - ✅ Post-Trading Checks: PASSED - Completed 6 post-trading checks
+2025-08-19 19:59:00,878 - __main__ - INFO - ✅ Governance Summary: PASSED - Trading halted: False
+2025-08-19 19:59:00,878 - __main__ - INFO - 📊 Testing Monitoring System...
+2025-08-19 19:59:00,883 - monitoring.drift_suite - INFO - Initialized Drift Detection Suite
+2025-08-19 19:59:00,883 - __main__ - INFO - ✅ Monitoring System Initialization: PASSED - Drift detection suite initialized
+2025-08-19 19:59:00,885 - __main__ - ERROR - ❌ Monitoring System Test: FAILED - Failed to test monitoring system
+2025-08-19 19:59:00,885 - __main__ - ERROR -    Error: object of type 'coroutine' has no len()
+2025-08-19 19:59:00,885 - __main__ - INFO - 📈 Testing Alternative Data Integration...
+2025-08-19 19:59:00,928 - __main__ - ERROR - ❌ Alternative Data Test: FAILED - Failed to test alternative data
+2025-08-19 19:59:00,928 - __main__ - ERROR -    Error: cannot import name 'RealTimeDataIntegration' from 'alternative_data.real_time_data_integration' (/Users/davidwestera/trading-intelligence-system/alternative_data/real_time_data_integration.py)
+2025-08-19 19:59:00,928 - __main__ - INFO - ⚡ Testing HFT Components...
+2025-08-19 19:59:00,929 - __main__ - ERROR - ❌ HFT Components Test: FAILED - Failed to test HFT components
+2025-08-19 19:59:00,929 - __main__ - ERROR -    Error: No module named 'hft.low_latency_execution'
+2025-08-19 19:59:00,929 - __main__ - INFO - 🔄 Testing Complete Integration Workflow...
+2025-08-19 19:59:01,522 - __main__ - ERROR - ❌ Integration Workflow Test: FAILED - Failed to test integration workflow
+2025-08-19 19:59:01,522 - __main__ - ERROR -    Error: cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)
+2025-08-19 19:59:01,522 - __main__ - INFO - 📊 Testing Performance Metrics...
+2025-08-19 19:59:01,522 - __main__ - ERROR - ❌ Performance Metrics Test: FAILED - Failed to test performance metrics
+2025-08-19 19:59:01,522 - __main__ - ERROR -    Error: No module named 'common.evaluation.performance_metrics'
+2025-08-19 19:59:01,522 - __main__ - INFO - 📋 Generating Comprehensive Test Report
+2025-08-19 19:59:01,522 - __main__ - INFO - ================================================================================
+2025-08-19 19:59:01,522 - __main__ - INFO - 📊 Test Summary:
+2025-08-19 19:59:01,522 - __main__ - INFO -    Total Tests: 15
+2025-08-19 19:59:01,522 - __main__ - INFO -    Passed: 6
+2025-08-19 19:59:01,522 - __main__ - INFO -    Failed: 9
+2025-08-19 19:59:01,522 - __main__ - INFO -    Success Rate: 40.0%
+2025-08-19 19:59:01,522 - __main__ - INFO -    Duration: 0:00:01.716144
+2025-08-19 19:59:01,522 - __main__ - INFO - 
+📋 Detailed Results:
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Data Engine Test: Failed to initialize data engine
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - ML Models Test: Failed to test ML models
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Risk Management Test: Failed to test risk management
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Execution Algorithms Test: Failed to test execution algorithms
+2025-08-19 19:59:01,523 - __main__ - INFO -    ✅ PASSED - Governance System Initialization: Governance engine initialized
+2025-08-19 19:59:01,523 - __main__ - INFO -    ✅ PASSED - Pre-Trading Checks: Completed 9 pre-trading checks
+2025-08-19 19:59:01,523 - __main__ - INFO -    ✅ PASSED - Execution Checks: Completed 6 execution checks
+2025-08-19 19:59:01,523 - __main__ - INFO -    ✅ PASSED - Post-Trading Checks: Completed 6 post-trading checks
+2025-08-19 19:59:01,523 - __main__ - INFO -    ✅ PASSED - Governance Summary: Trading halted: False
+2025-08-19 19:59:01,523 - __main__ - INFO -    ✅ PASSED - Monitoring System Initialization: Drift detection suite initialized
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Monitoring System Test: Failed to test monitoring system
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Alternative Data Test: Failed to test alternative data
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - HFT Components Test: Failed to test HFT components
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Integration Workflow Test: Failed to test integration workflow
+2025-08-19 19:59:01,523 - __main__ - INFO -    ❌ FAILED - Performance Metrics Test: Failed to test performance metrics
+2025-08-19 19:59:01,523 - __main__ - INFO - 
+❌ Errors Found:
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Data Engine Test: cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)
+2025-08-19 19:59:01,523 - __main__ - ERROR -    ML Models Test: cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Risk Management Test: cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Execution Algorithms Test: cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Monitoring System Test: object of type 'coroutine' has no len()
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Alternative Data Test: cannot import name 'RealTimeDataIntegration' from 'alternative_data.real_time_data_integration' (/Users/davidwestera/trading-intelligence-system/alternative_data/real_time_data_integration.py)
+2025-08-19 19:59:01,523 - __main__ - ERROR -    HFT Components Test: No module named 'hft.low_latency_execution'
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Integration Workflow Test: cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)
+2025-08-19 19:59:01,523 - __main__ - ERROR -    Performance Metrics Test: No module named 'common.evaluation.performance_metrics'
+2025-08-19 19:59:01,523 - __main__ - INFO - 
+📄 Detailed report saved to: e2e_test_report.json
+2025-08-19 19:59:01,523 - __main__ - ERROR - 
+❌ POOR: System needs significant work. Success rate: 40.0%
+2025-08-19 20:22:30,721 - __main__ - INFO - 🚀 Starting Comprehensive End-to-End Test Suite
+2025-08-19 20:22:30,721 - __main__ - INFO - ================================================================================
+2025-08-19 20:22:30,721 - __main__ - INFO - 🧪 Running data_engine test...
+2025-08-19 20:22:30,721 - __main__ - INFO - 🔍 Testing Data Engine Components...
+2025-08-19 20:22:30,781 - __main__ - ERROR - ❌ Data Engine Test: FAILED - Failed to initialize data engine
+2025-08-19 20:22:30,782 - __main__ - ERROR -    Error: cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)
+2025-08-19 20:22:30,782 - __main__ - INFO - ✅ data_engine test completed
+2025-08-19 20:22:30,782 - __main__ - INFO - 🧪 Running ml_models test...
+2025-08-19 20:22:30,782 - __main__ - INFO - 🤖 Testing ML Models Components...
+2025-08-19 20:22:31,525 - __main__ - ERROR - ❌ ML Models Test: FAILED - Failed to test ML models
+2025-08-19 20:22:31,525 - __main__ - ERROR -    Error: cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)
+2025-08-19 20:22:31,525 - __main__ - INFO - ✅ ml_models test completed
+2025-08-19 20:22:31,525 - __main__ - INFO - 🧪 Running risk_management test...
+2025-08-19 20:22:31,525 - __main__ - INFO - ⚠️ Testing Risk Management Components...
+2025-08-19 20:22:31,527 - __main__ - ERROR - ❌ Risk Management Test: FAILED - Failed to test risk management
+2025-08-19 20:22:31,527 - __main__ - ERROR -    Error: cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)
+2025-08-19 20:22:31,527 - __main__ - INFO - ✅ risk_management test completed
+2025-08-19 20:22:31,527 - __main__ - INFO - 🧪 Running execution_algorithms test...
+2025-08-19 20:22:31,527 - __main__ - INFO - 🚀 Testing Execution Algorithms...
+2025-08-19 20:22:31,527 - __main__ - ERROR - ❌ Execution Algorithms Test: FAILED - Failed to test execution algorithms
+2025-08-19 20:22:31,527 - __main__ - ERROR -    Error: cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)
+2025-08-19 20:22:31,527 - __main__ - INFO - ✅ execution_algorithms test completed
+2025-08-19 20:22:31,527 - __main__ - INFO - 🧪 Running governance_system test...
+2025-08-19 20:22:31,527 - __main__ - INFO - 🏛️ Testing Governance System...
+2025-08-19 20:22:31,667 - __main__ - INFO - ✅ Governance System Initialization: PASSED - Governance engine initialized
+2025-08-19 20:22:31,668 - __main__ - INFO - ✅ Pre-Trading Checks: PASSED - Completed 9 pre-trading checks
+2025-08-19 20:22:31,668 - __main__ - INFO - ✅ Execution Checks: PASSED - Completed 6 execution checks
+2025-08-19 20:22:31,669 - __main__ - INFO - ✅ Post-Trading Checks: PASSED - Completed 6 post-trading checks
+2025-08-19 20:22:31,669 - __main__ - INFO - ✅ Governance Summary: PASSED - Trading halted: False
+2025-08-19 20:22:31,669 - __main__ - INFO - ✅ governance_system test completed
+2025-08-19 20:22:31,669 - __main__ - INFO - 🧪 Running monitoring_system test...
+2025-08-19 20:22:31,669 - __main__ - INFO - 📊 Testing Monitoring System...
+2025-08-19 20:22:31,671 - monitoring.drift_suite - INFO - Initialized Drift Detection Suite
+2025-08-19 20:22:31,671 - __main__ - INFO - ✅ Monitoring System Initialization: PASSED - Drift detection suite initialized
+2025-08-19 20:22:31,671 - __main__ - ERROR - ❌ Monitoring System Test: FAILED - Failed to test monitoring system
+2025-08-19 20:22:31,671 - __main__ - ERROR -    Error: object of type 'coroutine' has no len()
+2025-08-19 20:22:31,672 - __main__ - INFO - ✅ monitoring_system test completed
+2025-08-19 20:22:31,672 - __main__ - INFO - 🧪 Running alternative_data test...
+2025-08-19 20:22:31,672 - __main__ - INFO - 📈 Testing Alternative Data Integration...
+2025-08-19 20:22:31,712 - __main__ - INFO - ✅ Alternative Data Initialization: PASSED - Alternative data integration initialized
+2025-08-19 20:22:31,712 - __main__ - INFO - ✅ Data Sources: PASSED - Available sources: 5
+2025-08-19 20:22:31,712 - __main__ - INFO - ✅ Sentiment Data: PASSED - Mock sentiment data for 3 symbols
+2025-08-19 20:22:31,712 - __main__ - INFO - ✅ News Data: PASSED - Mock news data: 3 articles
+2025-08-19 20:22:31,712 - __main__ - INFO - ✅ alternative_data test completed
+2025-08-19 20:22:31,712 - __main__ - INFO - 🧪 Running hft_components test...
+2025-08-19 20:22:31,712 - __main__ - INFO - ⚡ Testing HFT Components...
+2025-08-19 20:22:31,713 - __main__ - ERROR - ❌ HFT Components Test: FAILED - Failed to test HFT components
+2025-08-19 20:22:31,713 - __main__ - ERROR -    Error: No module named 'hft.low_latency_execution'
+2025-08-19 20:22:31,713 - __main__ - INFO - ✅ hft_components test completed
+2025-08-19 20:22:31,713 - __main__ - INFO - 🧪 Running integration_workflow test...
+2025-08-19 20:22:31,713 - __main__ - INFO - 🔄 Testing Complete Integration Workflow...
+2025-08-19 20:22:32,245 - __main__ - ERROR - ❌ Integration Workflow Test: FAILED - Failed to test integration workflow
+2025-08-19 20:22:32,245 - __main__ - ERROR -    Error: cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)
+2025-08-19 20:22:32,245 - __main__ - INFO - ✅ integration_workflow test completed
+2025-08-19 20:22:32,245 - __main__ - INFO - 🧪 Running performance_metrics test...
+2025-08-19 20:22:32,245 - __main__ - INFO - 📊 Testing Performance Metrics...
+2025-08-19 20:22:32,245 - __main__ - ERROR - ❌ Performance Metrics Test: FAILED - Failed to test performance metrics
+2025-08-19 20:22:32,245 - __main__ - ERROR -    Error: No module named 'common.evaluation.performance_metrics'
+2025-08-19 20:22:32,245 - __main__ - INFO - ✅ performance_metrics test completed
+2025-08-19 20:22:32,245 - __main__ - INFO - 📋 Generating Comprehensive Test Report
+2025-08-19 20:22:32,245 - __main__ - INFO - ================================================================================
+2025-08-19 20:22:32,245 - __main__ - INFO - 📊 Test Summary:
+2025-08-19 20:22:32,245 - __main__ - INFO -    Total Tests: 18
+2025-08-19 20:22:32,245 - __main__ - INFO -    Passed: 10
+2025-08-19 20:22:32,245 - __main__ - INFO -    Failed: 8
+2025-08-19 20:22:32,245 - __main__ - INFO -    Success Rate: 55.6%
+2025-08-19 20:22:32,245 - __main__ - INFO -    Duration: 0:00:01.524086
+2025-08-19 20:22:32,245 - __main__ - INFO - 
+📋 Detailed Results:
+2025-08-19 20:22:32,245 - __main__ - INFO -    ❌ FAILED - Data Engine Test: Failed to initialize data engine
+2025-08-19 20:22:32,245 - __main__ - INFO -    ❌ FAILED - ML Models Test: Failed to test ML models
+2025-08-19 20:22:32,245 - __main__ - INFO -    ❌ FAILED - Risk Management Test: Failed to test risk management
+2025-08-19 20:22:32,245 - __main__ - INFO -    ❌ FAILED - Execution Algorithms Test: Failed to test execution algorithms
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Governance System Initialization: Governance engine initialized
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Pre-Trading Checks: Completed 9 pre-trading checks
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Execution Checks: Completed 6 execution checks
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Post-Trading Checks: Completed 6 post-trading checks
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Governance Summary: Trading halted: False
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Monitoring System Initialization: Drift detection suite initialized
+2025-08-19 20:22:32,246 - __main__ - INFO -    ❌ FAILED - Monitoring System Test: Failed to test monitoring system
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Alternative Data Initialization: Alternative data integration initialized
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Data Sources: Available sources: 5
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - Sentiment Data: Mock sentiment data for 3 symbols
+2025-08-19 20:22:32,246 - __main__ - INFO -    ✅ PASSED - News Data: Mock news data: 3 articles
+2025-08-19 20:22:32,246 - __main__ - INFO -    ❌ FAILED - HFT Components Test: Failed to test HFT components
+2025-08-19 20:22:32,246 - __main__ - INFO -    ❌ FAILED - Integration Workflow Test: Failed to test integration workflow
+2025-08-19 20:22:32,246 - __main__ - INFO -    ❌ FAILED - Performance Metrics Test: Failed to test performance metrics
+2025-08-19 20:22:32,246 - __main__ - INFO - 
+❌ Errors Found:
+2025-08-19 20:22:32,246 - __main__ - ERROR -    Data Engine Test: cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)
+2025-08-19 20:22:32,246 - __main__ - ERROR -    ML Models Test: cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)
+2025-08-19 20:22:32,246 - __main__ - ERROR -    Risk Management Test: cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)
+2025-08-19 20:22:32,246 - __main__ - ERROR -    Execution Algorithms Test: cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)
+2025-08-19 20:22:32,246 - __main__ - ERROR -    Monitoring System Test: object of type 'coroutine' has no len()
+2025-08-19 20:22:32,246 - __main__ - ERROR -    HFT Components Test: No module named 'hft.low_latency_execution'
+2025-08-19 20:22:32,246 - __main__ - ERROR -    Integration Workflow Test: cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)
+2025-08-19 20:22:32,246 - __main__ - ERROR -    Performance Metrics Test: No module named 'common.evaluation.performance_metrics'
+2025-08-19 20:22:32,246 - __main__ - INFO - 
+📄 Detailed report saved to: e2e_test_report.json
+2025-08-19 20:22:32,246 - __main__ - ERROR - 
+❌ POOR: System needs significant work. Success rate: 55.6%
+2025-08-19 20:24:15,106 - __main__ - INFO - 🚀 Starting Comprehensive End-to-End Test Suite
+2025-08-19 20:24:15,106 - __main__ - INFO - ================================================================================
+2025-08-19 20:24:15,106 - __main__ - INFO - 🧪 Running data_engine test...
+2025-08-19 20:24:15,106 - __main__ - INFO - 🔍 Testing Data Engine Components...
+2025-08-19 20:24:15,163 - __main__ - ERROR - ❌ Data Engine Test: FAILED - Failed to initialize data engine
+2025-08-19 20:24:15,164 - __main__ - ERROR -    Error: cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)
+2025-08-19 20:24:15,164 - __main__ - INFO - ✅ data_engine test completed
+2025-08-19 20:24:15,164 - __main__ - INFO - 🧪 Running ml_models test...
+2025-08-19 20:24:15,164 - __main__ - INFO - 🤖 Testing ML Models Components...
+2025-08-19 20:24:15,750 - __main__ - ERROR - ❌ ML Models Test: FAILED - Failed to test ML models
+2025-08-19 20:24:15,750 - __main__ - ERROR -    Error: cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)
+2025-08-19 20:24:15,750 - __main__ - INFO - ✅ ml_models test completed
+2025-08-19 20:24:15,750 - __main__ - INFO - 🧪 Running risk_management test...
+2025-08-19 20:24:15,750 - __main__ - INFO - ⚠️ Testing Risk Management Components...
+2025-08-19 20:24:15,752 - __main__ - ERROR - ❌ Risk Management Test: FAILED - Failed to test risk management
+2025-08-19 20:24:15,752 - __main__ - ERROR -    Error: cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)
+2025-08-19 20:24:15,752 - __main__ - INFO - ✅ risk_management test completed
+2025-08-19 20:24:15,752 - __main__ - INFO - 🧪 Running execution_algorithms test...
+2025-08-19 20:24:15,752 - __main__ - INFO - 🚀 Testing Execution Algorithms...
+2025-08-19 20:24:15,753 - __main__ - ERROR - ❌ Execution Algorithms Test: FAILED - Failed to test execution algorithms
+2025-08-19 20:24:15,753 - __main__ - ERROR -    Error: cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)
+2025-08-19 20:24:15,753 - __main__ - INFO - ✅ execution_algorithms test completed
+2025-08-19 20:24:15,753 - __main__ - INFO - 🧪 Running governance_system test...
+2025-08-19 20:24:15,753 - __main__ - INFO - 🏛️ Testing Governance System...
+2025-08-19 20:24:15,843 - __main__ - INFO - ✅ Governance System Initialization: PASSED - Governance engine initialized
+2025-08-19 20:24:15,844 - __main__ - INFO - ✅ Pre-Trading Checks: PASSED - Completed 9 pre-trading checks
+2025-08-19 20:24:15,845 - __main__ - INFO - ✅ Execution Checks: PASSED - Completed 6 execution checks
+2025-08-19 20:24:15,845 - __main__ - INFO - ✅ Post-Trading Checks: PASSED - Completed 6 post-trading checks
+2025-08-19 20:24:15,845 - __main__ - INFO - ✅ Governance Summary: PASSED - Trading halted: False
+2025-08-19 20:24:15,845 - __main__ - INFO - ✅ governance_system test completed
+2025-08-19 20:24:15,845 - __main__ - INFO - 🧪 Running monitoring_system test...
+2025-08-19 20:24:15,845 - __main__ - INFO - 📊 Testing Monitoring System...
+2025-08-19 20:24:15,847 - monitoring.drift_suite - INFO - Initialized Drift Detection Suite
+2025-08-19 20:24:15,847 - __main__ - INFO - ✅ Monitoring System Initialization: PASSED - Drift detection suite initialized
+2025-08-19 20:24:15,848 - __main__ - ERROR - ❌ Monitoring System Test: FAILED - Failed to test monitoring system
+2025-08-19 20:24:15,848 - __main__ - ERROR -    Error: object of type 'coroutine' has no len()
+2025-08-19 20:24:15,848 - __main__ - INFO - ✅ monitoring_system test completed
+2025-08-19 20:24:15,848 - __main__ - INFO - 🧪 Running alternative_data test...
+2025-08-19 20:24:15,848 - __main__ - INFO - 📈 Testing Alternative Data Integration...
+2025-08-19 20:24:15,885 - __main__ - INFO - ✅ Alternative Data Initialization: PASSED - Alternative data integration initialized
+2025-08-19 20:24:15,885 - __main__ - INFO - ✅ Data Sources: PASSED - Available sources: 5
+2025-08-19 20:24:15,885 - __main__ - INFO - ✅ Sentiment Data: PASSED - Mock sentiment data for 3 symbols
+2025-08-19 20:24:15,885 - __main__ - INFO - ✅ News Data: PASSED - Mock news data: 3 articles
+2025-08-19 20:24:15,885 - __main__ - INFO - ✅ alternative_data test completed
+2025-08-19 20:24:15,885 - __main__ - INFO - 🧪 Running hft_components test...
+2025-08-19 20:24:15,885 - __main__ - INFO - ⚡ Testing HFT Components...
+2025-08-19 20:24:15,885 - __main__ - ERROR - ❌ HFT Components Test: FAILED - Failed to test HFT components
+2025-08-19 20:24:15,885 - __main__ - ERROR -    Error: No module named 'hft.low_latency_execution'
+2025-08-19 20:24:15,885 - __main__ - INFO - ✅ hft_components test completed
+2025-08-19 20:24:15,885 - __main__ - INFO - 🧪 Running integration_workflow test...
+2025-08-19 20:24:15,885 - __main__ - INFO - 🔄 Testing Complete Integration Workflow...
+2025-08-19 20:24:16,324 - __main__ - ERROR - ❌ Integration Workflow Test: FAILED - Failed to test integration workflow
+2025-08-19 20:24:16,324 - __main__ - ERROR -    Error: cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)
+2025-08-19 20:24:16,324 - __main__ - INFO - ✅ integration_workflow test completed
+2025-08-19 20:24:16,324 - __main__ - INFO - 🧪 Running performance_metrics test...
+2025-08-19 20:24:16,324 - __main__ - INFO - 📊 Testing Performance Metrics...
+2025-08-19 20:24:16,325 - __main__ - ERROR - ❌ Performance Metrics Test: FAILED - Failed to test performance metrics
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Error: No module named 'common.evaluation.performance_metrics'
+2025-08-19 20:24:16,325 - __main__ - INFO - ✅ performance_metrics test completed
+2025-08-19 20:24:16,325 - __main__ - INFO - 📋 Generating Comprehensive Test Report
+2025-08-19 20:24:16,325 - __main__ - INFO - ================================================================================
+2025-08-19 20:24:16,325 - __main__ - INFO - 📊 Test Summary:
+2025-08-19 20:24:16,325 - __main__ - INFO -    Total Tests: 18
+2025-08-19 20:24:16,325 - __main__ - INFO -    Passed: 10
+2025-08-19 20:24:16,325 - __main__ - INFO -    Failed: 8
+2025-08-19 20:24:16,325 - __main__ - INFO -    Success Rate: 55.6%
+2025-08-19 20:24:16,325 - __main__ - INFO -    Duration: 0:00:01.218857
+2025-08-19 20:24:16,325 - __main__ - INFO - 
+📋 Detailed Results:
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - Data Engine Test: Failed to initialize data engine
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - ML Models Test: Failed to test ML models
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - Risk Management Test: Failed to test risk management
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - Execution Algorithms Test: Failed to test execution algorithms
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Governance System Initialization: Governance engine initialized
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Pre-Trading Checks: Completed 9 pre-trading checks
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Execution Checks: Completed 6 execution checks
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Post-Trading Checks: Completed 6 post-trading checks
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Governance Summary: Trading halted: False
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Monitoring System Initialization: Drift detection suite initialized
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - Monitoring System Test: Failed to test monitoring system
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Alternative Data Initialization: Alternative data integration initialized
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Data Sources: Available sources: 5
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - Sentiment Data: Mock sentiment data for 3 symbols
+2025-08-19 20:24:16,325 - __main__ - INFO -    ✅ PASSED - News Data: Mock news data: 3 articles
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - HFT Components Test: Failed to test HFT components
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - Integration Workflow Test: Failed to test integration workflow
+2025-08-19 20:24:16,325 - __main__ - INFO -    ❌ FAILED - Performance Metrics Test: Failed to test performance metrics
+2025-08-19 20:24:16,325 - __main__ - INFO - 
+❌ Errors Found:
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Data Engine Test: cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)
+2025-08-19 20:24:16,325 - __main__ - ERROR -    ML Models Test: cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Risk Management Test: cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Execution Algorithms Test: cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Monitoring System Test: object of type 'coroutine' has no len()
+2025-08-19 20:24:16,325 - __main__ - ERROR -    HFT Components Test: No module named 'hft.low_latency_execution'
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Integration Workflow Test: cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)
+2025-08-19 20:24:16,325 - __main__ - ERROR -    Performance Metrics Test: No module named 'common.evaluation.performance_metrics'
+2025-08-19 20:24:16,326 - __main__ - INFO - 
+📄 Detailed report saved to: e2e_test_report.json
+2025-08-19 20:24:16,326 - __main__ - ERROR - 
+❌ POOR: System needs significant work. Success rate: 55.6%
+2025-08-19 20:29:11,929 - __main__ - INFO - 🚀 Starting Comprehensive End-to-End Test Suite
+2025-08-19 20:29:11,930 - __main__ - INFO - ================================================================================
+2025-08-19 20:29:11,930 - __main__ - INFO - 🧪 Running data_engine test...
+2025-08-19 20:29:11,930 - __main__ - INFO - 🔍 Testing Data Engine Components...
+2025-08-19 20:29:12,035 - __main__ - ERROR - ❌ Data Engine Test: FAILED - Failed to initialize data engine
+2025-08-19 20:29:12,035 - __main__ - ERROR -    Error: AlphaVantageAdapter.__init__() missing 1 required positional argument: 'config'
+2025-08-19 20:29:12,035 - __main__ - INFO - ✅ data_engine test completed
+2025-08-19 20:29:12,035 - __main__ - INFO - 🧪 Running ml_models test...
+2025-08-19 20:29:12,035 - __main__ - INFO - 🤖 Testing ML Models Components...
+2025-08-19 20:30:56,183 - __main__ - INFO - 🚀 Starting Comprehensive End-to-End Test Suite
+2025-08-19 20:30:56,183 - __main__ - INFO - ================================================================================
+2025-08-19 20:30:56,183 - __main__ - INFO - 🧪 Running data_engine test...
+2025-08-19 20:30:56,183 - __main__ - INFO - 🔍 Testing Data Engine Components...
+2025-08-19 20:30:56,248 - __main__ - INFO - ✅ Data Adapters Initialization: PASSED - Polygon and Alpha Vantage adapters initialized
+2025-08-19 20:30:56,249 - __main__ - INFO - ✅ Mock Data Generation: PASSED - Generated 100 data points
+2025-08-19 20:30:56,249 - __main__ - INFO - ✅ data_engine test completed
+2025-08-19 20:30:56,249 - __main__ - INFO - 🧪 Running ml_models test...
+2025-08-19 20:30:56,249 - __main__ - INFO - 🤖 Testing ML Models Components...

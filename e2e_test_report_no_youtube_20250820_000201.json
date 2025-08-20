@@ -1,0 +1,283 @@
+{
+  "test_date": "2025-08-20T00:02:01.826880",
+  "total_symbols": 5,
+  "successful_symbols": 5,
+  "failed_symbols": 0,
+  "success_rate": 100.0,
+  "total_time": 7.547032117843628,
+  "avg_test_time": 0.51,
+  "avg_collection_time": 0.51,
+  "source_stats": {
+    "news": {
+      "working": 5,
+      "total": 5,
+      "success_rate": 100.0
+    },
+    "finnhub": {
+      "working": 5,
+      "total": 5,
+      "success_rate": 100.0
+    },
+    "sec": {
+      "working": 5,
+      "total": 5,
+      "success_rate": 100.0
+    }
+  },
+  "detailed_results": {
+    "AAPL": {
+      "symbol": "AAPL",
+      "test_time": 0.57,
+      "status": "UNKNOWN",
+      "collection_time": 0.57,
+      "sources": {
+        "news": "WORKING",
+        "finnhub": "WORKING",
+        "sec": "WORKING"
+      },
+      "summary": {
+        "data_coverage": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "coverage_percentage": 100.0
+        },
+        "sentiment_analysis": {
+          "overall_compound": 0.0716,
+          "confidence": 1.0,
+          "total_items": 10,
+          "trend": "neutral"
+        },
+        "market_data": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "success_rate": 100.0,
+          "available_data": [
+            "quote",
+            "news",
+            "financials"
+          ],
+          "current_price": 230.56,
+          "percent_change": -0.1429
+        },
+        "financial_data": {
+          "working_sources": 0,
+          "total_sources": 0,
+          "success_rate": 0.0,
+          "available_data": []
+        },
+        "institutional_insights": {
+          "insider_activity": "normal",
+          "institutional_interest": "low",
+          "recent_events": 2,
+          "filing_activity": "low"
+        },
+        "overall_score": 25.41
+      },
+      "errors": []
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "test_time": 0.6,
+      "status": "UNKNOWN",
+      "collection_time": 0.6,
+      "sources": {
+        "news": "WORKING",
+        "finnhub": "WORKING",
+        "sec": "WORKING"
+      },
+      "summary": {
+        "data_coverage": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "coverage_percentage": 100.0
+        },
+        "sentiment_analysis": {
+          "overall_compound": 0.3576,
+          "confidence": 1.0,
+          "total_items": 10,
+          "trend": "bullish"
+        },
+        "market_data": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "success_rate": 100.0,
+          "available_data": [
+            "quote",
+            "news",
+            "financials"
+          ],
+          "current_price": 509.77,
+          "percent_change": -1.4175
+        },
+        "financial_data": {
+          "working_sources": 0,
+          "total_sources": 0,
+          "success_rate": 0.0,
+          "available_data": []
+        },
+        "institutional_insights": {
+          "insider_activity": "normal",
+          "institutional_interest": "low",
+          "recent_events": 1,
+          "filing_activity": "low"
+        },
+        "overall_score": 25.47
+      },
+      "errors": []
+    },
+    "GOOGL": {
+      "symbol": "GOOGL",
+      "test_time": 0.43,
+      "status": "UNKNOWN",
+      "collection_time": 0.43,
+      "sources": {
+        "news": "WORKING",
+        "finnhub": "WORKING",
+        "sec": "WORKING"
+      },
+      "summary": {
+        "data_coverage": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "coverage_percentage": 100.0
+        },
+        "sentiment_analysis": {
+          "overall_compound": 0.1412,
+          "confidence": 1.0,
+          "total_items": 10,
+          "trend": "neutral"
+        },
+        "market_data": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "success_rate": 100.0,
+          "available_data": [
+            "quote",
+            "news",
+            "financials"
+          ],
+          "current_price": 201.57,
+          "percent_change": -0.9484
+        },
+        "financial_data": {
+          "working_sources": 0,
+          "total_sources": 0,
+          "success_rate": 0.0,
+          "available_data": []
+        },
+        "institutional_insights": {
+          "insider_activity": "high",
+          "institutional_interest": "low",
+          "recent_events": 0,
+          "filing_activity": "normal"
+        },
+        "overall_score": 25.43
+      },
+      "errors": []
+    },
+    "TSLA": {
+      "symbol": "TSLA",
+      "test_time": 0.51,
+      "status": "UNKNOWN",
+      "collection_time": 0.51,
+      "sources": {
+        "news": "WORKING",
+        "finnhub": "WORKING",
+        "sec": "WORKING"
+      },
+      "summary": {
+        "data_coverage": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "coverage_percentage": 100.0
+        },
+        "sentiment_analysis": {
+          "overall_compound": 0.0361,
+          "confidence": 1.0,
+          "total_items": 10,
+          "trend": "neutral"
+        },
+        "market_data": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "success_rate": 100.0,
+          "available_data": [
+            "quote",
+            "news",
+            "financials"
+          ],
+          "current_price": 329.31,
+          "percent_change": -1.7454
+        },
+        "financial_data": {
+          "working_sources": 0,
+          "total_sources": 0,
+          "success_rate": 0.0,
+          "available_data": []
+        },
+        "institutional_insights": {
+          "insider_activity": "normal",
+          "institutional_interest": "low",
+          "recent_events": 2,
+          "filing_activity": "low"
+        },
+        "overall_score": 25.41
+      },
+      "errors": []
+    },
+    "AMZN": {
+      "symbol": "AMZN",
+      "test_time": 0.44,
+      "status": "UNKNOWN",
+      "collection_time": 0.44,
+      "sources": {
+        "news": "WORKING",
+        "finnhub": "WORKING",
+        "sec": "WORKING"
+      },
+      "summary": {
+        "data_coverage": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "coverage_percentage": 100.0
+        },
+        "sentiment_analysis": {
+          "overall_compound": 0.2314,
+          "confidence": 1.0,
+          "total_items": 10,
+          "trend": "neutral"
+        },
+        "market_data": {
+          "working_sources": 3,
+          "total_sources": 3,
+          "success_rate": 100.0,
+          "available_data": [
+            "quote",
+            "news",
+            "financials"
+          ],
+          "current_price": 228.01,
+          "percent_change": -1.5033
+        },
+        "financial_data": {
+          "working_sources": 0,
+          "total_sources": 0,
+          "success_rate": 0.0,
+          "available_data": []
+        },
+        "institutional_insights": {
+          "insider_activity": "high",
+          "institutional_interest": "normal",
+          "recent_events": 1,
+          "filing_activity": "normal"
+        },
+        "overall_score": 25.45
+      },
+      "errors": []
+    }
+  },
+  "common_errors": {},
+  "recommendations": [
+    "\u2705 All systems operational - ready for production use"
+  ]
+}

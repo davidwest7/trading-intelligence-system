@@ -17,6 +17,38 @@ from statistics import mean
 sys.path.append('.')
 from common.models import BaseDataAdapter
 
+class PolygonDataAdapter:
+    """Wrapper class for PolygonAdapter to match expected interface"""
+    
+    def __init__(self, config: Dict[str, Any] = None):
+        if config is None:
+            config = {}
+        self.adapter = PolygonAdapter(config)
+    
+    async def connect(self) -> bool:
+        """Connect to Polygon.io API"""
+        return await self.adapter.connect()
+    
+    async def disconnect(self) -> bool:
+        """Disconnect from Polygon.io API"""
+        return await self.adapter.disconnect()
+    
+    async def get_ohlcv(self, symbol: str, timeframe: str, since: datetime, limit: int = 1000) -> pd.DataFrame:
+        """Get OHLCV data"""
+        return await self.adapter.get_ohlcv(symbol, timeframe, since, limit)
+    
+    async def get_quote(self, symbol: str) -> Dict[str, Any]:
+        """Get real-time quote"""
+        return await self.adapter.get_quote(symbol)
+    
+    async def get_intraday_data(self, symbol: str, interval: str = "5", since: datetime = None, limit: int = 1000) -> pd.DataFrame:
+        """Get intraday data"""
+        return await self.adapter.get_intraday_data(symbol, interval, since, limit)
+    
+    async def health_check(self) -> Dict[str, Any]:
+        """Health check for the adapter"""
+        return await self.adapter.health_check()
+
 class PolygonAdapter(BaseDataAdapter):
     """Polygon.io data adapter for comprehensive market data"""
     

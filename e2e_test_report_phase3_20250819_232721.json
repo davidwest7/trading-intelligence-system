@@ -1,0 +1,186 @@
+{
+  "timestamp": "2025-08-19T23:27:21.314157",
+  "total_time": 64.85850501060486,
+  "success_rate": 0.9333333333333333,
+  "overall_status": "\u2705 PASS",
+  "test_results": [
+    {
+      "test_name": "NewsAPI API Key",
+      "status": "PASS",
+      "message": "API key available for NewsAPI",
+      "timestamp": "2025-08-19T23:26:16.455661",
+      "data": null
+    },
+    {
+      "test_name": "YouTube API API Key",
+      "status": "PASS",
+      "message": "API key available for YouTube API",
+      "timestamp": "2025-08-19T23:26:16.455670",
+      "data": null
+    },
+    {
+      "test_name": "Polygon.io API Key",
+      "status": "PASS",
+      "message": "API key available for Polygon.io",
+      "timestamp": "2025-08-19T23:26:16.455675",
+      "data": null
+    },
+    {
+      "test_name": "Financial Modeling Prep API Key",
+      "status": "PASS",
+      "message": "API key available for Financial Modeling Prep",
+      "timestamp": "2025-08-19T23:26:16.455717",
+      "data": null
+    },
+    {
+      "test_name": "FRED API API Key",
+      "status": "PASS",
+      "message": "API key available for FRED API",
+      "timestamp": "2025-08-19T23:26:16.455729",
+      "data": null
+    },
+    {
+      "test_name": "API Key Availability",
+      "status": "PASS",
+      "message": "5/5 API keys available (100.0%)",
+      "timestamp": "2025-08-19T23:26:16.455737",
+      "data": null
+    },
+    {
+      "test_name": "NewsAPI Integration",
+      "status": "PASS",
+      "message": "Found 10 articles, sentiment: -0.013",
+      "timestamp": "2025-08-19T23:26:18.643361",
+      "data": {
+        "articles_count": 10,
+        "sentiment_compound": -0.0131,
+        "confidence": 0.7456
+      }
+    },
+    {
+      "test_name": "YouTube Live News Integration",
+      "status": "PASS",
+      "message": "Found 0 videos, 1 live streams, sentiment: 0.000",
+      "timestamp": "2025-08-19T23:26:32.072212",
+      "data": {
+        "videos_count": 0,
+        "live_streams_count": 1,
+        "sentiment_score": 0.0,
+        "channels_covered": 0
+      }
+    },
+    {
+      "test_name": "Defeat Beta API Integration",
+      "status": "PASS",
+      "message": "5/5 sources working, 7733 data points, 10000.0% success rate",
+      "timestamp": "2025-08-19T23:26:33.436110",
+      "data": {
+        "working_sources": 5,
+        "total_sources": 5,
+        "data_points": 7733,
+        "success_rate": 100.0
+      }
+    },
+    {
+      "test_name": "SEC Filings Integration",
+      "status": "PASS",
+      "message": "Insider activity: normal, institutional interest: low, 2 recent events",
+      "timestamp": "2025-08-19T23:26:34.034854",
+      "data": {
+        "insider_activity": "normal",
+        "institutional_interest": "low",
+        "recent_events": 2,
+        "company_name": "Apple Inc."
+      }
+    },
+    {
+      "test_name": "Comprehensive Data Integration",
+      "status": "PASS",
+      "message": "4/4 sources working (10000.0%), score: 25.50, time: 8.66s",
+      "timestamp": "2025-08-19T23:26:42.697391",
+      "data": {
+        "working_sources": 4,
+        "total_sources": 4,
+        "coverage_percentage": 100.0,
+        "overall_score": 25.5,
+        "collection_time": 8.66
+      }
+    },
+    {
+      "test_name": "Multi-Symbol Processing",
+      "status": "PASS",
+      "message": "3/3 symbols processed successfully, avg time: 6.97s",
+      "timestamp": "2025-08-19T23:27:03.625217",
+      "data": {
+        "successful_symbols": 3,
+        "total_symbols": 3,
+        "success_rate": 1.0,
+        "total_time": 20.92260456085205,
+        "average_time": 6.974201520284017,
+        "results": {
+          "AAPL": {
+            "working_sources": 4,
+            "total_sources": 4,
+            "collection_time": 5.796510934829712,
+            "overall_score": 25.5
+          },
+          "MSFT": {
+            "working_sources": 4,
+            "total_sources": 4,
+            "collection_time": 9.259369373321533,
+            "overall_score": 25.52
+          },
+          "GOOGL": {
+            "working_sources": 4,
+            "total_sources": 4,
+            "collection_time": 5.866724252700806,
+            "overall_score": 25.53
+          }
+        }
+      }
+    },
+    {
+      "test_name": "Error Handling",
+      "status": "WARNING",
+      "message": "No errors detected for invalid symbol (may indicate issues)",
+      "timestamp": "2025-08-19T23:27:09.693232",
+      "data": null
+    },
+    {
+      "test_name": "Performance Metrics",
+      "status": "PASS",
+      "message": "Total time: 5.97s, avg per symbol: 5.92s, success rate: 100.0%",
+      "timestamp": "2025-08-19T23:27:15.666280",
+      "data": {
+        "total_time": 5.968108654022217,
+        "average_time_per_symbol": 5.916666666666667,
+        "success_rate": 1.0,
+        "symbols_processed": 3
+      }
+    },
+    {
+      "test_name": "Data Quality",
+      "status": "PASS",
+      "message": "Quality score: 100.0%, 6/6 metrics passed",
+      "timestamp": "2025-08-19T23:27:21.313821",
+      "data": {
+        "quality_score": 1.0,
+        "metrics": {
+          "has_news_data": true,
+          "has_youtube_data": true,
+          "has_defeatbeta_data": true,
+          "has_sec_data": true,
+          "sentiment_consistency": true,
+          "data_freshness": true
+        },
+        "sentiment_consistency": 0.0131
+      }
+    }
+  ],
+  "summary": {
+    "total_tests": 15,
+    "passed_tests": 14,
+    "failed_tests": 0,
+    "warning_tests": 1
+  }
+}

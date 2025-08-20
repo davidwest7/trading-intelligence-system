@@ -1,10 +1,179 @@
 """
 LSTM Neural Network for Cross-Asset Time Series Prediction
+Enhanced with comprehensive TensorFlow mutex fixes
 """
 
 import numpy as np
 import pandas as pd
+import os
+import sys
+import threading
+import time
+import logging
+from typing import Dict, List, Any, Optional, Tuple
+import asyncio
+from datetime import datetime, timedelta
+
+# ============================================================================
+# CRITICAL TENSORFLOW MUTEX FIXES - MUST BE BEFORE TF IMPORT
+# ============================================================================
+
+# Set all critical environment variables BEFORE importing TensorFlow
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suppress TensorFlow logging
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'  # Disable GPU to prevent conflicts
+os.environ['TF_ENABLE_DEPRECATION_WARNINGS'] = '0'  # Disable deprecation warnings
+os.environ['TF_LOGGING_LEVEL'] = 'ERROR'  # Error-level logging only
+os.environ['TF_PROFILER_DISABLE'] = '1'  # Disable profiling
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'false'  # Disable GPU growth
+os.environ['TF_NUM_INTEROP_THREADS'] = '1'  # Single inter-op thread
+os.environ['TF_NUM_INTRAOP_THREADS'] = '1'  # Single intra-op thread
+
+# Now import TensorFlow safely
 import tensorflow as tf
+
+# Configure TensorFlow threading for mutex safety
+tf.config.threading.set_inter_op_parallelism_threads(1)
+tf.config.threading.set_intra_op_parallelism_threads(1)
+
+# Configure session for mutex safety
+try:
+    config = tf.compat.v1.ConfigProto()
+    config.gpu_options.allow_growth = True
+    config.device_count['GPU'] = 0  # Force CPU-only
+    config.log_device_placement = False
+    
+    # Set session options
+    tf.compat.v1.keras.backend.set_session(
+        tf.compat.v1.Session(config=config)
+    )
+except Exception as e:
+    print(f"⚠️ Warning: Could not configure TensorFlow session: {e}")
+
+# ============================================================================
+# THREAD-SAFE TENSORFLOW WRAPPER
+# ============================================================================
+
+class ThreadSafeTensorFlow:
+    """Thread-safe wrapper for TensorFlow operations."""
+    
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._session_lock = threading.Lock()
+        self._model_locks = {}
+        
+    def safe_model_predict(self, model, data, timeout=30):
+        """Thread-safe model prediction with timeout."""
+        model_id = id(model)
+        if model_id not in self._model_locks:
+            self._model_locks[model_id] = threading.Lock()
+        
+        with self._model_locks[model_id]:
+            try:
+                start_time = time.time()
+                prediction = model.predict(data, verbose=0)
+                
+                if time.time() - start_time > timeout:
+                    raise TimeoutError(f"Model prediction exceeded {timeout}s timeout")
+                
+                return prediction
+            except Exception as e:
+                print(f"❌ Model prediction error: {e}")
+                return None
+    
+    def safe_model_train(self, model, x, y, **kwargs):
+        """Thread-safe model training."""
+        model_id = id(model)
+        if model_id not in self._model_locks:
+            self._model_locks[model_id] = threading.Lock()
+        
+        with self._model_locks[model_id]:
+            try:
+                # Add timeout callback
+                callbacks = kwargs.get('callbacks', [])
+                callbacks.append(TimeoutCallback(timeout=300))  # 5 minute timeout
+                kwargs['callbacks'] = callbacks
+                
+                history = model.fit(x, y, **kwargs)
+                return history
+            except Exception as e:
+                print(f"❌ Model training error: {e}")
+                return None
+
+# ============================================================================
+# TIMEOUT CALLBACK
+# ============================================================================
+
+class TimeoutCallback:
+    """Callback to prevent TensorFlow operations from hanging."""
+    
+    def __init__(self, timeout=300):
+        self.timeout = timeout
+        self.start_time = None
+        
+    def on_train_begin(self, logs=None):
+        self.start_time = time.time()
+        
+    def on_epoch_end(self, epoch, logs=None):
+        if self.start_time and (time.time() - self.start_time) > self.timeout:
+            raise TimeoutError(f"Training exceeded {self.timeout}s timeout")
+
+# ============================================================================
+# SKLEARN FALLBACK
+# ============================================================================
+
+class SafeMLFallback:
+    """Safe ML fallback using sklearn when TensorFlow fails."""
+    
+    def __init__(self):
+        self.models = {}
+        
+    def create_sklearn_model(self, model_type='random_forest'):
+        """Create sklearn-based model as TensorFlow alternative."""
+        try:
+            if model_type == 'random_forest':
+                from sklearn.ensemble import RandomForestRegressor
+                return RandomForestRegressor(n_estimators=100, random_state=42)
+            elif model_type == 'linear':
+                from sklearn.linear_model import LinearRegression
+                return LinearRegression()
+            elif model_type == 'svm':
+                from sklearn.svm import SVR
+                return SVR()
+            else:
+                raise ValueError(f"Unknown model type: {model_type}")
+        except ImportError:
+            print("❌ sklearn not available")
+            return None
+    
+    def train_sklearn_model(self, model, X, y):
+        """Train sklearn model safely."""
+        try:
+            model.fit(X, y)
+            return True
+        except Exception as e:
+            print(f"❌ sklearn training error: {e}")
+            return False
+    
+    def predict_sklearn_model(self, model, X):
+        """Predict with sklearn model safely."""
+        try:
+            return model.predict(X)
+        except Exception as e:
+            print(f"❌ sklearn prediction error: {e}")
+            return None
+
+# Initialize thread-safe TensorFlow wrapper
+safe_tf = ThreadSafeTensorFlow()
+fallback = SafeMLFallback()
+
+# Import TensorFlow components
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout, BatchNormalization
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout, BatchNormalization
 from tensorflow.keras.optimizers import Adam
@@ -70,21 +239,39 @@ class LSTMPredictor:
                 ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-6)
             ]
             
-            # Train model
+            # Train model with thread-safe wrapper and timeout protection
             start_time = time.time()
-            history = self.model.fit(
-                X_train, y_train,
-                batch_size=self.config['batch_size'],
-                epochs=self.config['epochs'],
-                validation_data=(X_test, y_test),
-                callbacks=callbacks,
-                verbose=1
-            )
-            training_time = time.time() - start_time
             
-            # Evaluate model
-            train_pred = self.model.predict(X_train)
-            test_pred = self.model.predict(X_test)
+            try:
+                # Use thread-safe training with timeout
+                history = safe_tf.safe_model_train(
+                    self.model,
+                    X_train, y_train,
+                    batch_size=self.config['batch_size'],
+                    epochs=self.config['epochs'],
+                    validation_data=(X_test, y_test),
+                    callbacks=callbacks,
+                    verbose=1
+                )
+                
+                if history is None:
+                    print(f"⚠️ TensorFlow training failed for {symbol}, trying sklearn fallback...")
+                    return self._train_sklearn_fallback(X_train, y_train, X_test, y_test, symbol, asset_class)
+                
+                training_time = time.time() - start_time
+                
+                # Evaluate model with thread-safe prediction
+                train_pred = safe_tf.safe_model_predict(self.model, X_train)
+                test_pred = safe_tf.safe_model_predict(self.model, X_test)
+                
+                if train_pred is None or test_pred is None:
+                    print(f"⚠️ TensorFlow prediction failed for {symbol}, using sklearn fallback...")
+                    return self._train_sklearn_fallback(X_train, y_train, X_test, y_test, symbol, asset_class)
+                    
+            except Exception as e:
+                print(f"❌ TensorFlow training error for {symbol}: {e}")
+                print("🔄 Falling back to sklearn...")
+                return self._train_sklearn_fallback(X_train, y_train, X_test, y_test, symbol, asset_class)
             
             # Calculate metrics
             train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
@@ -276,11 +463,65 @@ class LSTMPredictor:
         if not self.is_trained:
             return {'success': False, 'error': 'Model not trained'}
         
-        return {
-            'success': True,
-            'symbol': self.symbol,
-            'asset_class': self.asset_class,
-            'is_trained': self.is_trained,
-            'config': self.config,
-            'model_params': self.model.count_params() if self.model else 0
-        }
+                    return {
+                'success': True,
+                'symbol': self.symbol,
+                'asset_class': self.asset_class,
+                'is_trained': self.is_trained,
+                'config': self.config,
+                'model_params': self.model.count_params() if self.model else 0
+            }
+    
+    def _train_sklearn_fallback(self, X_train, y_train, X_test, y_test, symbol, asset_class):
+        """Fallback to sklearn when TensorFlow fails."""
+        try:
+            print(f"🔄 Training sklearn fallback model for {symbol}")
+            
+            # Reshape data for sklearn (flatten sequences)
+            X_train_flat = X_train.reshape(X_train.shape[0], -1)
+            X_test_flat = X_test.reshape(X_test.shape[0], -1)
+            
+            # Create sklearn model
+            sklearn_model = fallback.create_sklearn_model('random_forest')
+            if sklearn_model is None:
+                return {'success': False, 'error': 'Sklearn fallback not available'}
+            
+            # Train sklearn model
+            success = fallback.train_sklearn_model(sklearn_model, X_train_flat, y_train)
+            if not success:
+                return {'success': False, 'error': 'Sklearn training failed'}
+            
+            # Make predictions
+            train_pred = fallback.predict_sklearn_model(sklearn_model, X_train_flat)
+            test_pred = fallback.predict_sklearn_model(sklearn_model, X_test_flat)
+            
+            if train_pred is None or test_pred is None:
+                return {'success': False, 'error': 'Sklearn prediction failed'}
+            
+            # Calculate metrics
+            train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
+            test_rmse = np.sqrt(mean_squared_error(y_test, test_pred))
+            train_mae = mean_absolute_error(y_train, train_pred)
+            test_mae = mean_absolute_error(y_test, test_pred)
+            
+            # Store sklearn model
+            self.sklearn_model = sklearn_model
+            self.is_trained = True
+            
+            return {
+                'success': True,
+                'symbol': symbol,
+                'asset_class': asset_class,
+                'training_time': 0,  # Sklearn is fast
+                'train_rmse': train_rmse,
+                'test_rmse': test_rmse,
+                'train_mae': train_mae,
+                'test_mae': test_mae,
+                'final_loss': test_rmse,  # Use RMSE as loss
+                'final_val_loss': test_rmse,
+                'model_type': 'sklearn_fallback'
+            }
+            
+        except Exception as e:
+            print(f"❌ Sklearn fallback training error for {symbol}: {e}")
+            return {'success': False, 'error': f'Sklearn fallback failed: {str(e)}'}

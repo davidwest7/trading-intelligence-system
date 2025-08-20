@@ -1,0 +1,202 @@
+{
+  "test_summary": {
+    "total_tests": 18,
+    "passed_tests": 10,
+    "failed_tests": 8,
+    "success_rate": 55.55555555555556,
+    "duration": "0:00:01.218857",
+    "start_time": "2025-08-19T20:24:15.106247",
+    "end_time": "2025-08-19T20:24:16.325104"
+  },
+  "test_results": {
+    "Data Engine Test": {
+      "test_name": "Data Engine Test",
+      "success": false,
+      "details": "Failed to initialize data engine",
+      "timestamp": "2025-08-19T20:24:15.163920",
+      "error": "cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)"
+    },
+    "ML Models Test": {
+      "test_name": "ML Models Test",
+      "success": false,
+      "details": "Failed to test ML models",
+      "timestamp": "2025-08-19T20:24:15.750728",
+      "error": "cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)"
+    },
+    "Risk Management Test": {
+      "test_name": "Risk Management Test",
+      "success": false,
+      "details": "Failed to test risk management",
+      "timestamp": "2025-08-19T20:24:15.752777",
+      "error": "cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)"
+    },
+    "Execution Algorithms Test": {
+      "test_name": "Execution Algorithms Test",
+      "success": false,
+      "details": "Failed to test execution algorithms",
+      "timestamp": "2025-08-19T20:24:15.753118",
+      "error": "cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)"
+    },
+    "Governance System Initialization": {
+      "test_name": "Governance System Initialization",
+      "success": true,
+      "details": "Governance engine initialized",
+      "timestamp": "2025-08-19T20:24:15.843534",
+      "error": null
+    },
+    "Pre-Trading Checks": {
+      "test_name": "Pre-Trading Checks",
+      "success": true,
+      "details": "Completed 9 pre-trading checks",
+      "timestamp": "2025-08-19T20:24:15.844626",
+      "error": null
+    },
+    "Execution Checks": {
+      "test_name": "Execution Checks",
+      "success": true,
+      "details": "Completed 6 execution checks",
+      "timestamp": "2025-08-19T20:24:15.845203",
+      "error": null
+    },
+    "Post-Trading Checks": {
+      "test_name": "Post-Trading Checks",
+      "success": true,
+      "details": "Completed 6 post-trading checks",
+      "timestamp": "2025-08-19T20:24:15.845804",
+      "error": null
+    },
+    "Governance Summary": {
+      "test_name": "Governance Summary",
+      "success": true,
+      "details": "Trading halted: False",
+      "timestamp": "2025-08-19T20:24:15.845858",
+      "error": null
+    },
+    "Monitoring System Initialization": {
+      "test_name": "Monitoring System Initialization",
+      "success": true,
+      "details": "Drift detection suite initialized",
+      "timestamp": "2025-08-19T20:24:15.847992",
+      "error": null
+    },
+    "Monitoring System Test": {
+      "test_name": "Monitoring System Test",
+      "success": false,
+      "details": "Failed to test monitoring system",
+      "timestamp": "2025-08-19T20:24:15.848558",
+      "error": "object of type 'coroutine' has no len()"
+    },
+    "Alternative Data Initialization": {
+      "test_name": "Alternative Data Initialization",
+      "success": true,
+      "details": "Alternative data integration initialized",
+      "timestamp": "2025-08-19T20:24:15.885476",
+      "error": null
+    },
+    "Data Sources": {
+      "test_name": "Data Sources",
+      "success": true,
+      "details": "Available sources: 5",
+      "timestamp": "2025-08-19T20:24:15.885537",
+      "error": null
+    },
+    "Sentiment Data": {
+      "test_name": "Sentiment Data",
+      "success": true,
+      "details": "Mock sentiment data for 3 symbols",
+      "timestamp": "2025-08-19T20:24:15.885563",
+      "error": null
+    },
+    "News Data": {
+      "test_name": "News Data",
+      "success": true,
+      "details": "Mock news data: 3 articles",
+      "timestamp": "2025-08-19T20:24:15.885580",
+      "error": null
+    },
+    "HFT Components Test": {
+      "test_name": "HFT Components Test",
+      "success": false,
+      "details": "Failed to test HFT components",
+      "timestamp": "2025-08-19T20:24:15.885812",
+      "error": "No module named 'hft.low_latency_execution'"
+    },
+    "Integration Workflow Test": {
+      "test_name": "Integration Workflow Test",
+      "success": false,
+      "details": "Failed to test integration workflow",
+      "timestamp": "2025-08-19T20:24:16.324672",
+      "error": "cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)"
+    },
+    "Performance Metrics Test": {
+      "test_name": "Performance Metrics Test",
+      "success": false,
+      "details": "Failed to test performance metrics",
+      "timestamp": "2025-08-19T20:24:16.325002",
+      "error": "No module named 'common.evaluation.performance_metrics'"
+    }
+  },
+  "errors": [
+    {
+      "test_name": "Data Engine Test",
+      "success": false,
+      "details": "Failed to initialize data engine",
+      "timestamp": "2025-08-19T20:24:15.163920",
+      "error": "cannot import name 'PolygonDataAdapter' from 'common.data_adapters.polygon_adapter' (/Users/davidwestera/trading-intelligence-system/common/data_adapters/polygon_adapter.py)"
+    },
+    {
+      "test_name": "ML Models Test",
+      "success": false,
+      "details": "Failed to test ML models",
+      "timestamp": "2025-08-19T20:24:15.750728",
+      "error": "cannot import name 'AdvancedMLModels' from 'ml_models.advanced_ml_models' (/Users/davidwestera/trading-intelligence-system/ml_models/advanced_ml_models.py)"
+    },
+    {
+      "test_name": "Risk Management Test",
+      "success": false,
+      "details": "Failed to test risk management",
+      "timestamp": "2025-08-19T20:24:15.752777",
+      "error": "cannot import name 'FactorModel' from 'risk_management.factor_model' (/Users/davidwestera/trading-intelligence-system/risk_management/factor_model.py)"
+    },
+    {
+      "test_name": "Execution Algorithms Test",
+      "success": false,
+      "details": "Failed to test execution algorithms",
+      "timestamp": "2025-08-19T20:24:15.753118",
+      "error": "cannot import name 'AdvancedExecution' from 'execution_algorithms.advanced_execution' (/Users/davidwestera/trading-intelligence-system/execution_algorithms/advanced_execution.py)"
+    },
+    {
+      "test_name": "Monitoring System Test",
+      "success": false,
+      "details": "Failed to test monitoring system",
+      "timestamp": "2025-08-19T20:24:15.848558",
+      "error": "object of type 'coroutine' has no len()"
+    },
+    {
+      "test_name": "HFT Components Test",
+      "success": false,
+      "details": "Failed to test HFT components",
+      "timestamp": "2025-08-19T20:24:15.885812",
+      "error": "No module named 'hft.low_latency_execution'"
+    },
+    {
+      "test_name": "Integration Workflow Test",
+      "success": false,
+      "details": "Failed to test integration workflow",
+      "timestamp": "2025-08-19T20:24:16.324672",
+      "error": "cannot import name 'TradingIntelligenceSystem' from 'main_enhanced' (/Users/davidwestera/trading-intelligence-system/main_enhanced.py)"
+    },
+    {
+      "test_name": "Performance Metrics Test",
+      "success": false,
+      "details": "Failed to test performance metrics",
+      "timestamp": "2025-08-19T20:24:16.325002",
+      "error": "No module named 'common.evaluation.performance_metrics'"
+    }
+  ],
+  "warnings": [],
+  "test_outputs": {
+    "governance_system": "{'governance': <governance.governance_engine.GovernanceEngine object at 0x11f69dac0>, 'summary': {'trading_halted': False, 'total_checks': 0, 'failed_checks': 0, 'pending_approvals': 0, 'open_exceptions': 0, 'last_updated': '2025-08-19T20:24:15.845853'}}",
+    "alternative_data": "{'alt_data': <alternative_data.real_time_data_integration.RealTimeDataIntegration object at 0x11fd29040>, 'sentiment': {'AAPL': {'sentiment': 0.7, 'volume': 1000000}, 'GOOGL': {'sentiment': 0.6, 'volume': 800000}, 'MSFT': {'sentiment': 0.8, 'volume': 1200000}}, 'news': [{'symbol': 'AAPL', 'headline': 'Apple reports strong earnings', 'sentiment': 0.8}, {'symbol': 'GOOGL', 'headline': 'Google faces regulatory scrutiny', 'sentiment': -0.3}, {'symbol': 'MSFT', 'headline': 'Microsoft cloud growth accelerates', 'sentiment': 0.9}]}"
+  }
+}
